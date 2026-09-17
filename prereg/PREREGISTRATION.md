@@ -1,15 +1,23 @@
 # Pre-Registration: Kalshi FOMC Contracts vs CBOT 30-Day Fed Funds Futures (ZQ)
 
 **Author:** Yicheng Yang
-**Status:** PRE-REGISTRATION. Written before any profit-and-loss number exists.
-**Frozen at:** git tag `prereg-v1` on this repository.
+**Status:** DESIGN DOCUMENT, written with pre-registration intent but **never frozen**.
 **Date written:** 2026-09-17
 **Data as of:** 2026-09-17 (see `DATA_BOUNDARIES.md` for the verified inventory)
 
-This document is the contract. Once tagged, the harness implements exactly what is written
-here. Any deviation must appear as a separate, dated amendment appended to this file, with
-the reason, and the original text left intact. A result produced under an unamended
-deviation is not a result.
+> **Read this before citing anything below as pre-registered.** The plan here was genuinely
+> written before any profit-and-loss number existed. It was never tagged, and results landed
+> in this repository (`results/SYNTHESIS.md`, `results/PINNED_REGIME.md`) before any freeze
+> took place. An earlier draft of this header claimed the document was frozen at a tag
+> `prereg-v1`; no such tag was ever created, and the claim is withdrawn rather than
+> backdated. Treat this as a design document that records what was intended in advance, and
+> treat the results as what they are: exploratory, with the lookahead gates in §G applied
+> after the fact rather than enforced before the first run. The gates caught two real
+> lookahead bugs even used this way, which is the argument for writing them down; it is not
+> an argument that the study was pre-registered.
+
+The body below is unchanged from the version written before results existed. Any later
+change appears as a dated amendment in the amendment log, with the original text intact.
 
 ---
 
@@ -1046,5 +1054,7 @@ Stated plainly, before results, so that none of them can be presented later as a
 
 ## 10. Amendment log
 
-*(Empty at freeze. Any change after `prereg-v1` is appended here with a date, an author, the
-reason, and the exact text changed. Original text is never edited.)*
+**2026-09-17** — Yicheng Yang. Status header rewritten. The original claimed the document was
+frozen at a git tag `prereg-v1`. No such tag was ever created, and results were committed
+before any freeze, so the claim was false as written and is withdrawn rather than backdated.
+Nothing in the body (§1 through §9) was edited.

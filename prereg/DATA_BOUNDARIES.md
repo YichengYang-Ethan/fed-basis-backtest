@@ -1,6 +1,6 @@
 # Data Boundaries
 
-**Companion to `PREREGISTRATION.md`. Frozen at the same git tag.**
+**Companion to `PREREGISTRATION.md`, which was never frozen at a tag. See its status header.**
 **Author:** Yicheng Yang
 **Verified as of:** 2026-09-17
 

@@ -1,11 +1,19 @@
-# Exchange data is never committed: Kalshi's terms prohibit redistribution, and
-# Polymarket/CME data is pulled under the researcher's own account entitlements.
-# Only code, the pre-registration, and derived aggregate results live here.
-data/
+# Raw exchange data never enters this tree.
+#
+# Republishing CME settlement prices is REDISTRIBUTION under Databento's licence: it would
+# turn a non-professional subscriber into a redistributor and require a CME information
+# licence agreement plus fees. Kalshi's terms prohibit redistribution outright. Derived data
+# is permitted provided it cannot be reverse-engineered back to the feed, so data/ holds only
+# per-meeting summary tables (see data/README.md). Anything row-level stays out.
 *.parquet
 *.duckdb
 *.jsonl
 *.jsonl.gz
+*.csv.gz
+data/raw/
+data/panel/
+
 __pycache__/
 .venv/
 *.pyc
+.DS_Store
