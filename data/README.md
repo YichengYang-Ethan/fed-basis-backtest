@@ -14,8 +14,8 @@ reconstruct 70,579 settlements or 9.2 million order-book midpoints.
 Two of the four tables contain no exchange data at all. They are built from the Fed's own
 meeting calendar and from published EFFR, so they carry no licence encumbrance.
 
-Anyone with their own Databento key can rebuild the full panel from `harness/`. The pull
-scripts live in a companion repository, `fed-pricing-db`.
+Anyone with their own Databento key can rebuild the full panel from `harness/`. The pull and
+build scripts are published in the companion repository [fed-pricing-db](https://github.com/YichengYang-Ethan/fed-pricing-db).
 
 ## Tables
 

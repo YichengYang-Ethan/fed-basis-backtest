@@ -59,9 +59,10 @@ tests/      Regression tests
 
 ## Reproducing
 
-The analysis reads a private DuckDB panel built by a companion repository, `fed-pricing-db`,
-from a Databento subscription, an IBKR account, the Polymarket CLOB and FRED. With that panel
-in place:
+The analysis reads a DuckDB panel built by the companion repository
+[fed-pricing-db](https://github.com/YichengYang-Ethan/fed-pricing-db) from a Databento subscription, an IBKR
+account, the Polymarket CLOB and FRED. The panel itself is not published (see below); the code
+that builds it is. With the panel in place:
 
 ```bash
 python3 harness/pinned_regime.py --csv results/
