@@ -39,6 +39,13 @@ relative-value trade that happened to win once.
 
 ## The structural bind
 
+> **Resolved, 2026-09-17. See [PINNED_REGIME.md](PINNED_REGIME.md).** Databento supplies ZQ
+> settlements back to 2021-12-31, so the pinned regime is now testable and the bind below no
+> longer holds. Two numbers in this section are superseded: the pinned-regime hedge error is
+> **0.134c** MAE (not 0.20c), exactly zero on 20 of 25 meetings, and the drifting-regime error
+> measured on the same FRONT/BACK instrument is **3.554c** MAE with p90 8.489c. The conclusion
+> of this document stands for the current regime and is now known to be specific to it.
+
 The two regimes are mutually exclusive in exactly the wrong way:
 
 - **Pinned regime**: the hedge is excellent (0.20c). But there is no ZQ contract data before
