@@ -29,6 +29,16 @@ pinned regime 20 of 25 meetings replicated the decision with literally no residu
 a constant intra-month EFFR makes the calendar spread an exact instrument. That is the
 regime in which this trade is arbitrage-shaped. The current one is not.
 
+Two qualifications on that label, both found by a later audit and both real. "Pinned" means
+pinned to within 1bp, not exactly: six month-segments (2022-01, 2022-07, 2023-02, 2023-03,
+2023-06, 2023-07) carry a 1bp wobble, and 2023-06-14 is the only one of 20 HOLD meetings
+where EFFR moved across the effective date at all (5.08 to 5.07). And the drift did not
+persist. The genuine drift episode was 2025-09 through 2025-12; EFFR then re-pinned, printing
+3.63 unchanged every day from 2026-08-01 through 2026-09-15. So "the hedge is 26x worse" is a
+statement about the tail this regime can produce, not about how EFFR is behaving this month.
+A max-based risk buffer still has to respect that tail, and the 2016-2019 floor-system era,
+where clean-month drift ran to 9bp at p90, is the better prior for how bad it can get.
+
 ## 2. The instrument, and why it is the right one
 
 FRONT = (M, M+1) with span 1-w, BACK = (M-1, M) with span w, where w is the fraction of the
@@ -48,7 +58,7 @@ implied decision correlates **0.9916** with the realized change, median absolute
 
 **ZQ settles after the FOMC announcement.** ZQ settles 14:00 CT, which is 15:00 ET, an hour
 after the 14:00 ET announcement. This is measured, not assumed: the 2024-09-18 settle implies
--50.83bp and so do the next four sessions, while 2024-09-17 implies -42.08bp. Comparing a
+-50.83bp and so do the next three sessions, while 2024-09-17 implies -42.08bp. Comparing a
 settle against a Polymarket snapshot taken earlier in the day hands ZQ an hour of free
 information. On decision day it is catastrophic: it manufactured a 62.7c "edge" that does
 not exist. Fix: snap Polymarket at 15:00 ET and drop decision day outright.
