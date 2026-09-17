@@ -34,7 +34,8 @@ BACK  spread  F_{M-1} - F_M     =      w  * D
 which is what removes the EFFR publication lag as a constraint. A month carrying any *other*
 meeting's rate change disqualifies the construction using it, hence `front_eligible` and
 `back_eligible`. Because `w` is large exactly when a meeting falls early in its month, the two
-are complementary: together they cover 37 of 49 meetings where FRONT alone covers 23.
+are complementary: FRONT is eligible on 27 of the 49 meetings and BACK on 23, and together they
+give 45 a viable instrument. The 4 with neither have another decision in both neighbouring months.
 
 `contracts_per_zq` is how many 25bp-equivalent binary contracts one ZQ unit hedges, which is
 `1041.75 * span` (ZQ is $41.67 per basis point, and a 25bp digital pays $1).
@@ -86,7 +87,7 @@ For reference, what the private panel holds and this directory summarises:
 | Kalshi `KXFEDDECISION` | 624,766 candles + 155,004 trades | quotes from 2025-09-29 | 13 meetings, 5 legs each, 2 settled |
 | FRED | EFFR from 2000, DFF from 1954 | through 2026-09-17 | EFFR, IORB, SOFR, target range |
 
-The two CME sources were cross-validated on 8,795 overlapping daily settlements: **100% exact
+The two CME sources were cross-validated on 8,607 overlapping daily settlements: **100% exact
 agreement, zero disagreement to the last decimal.**
 
 ## Known gaps

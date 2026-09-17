@@ -8,7 +8,7 @@ back to 2023-10 and, in practice, only covered the drifting meetings with predic
 data alongside.
 
 Databento closed the data gap (ZQ daily settlements back to 2021-12-31, cross-validated
-against IBKR at 8,795 overlapping observations with **zero** disagreement, exact to the
+against IBKR at 8,607 overlapping observations with **zero** disagreement, exact to the
 last decimal). So the question is now answerable.
 
 **The answer: the absence of edge is a property of the current regime, not of the strategy.**
