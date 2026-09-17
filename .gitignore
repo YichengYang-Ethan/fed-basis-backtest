@@ -1,0 +1,11 @@
+# Exchange data is never committed: Kalshi's terms prohibit redistribution, and
+# Polymarket/CME data is pulled under the researcher's own account entitlements.
+# Only code, the pre-registration, and derived aggregate results live here.
+data/
+*.parquet
+*.duckdb
+*.jsonl
+*.jsonl.gz
+__pycache__/
+.venv/
+*.pyc
