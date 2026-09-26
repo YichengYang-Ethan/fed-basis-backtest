@@ -1,0 +1,564 @@
+{
+  "release": "2026-09-25-public-derived-v1",
+  "result_vintage": "2026-09-20 frozen replay",
+  "public_projection": true,
+  "raw_inputs_bundled": false,
+  "public_validation_scope": "Aggregate research P&L, ROI and CAGR; not per-leg cash ledger reconciliation or raw-data reproduction.",
+  "excluded_files": [
+    {
+      "file": "main_cash_events.csv",
+      "original_rows": 8355,
+      "reason": "Per-leg VM and final-settlement cash can disclose licensed settlement changes. Aggregation on one-position days would not remove that reconstruction risk."
+    }
+  ],
+  "precision": "Trade and scenario dollar fields rounded to 2 decimals, return percentage fields to 6 decimals. Underlying replay is unchanged; comparisons use explicit rounding tolerances.",
+  "files": [
+    {
+      "file": "data/scenario_summary.csv",
+      "sha256": "d3bf7d8a00bb4a56999895bf525f6f5c03b647ea3e8ef0e3ab89f535c0e4f87e",
+      "rows": 12,
+      "columns": [
+        "run_id",
+        "venue",
+        "source_row_1based",
+        "initial_cash_usd",
+        "method",
+        "margin_per_leg_usd",
+        "maintenance_per_leg_usd",
+        "extra_cents",
+        "pair_initial_usd",
+        "pair_maintenance_usd",
+        "financing_path_valid",
+        "closed_positions",
+        "pending_positions",
+        "skips",
+        "margin_shortfall_batches",
+        "min_margin_excess_cash_usd",
+        "min_maintenance_excess_cash_usd",
+        "initial_margin_reserve_gap_batches",
+        "min_uncommitted_cash_usd",
+        "short_window_reserve_gap_batches",
+        "median_profit_usd",
+        "median_account_contribution_pct",
+        "median_standalone_return_pct",
+        "median_marginal_commitment_return_pct",
+        "sum_closed_profit_usd",
+        "shadow_sum_closed_profit_usd",
+        "positive_closed",
+        "end_cash_usd",
+        "end_margin_usd",
+        "end_uncommitted_cash_usd",
+        "missing_joint_risk_history_batches",
+        "complete_financed_NAV",
+        "cash_conservation_error_usd",
+        "max_margin_netting_benefit_usd",
+        "true_OOS",
+        "verified_execution_capacity",
+        "book",
+        "scenario",
+        "cutoff_et",
+        "verified_broker_margins",
+        "verified_PM_execution_capacity",
+        "complete_holding_solvency_certified",
+        "pair_rate_status",
+        "realized_full_account_return_pct",
+        "minimum_closed_trade_profit_usd",
+        "maximum_closed_trade_profit_usd",
+        "cost_mode",
+        "displayed_book_trades",
+        "proxy_cost_trades",
+        "source_signal_count",
+        "source_ready_count",
+        "packages_total",
+        "median_entry_two_state_floor_roi_pct",
+        "static_book_coverage_incomplete",
+        "annualization_start_utc",
+        "annualization_end_utc",
+        "calendar_years",
+        "calendar_cagr_pct"
+      ],
+      "sources": [
+        {
+          "source_id": "Sd0d8512bcd",
+          "relative_research_path": "outputs/depth_replay/summary.csv",
+          "sha256": "0a0c7b4d0a4a6fa78514ed16c7e5d088a3709fb63b1f9d7bfe96f3ca4293c939"
+        }
+      ],
+      "intermediate_input_sha256": "a4c54feaa3ba3b8ab572607fda1d8e414842c752ff19938e089b276b3a6bb837",
+      "transformation": {
+        "policy": "Explicit allowlisted public projection. Values retained unless rounding documented above.",
+        "dropped_from_intermediate": [
+          "median_nonmargin_cash_return_pct",
+          "end_required_cash_usd",
+          "end_legacy_gross_VM_usd",
+          "net_initial_margin_dollar_days",
+          "PM_principal_dollar_days",
+          "PM_principal_still_locked_usd",
+          "net_initial_plus_PM_principal_dollar_days",
+          "unpaid_PM_meetings",
+          "PM_mark_value_usd",
+          "mark_NAV_method",
+          "model_mark_NAV_usd",
+          "model_mark_account_return_pct"
+        ],
+        "prior_projection": {
+          "policy": "Explicit file allowlist; all scenario rows retained; original row order preserved.",
+          "dropped_columns": [],
+          "source_vintage": "Final frozen depth replay, 2026-09-20; scenarios reuse historical candidates."
+        }
+      }
+    },
+    {
+      "file": "data/trade_results.csv",
+      "sha256": "e50f250f85860e448181b435442f23b4a74edc9cb0a66299c8c5dce679afe54e",
+      "rows": 108,
+      "columns": [
+        "trade_id",
+        "candidate_id",
+        "run_id",
+        "venue",
+        "source_row_1based",
+        "book",
+        "scenario",
+        "meeting_date",
+        "execution_et",
+        "execution_ts",
+        "status",
+        "near_symbol",
+        "far_symbol",
+        "actual_outcome",
+        "actual_buy_side",
+        "standalone_committed_usd",
+        "financed_profit_usd",
+        "account_contribution_pct",
+        "standalone_return_pct",
+        "completion_et",
+        "cost_source",
+        "new_pm_book_available",
+        "cme_mbp10_validated",
+        "entry_two_state_floor_roi_pct",
+        "realized_full_funding_roi_pct",
+        "is_realized_profit"
+      ],
+      "sources": [
+        {
+          "source_id": "S55c8221ead",
+          "relative_research_path": "outputs/depth_replay/trades.csv",
+          "sha256": "5a5c7fbba462f659ec19704822762f5a9d97f40788420c19ad616f00e4c4bb73"
+        }
+      ],
+      "intermediate_input_sha256": "d200aba86850c6ab66895005123b78ce29dfd889cd8859524230616200b168d6",
+      "transformation": {
+        "policy": "Explicit allowlisted public projection. Values retained unless rounding documented above.",
+        "dropped_from_intermediate": [
+          "packages",
+          "digital_quantity",
+          "cash_outlay_usd",
+          "legacy_unit_empirical_VM_usd",
+          "legacy_entry_VM_reserve_usd",
+          "entry_extra_liquidity_above_initial_usd",
+          "marginal_portfolio_committed_usd",
+          "legacy_standalone_committed_usd",
+          "incremental_net_margin_usd",
+          "shadow_hold_profit_usd",
+          "shadow_account_contribution_pct",
+          "marginal_commitment_return_pct",
+          "nonmargin_cash_return_pct",
+          "CME_cash_to_cutoff_usd",
+          "PM_payout_to_cutoff_usd",
+          "pm_principal_usd",
+          "pm_model_fee_usd",
+          "extra_friction_usd",
+          "selected_quoted_core_floor_usd",
+          "standalone_required_cash_usd",
+          "sum_cost_usd",
+          "entry_two_state_floor_profit_usd"
+        ],
+        "prior_projection": {
+          "policy": "Explicit file allowlist; all scenario rows retained; original row order preserved.",
+          "dropped_columns": [
+            "chosen_pm_vwap"
+          ],
+          "source_vintage": "Final frozen depth replay, 2026-09-20; scenarios reuse historical candidates."
+        }
+      }
+    },
+    {
+      "file": "data/skipped_candidates.csv",
+      "sha256": "85c0d954c230a1017bb13ff3bff85e093904571a1959d8aeee3007be438baaa6",
+      "rows": 18,
+      "columns": [
+        "trade_id",
+        "candidate_id",
+        "run_id",
+        "venue",
+        "source_row_1based",
+        "book",
+        "scenario",
+        "meeting_date",
+        "status",
+        "execution_ts"
+      ],
+      "sources": [
+        {
+          "source_id": "S9998589854",
+          "relative_research_path": "outputs/depth_replay/skips.csv",
+          "sha256": "d7effa9ded6ab0bc0746d783545058b189e842126ff440b08b94225c80143cfe"
+        }
+      ],
+      "intermediate_input_sha256": "e943c0b824a45f324f0a6564e9b761466f7479842f9e27129e1b1df9886a24d8",
+      "transformation": {
+        "policy": "Explicit allowlisted public projection. Values retained unless rounding documented above.",
+        "dropped_from_intermediate": [],
+        "prior_projection": {
+          "policy": "Explicit file allowlist; all scenario rows retained; original row order preserved.",
+          "dropped_columns": [],
+          "source_vintage": "Final frozen depth replay, 2026-09-20; scenarios reuse historical candidates."
+        }
+      }
+    },
+    {
+      "file": "data/candidate_inventory.csv",
+      "sha256": "d8b89ce57ea923c18f83e928d88bcef7875603d7bf1ada8861eb56f494dbb9d3",
+      "rows": 11,
+      "columns": [
+        "candidate_id",
+        "venue",
+        "source_row_1based",
+        "meeting_date",
+        "anchor_ts",
+        "event_id",
+        "date_et",
+        "instrument",
+        "leg_near",
+        "leg_far",
+        "previous_fomc_14et_ts",
+        "meeting_14et_ts",
+        "in_next_meeting_window",
+        "liveness_pass",
+        "N",
+        "quantity",
+        "cme_route",
+        "cme_direction_sign",
+        "actual_buy_side",
+        "actual_outcome",
+        "original_yes_ladder_sum",
+        "omitted_max",
+        "d0_bp",
+        "d1_bp",
+        "execution_ts",
+        "execution_status",
+        "execution_et",
+        "pm_age_sec",
+        "span",
+        "history_observations",
+        "history_start",
+        "history_end",
+        "rule_lower_bp",
+        "rule_upper_bp",
+        "lower_inclusive",
+        "upper_inclusive",
+        "rules_core_ambiguous",
+        "rules_wording_inconsistency",
+        "bin_kind",
+        "rule_parse_source",
+        "ladder_sum_quality_flag"
+      ],
+      "sources": [
+        {
+          "source_id": "S7ec6621312",
+          "relative_research_path": "outputs/depth_replay/all_signals_asof_signal_inventory.csv",
+          "sha256": "54ebbe81f2645a2c1468b2a09c36803e9a3b695813f6b51cddb7bda0d7d57ccb"
+        }
+      ],
+      "intermediate_input_sha256": "44b892be30c3ddd5d603efbd586c1d94d22bfa7885dabfa55b9c93dd1c3242d9",
+      "transformation": {
+        "policy": "Explicit allowlisted public projection. Values retained unless rounding documented above.",
+        "dropped_from_intermediate": [],
+        "prior_projection": {
+          "policy": "Metadata and derived quality/hedge fields only; no market token IDs, persistent token-containing keys, raw prices, edge or reconstructed CME-implied decision fields.",
+          "allowlisted_source_columns": [
+            "meeting_date",
+            "anchor_ts",
+            "event_id",
+            "date_et",
+            "instrument",
+            "leg_near",
+            "leg_far",
+            "previous_fomc_14et_ts",
+            "meeting_14et_ts",
+            "in_next_meeting_window",
+            "liveness_pass",
+            "N",
+            "quantity",
+            "cme_route",
+            "cme_direction_sign",
+            "actual_buy_side",
+            "actual_outcome",
+            "sum_mid_60s",
+            "omitted_max",
+            "d0_bp",
+            "d1_bp",
+            "execution_ts",
+            "execution_status",
+            "execution_et",
+            "pm_age_sec",
+            "span",
+            "history_observations",
+            "history_start",
+            "history_end",
+            "rule_lower_bp",
+            "rule_upper_bp",
+            "lower_inclusive",
+            "upper_inclusive",
+            "rules_core_ambiguous",
+            "rules_wording_inconsistency",
+            "bin_kind",
+            "rule_parse_source"
+          ],
+          "dropped_source_columns": [
+            "persistence_key",
+            "edge_cents",
+            "actual_token_id",
+            "quote_mid_actual",
+            "cme_entry_D_bp",
+            "cash_perN",
+            "pm_observed_ts",
+            "digital_price",
+            "cme_depth",
+            "near_symbol",
+            "far_symbol",
+            "empirical_VM",
+            "pair_VM",
+            "far_VM",
+            "max_calendar_gap_days",
+            "max_5interval_calendar_days",
+            "history_latest_available_ts",
+            "history_latest_receipt_ts"
+          ]
+        }
+      }
+    },
+    {
+      "file": "data/pm_cost_impact.csv",
+      "sha256": "7a198316c56fbb31b147b77723113ebd99e3f0e80245a026f2248b39eae79f8e",
+      "rows": 5,
+      "columns": [
+        "candidate_id",
+        "venue",
+        "source_row_1based",
+        "meeting_date",
+        "execution_ts",
+        "source_age_sec",
+        "collector_age_sec",
+        "book_valid",
+        "one_package_depth_complete",
+        "original_size_depth_complete",
+        "original_size_slippage_from_mid_cents"
+      ],
+      "sources": [
+        {
+          "source_id": "S76db8a249d",
+          "relative_research_path": "outputs/data_supplement/telonex_fixed_entry_depth.csv",
+          "sha256": "6498f24820435ddebd14850eb5ae091d8d05f882d6aa8babedd7dd0cf2d9829b"
+        }
+      ],
+      "intermediate_input_sha256": "a23ba27aa41b0d4993eb8d42b5ec696c955338cb7637d6e4e9d9db43bb4a428e",
+      "transformation": {
+        "policy": "Explicit allowlisted public projection. Values retained unless rounding documented above.",
+        "dropped_from_intermediate": [
+          "q_per_package",
+          "original_packages",
+          "original_size_shares",
+          "original_size_notional",
+          "original_size_model_fee",
+          "old_pm_cost_with_2c",
+          "new_pm_cost_without_extra_2c",
+          "pm_cost_delta_replace_2c",
+          "pm_cost_delta_retain_2c"
+        ],
+        "prior_projection": {
+          "policy": "Five fixed-old-size execution-cost diagnostics, separate from subsequent account resizing. Raw bids, asks, midpoints, individual depth sizes and VWAP levels omitted. Fee coefficient remains an unverified 0.05 scenario.",
+          "allowlisted_source_columns": [
+            "meeting_date",
+            "execution_ts",
+            "source_age_sec",
+            "collector_age_sec",
+            "book_valid",
+            "q_per_package",
+            "original_packages",
+            "one_package_depth_complete",
+            "original_size_shares",
+            "original_size_depth_complete",
+            "original_size_slippage_from_mid_cents",
+            "original_size_notional",
+            "original_size_model_fee",
+            "old_pm_cost_with_2c",
+            "new_pm_cost_without_extra_2c",
+            "pm_cost_delta_replace_2c",
+            "pm_cost_delta_retain_2c"
+          ]
+        }
+      }
+    },
+    {
+      "file": "data/coverage_historical38.csv",
+      "sha256": "1ab449ddaa0c7573bcc5d50e06ed2017657e77f43b4dc7a945899a85c80b79fb",
+      "rows": 38,
+      "columns": [
+        "source_row_1based",
+        "coverage_id",
+        "meeting_date",
+        "audit_asof",
+        "primary_exclusion_code",
+        "canonical_event_id",
+        "metadata_markets",
+        "ladder_signature",
+        "calendar_instrument",
+        "leg_near",
+        "leg_far",
+        "rule_conflict_evidence",
+        "poly_local_history",
+        "audit_valid_minutes",
+        "latest_rolling_status",
+        "latest_rolling_valid_minutes",
+        "kalshi_candle_rows",
+        "kalshi_listed_legs",
+        "kalshi_rules_strict",
+        "kalshi_clean_calendar",
+        "kalshi_all_leg_same_minute",
+        "kalshi_exact_primary_same_minute",
+        "minimum_next_action",
+        "recoverability_limit",
+        "primary_reason_en"
+      ],
+      "sources": [
+        {
+          "source_id": "Sa6684f26b4",
+          "relative_research_path": "outputs/data_gap_followup/historical_38_meeting_gaps.csv",
+          "sha256": "77b8740c6b86f2fd8121893d683d0d7ff3454a2f1558b15e05aca71d442e0234"
+        }
+      ],
+      "intermediate_input_sha256": "4ac5f8a1a7f756cd5c23305e19d89227bf41ce95a0591ce3629ce124232f9fad",
+      "transformation": {
+        "policy": "Explicit allowlisted public projection. Values retained unless rounding documented above.",
+        "dropped_from_intermediate": [],
+        "prior_projection": {
+          "policy": "38-meeting historical eligibility/coverage inventory, not 38 executed trades. Chinese reason text translated explicitly into English. Mixed source vintages preserved."
+        }
+      }
+    },
+    {
+      "file": "data/coverage_latest12.csv",
+      "sha256": "64ead9b889b605dd91f5db8b5c3cd859dd458181c5d74f43ce567ea809d2ea94",
+      "rows": 12,
+      "columns": [
+        "coverage_id",
+        "meeting_date",
+        "status",
+        "scheduled_minutes",
+        "valid_minutes",
+        "coverage_pct",
+        "positive_conditional_minutes",
+        "no_admissible_minutes",
+        "beyond_cme_cutoff_minutes",
+        "window_first_et",
+        "window_last_et",
+        "audit_next_window_minutes",
+        "audit_strict_fresh_minutes",
+        "audit_adjacent_point_minutes",
+        "audit_both_main_yes_live_minutes",
+        "audit_pre_liveness_cme_matched_minutes",
+        "audit_valid_minutes",
+        "note"
+      ],
+      "sources": [
+        {
+          "source_id": "S358f042ed5",
+          "relative_research_path": "outputs/data_gap_followup/latest12_coverage.csv",
+          "sha256": "7c30abf9f4a1754fc92cfb5b7265aae8300365949134e55b60b2419b78af279f"
+        }
+      ],
+      "intermediate_input_sha256": "229d4f9c5adb878944434bbe43d5a4aff0669a084b99399753bd3c6782520f20",
+      "transformation": {
+        "policy": "Explicit allowlisted public projection. Values retained unless rounding documented above.",
+        "dropped_from_intermediate": [],
+        "prior_projection": {
+          "policy": "12-meeting rolling coverage, distinct from final 11-candidate account and older diagnostic stages. Prior ROI columns omitted to avoid mixing cost/capital models.",
+          "dropped_columns": [
+            "quote_time_median_pct",
+            "quote_time_p90_pct",
+            "entry_forecast_pct",
+            "realized_pct"
+          ]
+        }
+      }
+    },
+    {
+      "file": "data/kalshi_inventory28.csv",
+      "sha256": "d1d9af68f7f2f45651c11c91019712ac6b20db10c1ae53da6b9783a96dc979d7",
+      "rows": 28,
+      "columns": [
+        "coverage_id",
+        "venue",
+        "meeting_date",
+        "event_ticker",
+        "open_time",
+        "close_time",
+        "leg_count",
+        "mapping_basis",
+        "clean_cme_calendar_instrument",
+        "instrument",
+        "source",
+        "market_tickers",
+        "markets",
+        "candle_rows",
+        "new_chunks",
+        "first_ts",
+        "last_ts"
+      ],
+      "sources": [
+        {
+          "source_id": "S6865eb51a3",
+          "relative_research_path": "outputs/expanded_kalshi_inventory.csv",
+          "sha256": "66f376eabf2cdfae4df7197c5fdf536a75c6e538c0f294fc3a9d8b5d75d7e23a"
+        },
+        {
+          "source_id": "S68e3508b78",
+          "relative_research_path": "outputs/expanded_kalshi_collection_coverage.csv",
+          "sha256": "11e9414e879cb6273d460e3d794230274f3b86e307c8b70f4490b3a7f47e774d"
+        }
+      ],
+      "intermediate_input_sha256": "da8b72ce69f9f689a65f6a0eb81016dfb08b1c9442e9492224cb86d489e677bf",
+      "transformation": {
+        "policy": "Explicit allowlisted public projection. Values retained unless rounding documented above.",
+        "dropped_from_intermediate": [],
+        "prior_projection": {
+          "policy": "Separate 28-meeting Kalshi instrument/collection inventory; no Kalshi rows are presented as part of the nine Polymarket trades. Candle counts are coverage metadata, not candles."
+        }
+      }
+    },
+    {
+      "file": "data/data_dictionary.csv",
+      "sha256": "3d6d4eaef283ecebd19c2813e7c04dde1027d084f728ea582d9f9a93ab5ba2bd",
+      "rows": 206,
+      "columns": [
+        "file",
+        "column",
+        "data_type",
+        "unit",
+        "definition",
+        "missing_value_policy"
+      ],
+      "sources": [
+        {
+          "relative_research_path": "curated_intermediate/data/data_dictionary.csv",
+          "sha256": "c2fa1ae45e7bc8b9d6c80010e91408f4c51f03e61e402b6206da44dabe264a27"
+        }
+      ],
+      "transformation": {
+        "policy": "Keep definitions only for allowlisted public fields; document rounding."
+      }
+    }
+  ]
+}

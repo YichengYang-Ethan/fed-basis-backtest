@@ -1,0 +1,2204 @@
+{
+  "private_inputs_bundled": false,
+  "environment_variables": {
+    "FOMC_PRIVATE_RESEARCH_ROOT": "External prepared workspace with work/ and outputs/ subdirectories",
+    "FOMC_RAW_ROOT": "External raw data directory whose child is poly/",
+    "FOMC_REPLAY_OUTPUT_ROOT": "Separate writable private output directory"
+  },
+  "prepared_inputs": [
+    {
+      "relative_private_research_path": "work/capital100k/executions.parquet",
+      "purpose": "minimum_latest_replay_prepared_input",
+      "format": "parquet_not_bundled",
+      "columns": [
+        {
+          "name": "meeting_date",
+          "type": "string"
+        },
+        {
+          "name": "anchor_ts",
+          "type": "int64"
+        },
+        {
+          "name": "event_id",
+          "type": "string"
+        },
+        {
+          "name": "date_et",
+          "type": "string"
+        },
+        {
+          "name": "instrument",
+          "type": "string"
+        },
+        {
+          "name": "leg_near",
+          "type": "string"
+        },
+        {
+          "name": "leg_far",
+          "type": "string"
+        },
+        {
+          "name": "previous_fomc_14et_ts",
+          "type": "double"
+        },
+        {
+          "name": "meeting_14et_ts",
+          "type": "int64"
+        },
+        {
+          "name": "in_next_meeting_window",
+          "type": "bool"
+        },
+        {
+          "name": "liveness_pass",
+          "type": "bool"
+        },
+        {
+          "name": "persistence_key",
+          "type": "string"
+        },
+        {
+          "name": "edge_cents",
+          "type": "double"
+        },
+        {
+          "name": "N",
+          "type": "double"
+        },
+        {
+          "name": "quantity",
+          "type": "int64"
+        },
+        {
+          "name": "cme_route",
+          "type": "string"
+        },
+        {
+          "name": "cme_direction_sign",
+          "type": "int64"
+        },
+        {
+          "name": "actual_token_id",
+          "type": "string"
+        },
+        {
+          "name": "actual_buy_side",
+          "type": "string"
+        },
+        {
+          "name": "actual_outcome",
+          "type": "string"
+        },
+        {
+          "name": "quote_mid_actual",
+          "type": "double"
+        },
+        {
+          "name": "cme_entry_D_bp",
+          "type": "double"
+        },
+        {
+          "name": "sum_mid_60s",
+          "type": "double"
+        },
+        {
+          "name": "omitted_max",
+          "type": "double"
+        },
+        {
+          "name": "d0_bp",
+          "type": "double"
+        },
+        {
+          "name": "d1_bp",
+          "type": "double"
+        },
+        {
+          "name": "cash_perN",
+          "type": "double"
+        },
+        {
+          "name": "execution_ts",
+          "type": "int64"
+        },
+        {
+          "name": "execution_status",
+          "type": "string"
+        },
+        {
+          "name": "execution_et",
+          "type": "string"
+        },
+        {
+          "name": "pm_observed_ts",
+          "type": "double"
+        },
+        {
+          "name": "pm_age_sec",
+          "type": "double"
+        },
+        {
+          "name": "digital_price",
+          "type": "double"
+        },
+        {
+          "name": "cme_depth",
+          "type": "double"
+        },
+        {
+          "name": "span",
+          "type": "double"
+        },
+        {
+          "name": "entry_spread",
+          "type": "double"
+        },
+        {
+          "name": "initial_near_mark",
+          "type": "double"
+        },
+        {
+          "name": "initial_far_mark",
+          "type": "double"
+        },
+        {
+          "name": "near_symbol",
+          "type": "string"
+        },
+        {
+          "name": "far_symbol",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "relative_private_research_path": "work/capital100k/marks_prepared.parquet",
+      "purpose": "minimum_latest_replay_prepared_input",
+      "format": "parquet_not_bundled",
+      "columns": [
+        {
+          "name": "trade_date",
+          "type": "timestamp[ns]"
+        },
+        {
+          "name": "dm",
+          "type": "string"
+        },
+        {
+          "name": "price",
+          "type": "double"
+        },
+        {
+          "name": "ts_recv",
+          "type": "timestamp[ns, tz=UTC]"
+        },
+        {
+          "name": "stat_flags",
+          "type": "uint8"
+        },
+        {
+          "name": "available_ts",
+          "type": "double"
+        }
+      ]
+    },
+    {
+      "relative_private_research_path": "work/liquidity_only/history_marks.parquet",
+      "purpose": "minimum_latest_replay_prepared_input",
+      "format": "parquet_not_bundled",
+      "columns": [
+        {
+          "name": "trade_date",
+          "type": "timestamp[ns]"
+        },
+        {
+          "name": "dm",
+          "type": "string"
+        },
+        {
+          "name": "price",
+          "type": "double"
+        },
+        {
+          "name": "ts_recv",
+          "type": "timestamp[ns, tz=UTC]"
+        },
+        {
+          "name": "stat_flags",
+          "type": "uint8"
+        },
+        {
+          "name": "instrument_id",
+          "type": "uint32"
+        },
+        {
+          "name": "available_ts",
+          "type": "double"
+        }
+      ]
+    },
+    {
+      "relative_private_research_path": "work/expanded_poly_market_metadata.parquet",
+      "purpose": "minimum_latest_replay_prepared_input",
+      "format": "parquet_not_bundled",
+      "columns": [
+        {
+          "name": "venue",
+          "type": "string"
+        },
+        {
+          "name": "event_id",
+          "type": "string"
+        },
+        {
+          "name": "market_id",
+          "type": "string"
+        },
+        {
+          "name": "outcome",
+          "type": "string"
+        },
+        {
+          "name": "outcome_detail",
+          "type": "string"
+        },
+        {
+          "name": "mapping_note",
+          "type": "string"
+        },
+        {
+          "name": "ts",
+          "type": "int64"
+        },
+        {
+          "name": "question",
+          "type": "string"
+        },
+        {
+          "name": "event_title",
+          "type": "string"
+        },
+        {
+          "name": "gamma_event_id",
+          "type": "string"
+        },
+        {
+          "name": "gamma_market_id",
+          "type": "string"
+        },
+        {
+          "name": "market_slug",
+          "type": "string"
+        },
+        {
+          "name": "condition_id",
+          "type": "string"
+        },
+        {
+          "name": "question_id",
+          "type": "string"
+        },
+        {
+          "name": "outcomes",
+          "type": "string"
+        },
+        {
+          "name": "token_ids",
+          "type": "string"
+        },
+        {
+          "name": "yes_token_id",
+          "type": "string"
+        },
+        {
+          "name": "no_token_id",
+          "type": "string"
+        },
+        {
+          "name": "start_date",
+          "type": "string"
+        },
+        {
+          "name": "gamma_start_date",
+          "type": "string"
+        },
+        {
+          "name": "end_date",
+          "type": "string"
+        },
+        {
+          "name": "gamma_end_date",
+          "type": "string"
+        },
+        {
+          "name": "closed_time",
+          "type": "string"
+        },
+        {
+          "name": "meeting_date",
+          "type": "string"
+        },
+        {
+          "name": "closed",
+          "type": "bool"
+        },
+        {
+          "name": "event_closed",
+          "type": "bool"
+        },
+        {
+          "name": "volume",
+          "type": "double"
+        },
+        {
+          "name": "gamma_volume",
+          "type": "double"
+        },
+        {
+          "name": "gamma_liquidity",
+          "type": "double"
+        },
+        {
+          "name": "enable_order_book",
+          "type": "bool"
+        },
+        {
+          "name": "neg_risk",
+          "type": "bool"
+        },
+        {
+          "name": "final_outcome_prices",
+          "type": "string"
+        },
+        {
+          "name": "uma_resolution_status",
+          "type": "string"
+        },
+        {
+          "name": "resolution_source",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "yes_token_id_n_rows",
+          "type": "int64"
+        },
+        {
+          "name": "no_token_id_n_rows",
+          "type": "int64"
+        },
+        {
+          "name": "has_prices",
+          "type": "bool"
+        },
+        {
+          "name": "fetched_at",
+          "type": "int64"
+        },
+        {
+          "name": "all_tokens_n_rows",
+          "type": "int64"
+        },
+        {
+          "name": "decision_utc",
+          "type": "timestamp[ns, tz=UTC]"
+        },
+        {
+          "name": "decision_ts",
+          "type": "int64"
+        },
+        {
+          "name": "raw_first_ts",
+          "type": "double"
+        },
+        {
+          "name": "raw_last_ts",
+          "type": "double"
+        },
+        {
+          "name": "raw_rows",
+          "type": "double"
+        },
+        {
+          "name": "predecision_first_ts",
+          "type": "double"
+        },
+        {
+          "name": "predecision_last_ts",
+          "type": "double"
+        },
+        {
+          "name": "predecision_rows",
+          "type": "double"
+        },
+        {
+          "name": "predecision_minute_rows",
+          "type": "double"
+        },
+        {
+          "name": "lifetime_start",
+          "type": "timestamp[ns, tz=UTC]"
+        },
+        {
+          "name": "lifetime_end",
+          "type": "timestamp[ns, tz=UTC]"
+        },
+        {
+          "name": "lifetime_start_source",
+          "type": "string"
+        },
+        {
+          "name": "lifetime_start_metadata_known",
+          "type": "bool"
+        },
+        {
+          "name": "lifetime_end_source",
+          "type": "string"
+        },
+        {
+          "name": "bin_label",
+          "type": "string"
+        },
+        {
+          "name": "bin_kind",
+          "type": "string"
+        },
+        {
+          "name": "representative_bp",
+          "type": "double"
+        },
+        {
+          "name": "tail_direction",
+          "type": "int64"
+        },
+        {
+          "name": "rule_lower_bp",
+          "type": "double"
+        },
+        {
+          "name": "rule_upper_bp",
+          "type": "double"
+        },
+        {
+          "name": "lower_inclusive",
+          "type": "bool"
+        },
+        {
+          "name": "upper_inclusive",
+          "type": "bool"
+        },
+        {
+          "name": "rounded_to_25bp",
+          "type": "bool"
+        },
+        {
+          "name": "rule_parse_source",
+          "type": "string"
+        },
+        {
+          "name": "rules_core_ambiguous",
+          "type": "bool"
+        },
+        {
+          "name": "rules_wording_inconsistency",
+          "type": "bool"
+        },
+        {
+          "name": "rule_notes",
+          "type": "list<element: string>"
+        },
+        {
+          "name": "no_statement_resolution",
+          "type": "string"
+        },
+        {
+          "name": "resolution_evidence",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "relative_private_research_path": "work/tail_thresholds/poly_binary_tau5_omit_only_nested.parquet",
+      "purpose": "upstream_selection_inspection_input_not_rebuilt_here",
+      "format": "parquet_not_bundled",
+      "columns": [
+        {
+          "name": "meeting_date",
+          "type": "string"
+        },
+        {
+          "name": "anchor_ts",
+          "type": "int64"
+        },
+        {
+          "name": "event_id",
+          "type": "string"
+        },
+        {
+          "name": "date_et",
+          "type": "string"
+        },
+        {
+          "name": "instrument",
+          "type": "string"
+        },
+        {
+          "name": "leg_near",
+          "type": "string"
+        },
+        {
+          "name": "leg_far",
+          "type": "string"
+        },
+        {
+          "name": "days_to_meeting",
+          "type": "int64"
+        },
+        {
+          "name": "lower_token_id",
+          "type": "string"
+        },
+        {
+          "name": "upper_token_id",
+          "type": "string"
+        },
+        {
+          "name": "lower_no_token_id",
+          "type": "string"
+        },
+        {
+          "name": "upper_no_token_id",
+          "type": "string"
+        },
+        {
+          "name": "lower_label",
+          "type": "string"
+        },
+        {
+          "name": "upper_label",
+          "type": "string"
+        },
+        {
+          "name": "d0_bp",
+          "type": "double"
+        },
+        {
+          "name": "d1_bp",
+          "type": "double"
+        },
+        {
+          "name": "p_lower",
+          "type": "double"
+        },
+        {
+          "name": "p_upper",
+          "type": "double"
+        },
+        {
+          "name": "omitted_total",
+          "type": "double"
+        },
+        {
+          "name": "omitted_max",
+          "type": "double"
+        },
+        {
+          "name": "main_pair_mid_sum",
+          "type": "double"
+        },
+        {
+          "name": "in_next_meeting_window",
+          "type": "bool"
+        },
+        {
+          "name": "previous_fomc_14et_ts",
+          "type": "double"
+        },
+        {
+          "name": "meeting_14et_ts",
+          "type": "int64"
+        },
+        {
+          "name": "terminal_months_complete",
+          "type": "bool"
+        },
+        {
+          "name": "raw_weighted_move_bp_60s",
+          "type": "double"
+        },
+        {
+          "name": "sum_mid_60s",
+          "type": "double"
+        },
+        {
+          "name": "threshold",
+          "type": "double"
+        },
+        {
+          "name": "mode",
+          "type": "string"
+        },
+        {
+          "name": "construction",
+          "type": "string"
+        },
+        {
+          "name": "cme_direction_sign",
+          "type": "int64"
+        },
+        {
+          "name": "actual_buy_side",
+          "type": "string"
+        },
+        {
+          "name": "actual_outcome",
+          "type": "string"
+        },
+        {
+          "name": "actual_token_id",
+          "type": "string"
+        },
+        {
+          "name": "cme_route",
+          "type": "string"
+        },
+        {
+          "name": "N",
+          "type": "double"
+        },
+        {
+          "name": "quantity",
+          "type": "int64"
+        },
+        {
+          "name": "quote_mid_actual",
+          "type": "double"
+        },
+        {
+          "name": "cme_entry_D_bp",
+          "type": "double"
+        },
+        {
+          "name": "edge_cents",
+          "type": "double"
+        },
+        {
+          "name": "liveness_pass",
+          "type": "bool"
+        },
+        {
+          "name": "model_payoff_correction_cents",
+          "type": "double"
+        },
+        {
+          "name": "actual_token_winner_ex_post",
+          "type": "double"
+        },
+        {
+          "name": "realized_inside_main_pair",
+          "type": "bool"
+        },
+        {
+          "name": "cash_perN",
+          "type": "double"
+        },
+        {
+          "name": "prediction_cost_cents",
+          "type": "double"
+        },
+        {
+          "name": "funding_cents",
+          "type": "double"
+        },
+        {
+          "name": "binary_mid_equivalent_D_bp",
+          "type": "double"
+        },
+        {
+          "name": "representative_grid_pricing_shift_cents",
+          "type": "double"
+        },
+        {
+          "name": "proxy_grid_basis_minus_same_costs_cents",
+          "type": "double"
+        },
+        {
+          "name": "pm100_grid_worst_net_cents",
+          "type": "double"
+        },
+        {
+          "name": "pm100_grid_worst_net_usd",
+          "type": "double"
+        },
+        {
+          "name": "persistence_key",
+          "type": "string"
+        },
+        {
+          "name": "row_id",
+          "type": "int64"
+        },
+        {
+          "name": "model_pnl_cents",
+          "type": "double"
+        },
+        {
+          "name": "model_pnl_usd",
+          "type": "double"
+        },
+        {
+          "name": "stress_same_entry_pnl_cents",
+          "type": "double"
+        },
+        {
+          "name": "stress_same_entry_pnl_usd",
+          "type": "double"
+        }
+      ]
+    },
+    {
+      "relative_private_research_path": "work/expanded_cme_minute_panel.parquet",
+      "purpose": "upstream_selection_inspection_input_not_rebuilt_here",
+      "format": "parquet_not_bundled",
+      "columns": [
+        {
+          "name": "meeting_date",
+          "type": "string"
+        },
+        {
+          "name": "instrument",
+          "type": "string"
+        },
+        {
+          "name": "anchor_ns",
+          "type": "int64"
+        },
+        {
+          "name": "anchor_utc",
+          "type": "timestamp[ns, tz=UTC]"
+        },
+        {
+          "name": "anchor_ts",
+          "type": "int64"
+        },
+        {
+          "name": "date_et",
+          "type": "string"
+        },
+        {
+          "name": "time_et",
+          "type": "string"
+        },
+        {
+          "name": "span_exact",
+          "type": "double"
+        },
+        {
+          "name": "digital_contracts_per_spread",
+          "type": "double"
+        },
+        {
+          "name": "leg_near",
+          "type": "string"
+        },
+        {
+          "name": "leg_far",
+          "type": "string"
+        },
+        {
+          "name": "selected_in_repository",
+          "type": "bool"
+        },
+        {
+          "name": "near_symbol",
+          "type": "string"
+        },
+        {
+          "name": "near_present",
+          "type": "bool"
+        },
+        {
+          "name": "near_source_job",
+          "type": "string"
+        },
+        {
+          "name": "near_source_file",
+          "type": "string"
+        },
+        {
+          "name": "near_ts_recv_ns",
+          "type": "int64"
+        },
+        {
+          "name": "near_ts_event_ns",
+          "type": "int64"
+        },
+        {
+          "name": "near_publisher_id",
+          "type": "int64"
+        },
+        {
+          "name": "near_instrument_id",
+          "type": "int64"
+        },
+        {
+          "name": "near_flags",
+          "type": "int64"
+        },
+        {
+          "name": "near_sequence",
+          "type": "int64"
+        },
+        {
+          "name": "near_ts_in_delta",
+          "type": "int64"
+        },
+        {
+          "name": "near_depth",
+          "type": "int64"
+        },
+        {
+          "name": "near_bid_px_00_nano",
+          "type": "int64"
+        },
+        {
+          "name": "near_ask_px_00_nano",
+          "type": "int64"
+        },
+        {
+          "name": "near_bid_sz_00",
+          "type": "int64"
+        },
+        {
+          "name": "near_ask_sz_00",
+          "type": "int64"
+        },
+        {
+          "name": "near_bid_ct_00",
+          "type": "int64"
+        },
+        {
+          "name": "near_ask_ct_00",
+          "type": "int64"
+        },
+        {
+          "name": "near_source_row",
+          "type": "int64"
+        },
+        {
+          "name": "near_action",
+          "type": "string"
+        },
+        {
+          "name": "near_side",
+          "type": "string"
+        },
+        {
+          "name": "near_definition_ts_recv_ns",
+          "type": "int64"
+        },
+        {
+          "name": "near_definition_ts_event_ns",
+          "type": "int64"
+        },
+        {
+          "name": "near_expiration_ns",
+          "type": "int64"
+        },
+        {
+          "name": "near_activation_ns",
+          "type": "int64"
+        },
+        {
+          "name": "near_definition_conflict",
+          "type": "bool"
+        },
+        {
+          "name": "near_security_update_action",
+          "type": "string"
+        },
+        {
+          "name": "near_legs_one_to_one",
+          "type": "bool"
+        },
+        {
+          "name": "near_leg_mapping",
+          "type": "string"
+        },
+        {
+          "name": "near_display_factor_nano",
+          "type": "int64"
+        },
+        {
+          "name": "near_min_price_increment_nano",
+          "type": "int64"
+        },
+        {
+          "name": "near_status_ts_recv_ns",
+          "type": "int64"
+        },
+        {
+          "name": "near_status_ts_event_ns",
+          "type": "int64"
+        },
+        {
+          "name": "near_status_is_trading",
+          "type": "string"
+        },
+        {
+          "name": "near_status_is_quoting",
+          "type": "string"
+        },
+        {
+          "name": "near_status_action",
+          "type": "int64"
+        },
+        {
+          "name": "near_status_reason",
+          "type": "int64"
+        },
+        {
+          "name": "near_status_trading_event",
+          "type": "int64"
+        },
+        {
+          "name": "near_status_is_trading_carry",
+          "type": "string"
+        },
+        {
+          "name": "near_status_nochange_carried",
+          "type": "bool"
+        },
+        {
+          "name": "near_status_prior_explicit",
+          "type": "string"
+        },
+        {
+          "name": "near_status_prior_explicit_recv_ns",
+          "type": "int64"
+        },
+        {
+          "name": "near_age_ns",
+          "type": "int64"
+        },
+        {
+          "name": "near_event_age_ns",
+          "type": "int64"
+        },
+        {
+          "name": "near_event_after_anchor",
+          "type": "bool"
+        },
+        {
+          "name": "near_bad_flags",
+          "type": "bool"
+        },
+        {
+          "name": "near_bbo_two_sided",
+          "type": "bool"
+        },
+        {
+          "name": "near_bbo_crossed",
+          "type": "bool"
+        },
+        {
+          "name": "near_bbo_locked",
+          "type": "bool"
+        },
+        {
+          "name": "near_book_basic",
+          "type": "bool"
+        },
+        {
+          "name": "near_expired",
+          "type": "bool"
+        },
+        {
+          "name": "near_definition_admits",
+          "type": "bool"
+        },
+        {
+          "name": "near_status_strict_open",
+          "type": "bool"
+        },
+        {
+          "name": "near_status_carry_open",
+          "type": "bool"
+        },
+        {
+          "name": "near_age_le_1s",
+          "type": "bool"
+        },
+        {
+          "name": "near_age_le_60s",
+          "type": "bool"
+        },
+        {
+          "name": "near_age_le_300s",
+          "type": "bool"
+        },
+        {
+          "name": "near_bid",
+          "type": "double"
+        },
+        {
+          "name": "near_ask",
+          "type": "double"
+        },
+        {
+          "name": "near_mid",
+          "type": "double"
+        },
+        {
+          "name": "near_source_clocks_known",
+          "type": "bool"
+        },
+        {
+          "name": "near_event_age_le_1s",
+          "type": "bool"
+        },
+        {
+          "name": "near_both_clocks_age_le_1s",
+          "type": "bool"
+        },
+        {
+          "name": "near_event_age_le_60s",
+          "type": "bool"
+        },
+        {
+          "name": "near_both_clocks_age_le_60s",
+          "type": "bool"
+        },
+        {
+          "name": "near_event_age_le_300s",
+          "type": "bool"
+        },
+        {
+          "name": "near_both_clocks_age_le_300s",
+          "type": "bool"
+        },
+        {
+          "name": "far_symbol",
+          "type": "string"
+        },
+        {
+          "name": "far_present",
+          "type": "bool"
+        },
+        {
+          "name": "far_source_job",
+          "type": "string"
+        },
+        {
+          "name": "far_source_file",
+          "type": "string"
+        },
+        {
+          "name": "far_ts_recv_ns",
+          "type": "int64"
+        },
+        {
+          "name": "far_ts_event_ns",
+          "type": "int64"
+        },
+        {
+          "name": "far_publisher_id",
+          "type": "int64"
+        },
+        {
+          "name": "far_instrument_id",
+          "type": "int64"
+        },
+        {
+          "name": "far_flags",
+          "type": "int64"
+        },
+        {
+          "name": "far_sequence",
+          "type": "int64"
+        },
+        {
+          "name": "far_ts_in_delta",
+          "type": "int64"
+        },
+        {
+          "name": "far_depth",
+          "type": "int64"
+        },
+        {
+          "name": "far_bid_px_00_nano",
+          "type": "int64"
+        },
+        {
+          "name": "far_ask_px_00_nano",
+          "type": "int64"
+        },
+        {
+          "name": "far_bid_sz_00",
+          "type": "int64"
+        },
+        {
+          "name": "far_ask_sz_00",
+          "type": "int64"
+        },
+        {
+          "name": "far_bid_ct_00",
+          "type": "int64"
+        },
+        {
+          "name": "far_ask_ct_00",
+          "type": "int64"
+        },
+        {
+          "name": "far_source_row",
+          "type": "int64"
+        },
+        {
+          "name": "far_action",
+          "type": "string"
+        },
+        {
+          "name": "far_side",
+          "type": "string"
+        },
+        {
+          "name": "far_definition_ts_recv_ns",
+          "type": "int64"
+        },
+        {
+          "name": "far_definition_ts_event_ns",
+          "type": "int64"
+        },
+        {
+          "name": "far_expiration_ns",
+          "type": "int64"
+        },
+        {
+          "name": "far_activation_ns",
+          "type": "int64"
+        },
+        {
+          "name": "far_definition_conflict",
+          "type": "bool"
+        },
+        {
+          "name": "far_security_update_action",
+          "type": "string"
+        },
+        {
+          "name": "far_legs_one_to_one",
+          "type": "bool"
+        },
+        {
+          "name": "far_leg_mapping",
+          "type": "string"
+        },
+        {
+          "name": "far_display_factor_nano",
+          "type": "int64"
+        },
+        {
+          "name": "far_min_price_increment_nano",
+          "type": "int64"
+        },
+        {
+          "name": "far_status_ts_recv_ns",
+          "type": "int64"
+        },
+        {
+          "name": "far_status_ts_event_ns",
+          "type": "int64"
+        },
+        {
+          "name": "far_status_is_trading",
+          "type": "string"
+        },
+        {
+          "name": "far_status_is_quoting",
+          "type": "string"
+        },
+        {
+          "name": "far_status_action",
+          "type": "int64"
+        },
+        {
+          "name": "far_status_reason",
+          "type": "int64"
+        },
+        {
+          "name": "far_status_trading_event",
+          "type": "int64"
+        },
+        {
+          "name": "far_status_is_trading_carry",
+          "type": "string"
+        },
+        {
+          "name": "far_status_nochange_carried",
+          "type": "bool"
+        },
+        {
+          "name": "far_status_prior_explicit",
+          "type": "string"
+        },
+        {
+          "name": "far_status_prior_explicit_recv_ns",
+          "type": "int64"
+        },
+        {
+          "name": "far_age_ns",
+          "type": "int64"
+        },
+        {
+          "name": "far_event_age_ns",
+          "type": "int64"
+        },
+        {
+          "name": "far_event_after_anchor",
+          "type": "bool"
+        },
+        {
+          "name": "far_bad_flags",
+          "type": "bool"
+        },
+        {
+          "name": "far_bbo_two_sided",
+          "type": "bool"
+        },
+        {
+          "name": "far_bbo_crossed",
+          "type": "bool"
+        },
+        {
+          "name": "far_bbo_locked",
+          "type": "bool"
+        },
+        {
+          "name": "far_book_basic",
+          "type": "bool"
+        },
+        {
+          "name": "far_expired",
+          "type": "bool"
+        },
+        {
+          "name": "far_definition_admits",
+          "type": "bool"
+        },
+        {
+          "name": "far_status_strict_open",
+          "type": "bool"
+        },
+        {
+          "name": "far_status_carry_open",
+          "type": "bool"
+        },
+        {
+          "name": "far_age_le_1s",
+          "type": "bool"
+        },
+        {
+          "name": "far_age_le_60s",
+          "type": "bool"
+        },
+        {
+          "name": "far_age_le_300s",
+          "type": "bool"
+        },
+        {
+          "name": "far_bid",
+          "type": "double"
+        },
+        {
+          "name": "far_ask",
+          "type": "double"
+        },
+        {
+          "name": "far_mid",
+          "type": "double"
+        },
+        {
+          "name": "far_source_clocks_known",
+          "type": "bool"
+        },
+        {
+          "name": "far_event_age_le_1s",
+          "type": "bool"
+        },
+        {
+          "name": "far_both_clocks_age_le_1s",
+          "type": "bool"
+        },
+        {
+          "name": "far_event_age_le_60s",
+          "type": "bool"
+        },
+        {
+          "name": "far_both_clocks_age_le_60s",
+          "type": "bool"
+        },
+        {
+          "name": "far_event_age_le_300s",
+          "type": "bool"
+        },
+        {
+          "name": "far_both_clocks_age_le_300s",
+          "type": "bool"
+        },
+        {
+          "name": "listed_symbol",
+          "type": "string"
+        },
+        {
+          "name": "listed_present",
+          "type": "bool"
+        },
+        {
+          "name": "listed_source_job",
+          "type": "string"
+        },
+        {
+          "name": "listed_source_file",
+          "type": "string"
+        },
+        {
+          "name": "listed_ts_recv_ns",
+          "type": "int64"
+        },
+        {
+          "name": "listed_ts_event_ns",
+          "type": "int64"
+        },
+        {
+          "name": "listed_publisher_id",
+          "type": "int64"
+        },
+        {
+          "name": "listed_instrument_id",
+          "type": "int64"
+        },
+        {
+          "name": "listed_flags",
+          "type": "int64"
+        },
+        {
+          "name": "listed_sequence",
+          "type": "int64"
+        },
+        {
+          "name": "listed_ts_in_delta",
+          "type": "int64"
+        },
+        {
+          "name": "listed_depth",
+          "type": "int64"
+        },
+        {
+          "name": "listed_bid_px_00_nano",
+          "type": "int64"
+        },
+        {
+          "name": "listed_ask_px_00_nano",
+          "type": "int64"
+        },
+        {
+          "name": "listed_bid_sz_00",
+          "type": "int64"
+        },
+        {
+          "name": "listed_ask_sz_00",
+          "type": "int64"
+        },
+        {
+          "name": "listed_bid_ct_00",
+          "type": "int64"
+        },
+        {
+          "name": "listed_ask_ct_00",
+          "type": "int64"
+        },
+        {
+          "name": "listed_source_row",
+          "type": "int64"
+        },
+        {
+          "name": "listed_action",
+          "type": "string"
+        },
+        {
+          "name": "listed_side",
+          "type": "string"
+        },
+        {
+          "name": "listed_definition_ts_recv_ns",
+          "type": "int64"
+        },
+        {
+          "name": "listed_definition_ts_event_ns",
+          "type": "int64"
+        },
+        {
+          "name": "listed_expiration_ns",
+          "type": "int64"
+        },
+        {
+          "name": "listed_activation_ns",
+          "type": "int64"
+        },
+        {
+          "name": "listed_definition_conflict",
+          "type": "bool"
+        },
+        {
+          "name": "listed_security_update_action",
+          "type": "string"
+        },
+        {
+          "name": "listed_legs_one_to_one",
+          "type": "bool"
+        },
+        {
+          "name": "listed_leg_mapping",
+          "type": "string"
+        },
+        {
+          "name": "listed_display_factor_nano",
+          "type": "int64"
+        },
+        {
+          "name": "listed_min_price_increment_nano",
+          "type": "int64"
+        },
+        {
+          "name": "listed_status_ts_recv_ns",
+          "type": "int64"
+        },
+        {
+          "name": "listed_status_ts_event_ns",
+          "type": "int64"
+        },
+        {
+          "name": "listed_status_is_trading",
+          "type": "string"
+        },
+        {
+          "name": "listed_status_is_quoting",
+          "type": "string"
+        },
+        {
+          "name": "listed_status_action",
+          "type": "int64"
+        },
+        {
+          "name": "listed_status_reason",
+          "type": "int64"
+        },
+        {
+          "name": "listed_status_trading_event",
+          "type": "int64"
+        },
+        {
+          "name": "listed_status_is_trading_carry",
+          "type": "string"
+        },
+        {
+          "name": "listed_status_nochange_carried",
+          "type": "bool"
+        },
+        {
+          "name": "listed_status_prior_explicit",
+          "type": "string"
+        },
+        {
+          "name": "listed_status_prior_explicit_recv_ns",
+          "type": "int64"
+        },
+        {
+          "name": "listed_age_ns",
+          "type": "int64"
+        },
+        {
+          "name": "listed_event_age_ns",
+          "type": "int64"
+        },
+        {
+          "name": "listed_event_after_anchor",
+          "type": "bool"
+        },
+        {
+          "name": "listed_bad_flags",
+          "type": "bool"
+        },
+        {
+          "name": "listed_bbo_two_sided",
+          "type": "bool"
+        },
+        {
+          "name": "listed_bbo_crossed",
+          "type": "bool"
+        },
+        {
+          "name": "listed_bbo_locked",
+          "type": "bool"
+        },
+        {
+          "name": "listed_book_basic",
+          "type": "bool"
+        },
+        {
+          "name": "listed_expired",
+          "type": "bool"
+        },
+        {
+          "name": "listed_definition_admits",
+          "type": "bool"
+        },
+        {
+          "name": "listed_status_strict_open",
+          "type": "bool"
+        },
+        {
+          "name": "listed_status_carry_open",
+          "type": "bool"
+        },
+        {
+          "name": "listed_age_le_1s",
+          "type": "bool"
+        },
+        {
+          "name": "listed_age_le_60s",
+          "type": "bool"
+        },
+        {
+          "name": "listed_age_le_300s",
+          "type": "bool"
+        },
+        {
+          "name": "listed_bid",
+          "type": "double"
+        },
+        {
+          "name": "listed_ask",
+          "type": "double"
+        },
+        {
+          "name": "listed_mid",
+          "type": "double"
+        },
+        {
+          "name": "listed_source_clocks_known",
+          "type": "bool"
+        },
+        {
+          "name": "listed_event_age_le_1s",
+          "type": "bool"
+        },
+        {
+          "name": "listed_both_clocks_age_le_1s",
+          "type": "bool"
+        },
+        {
+          "name": "listed_event_age_le_60s",
+          "type": "bool"
+        },
+        {
+          "name": "listed_both_clocks_age_le_60s",
+          "type": "bool"
+        },
+        {
+          "name": "listed_event_age_le_300s",
+          "type": "bool"
+        },
+        {
+          "name": "listed_both_clocks_age_le_300s",
+          "type": "bool"
+        },
+        {
+          "name": "package_definition_admits",
+          "type": "bool"
+        },
+        {
+          "name": "listed_definition_direction_one_to_one",
+          "type": "bool"
+        },
+        {
+          "name": "synthetic_book_basic",
+          "type": "bool"
+        },
+        {
+          "name": "synthetic_bid",
+          "type": "double"
+        },
+        {
+          "name": "synthetic_ask",
+          "type": "double"
+        },
+        {
+          "name": "synthetic_mid",
+          "type": "double"
+        },
+        {
+          "name": "synthetic_bid_size",
+          "type": "int64"
+        },
+        {
+          "name": "synthetic_ask_size",
+          "type": "int64"
+        },
+        {
+          "name": "listed_bid_size",
+          "type": "int64"
+        },
+        {
+          "name": "listed_ask_size",
+          "type": "int64"
+        },
+        {
+          "name": "unit_definition_verified",
+          "type": "bool"
+        },
+        {
+          "name": "synthetic_bid_D_bp",
+          "type": "double"
+        },
+        {
+          "name": "synthetic_ask_D_bp",
+          "type": "double"
+        },
+        {
+          "name": "synthetic_mid_D_bp",
+          "type": "double"
+        },
+        {
+          "name": "synthetic_usable_strict",
+          "type": "bool"
+        },
+        {
+          "name": "synthetic_bid_one_spread_strict",
+          "type": "bool"
+        },
+        {
+          "name": "synthetic_ask_one_spread_strict",
+          "type": "bool"
+        },
+        {
+          "name": "synthetic_usable_carry",
+          "type": "bool"
+        },
+        {
+          "name": "synthetic_bid_one_spread_carry",
+          "type": "bool"
+        },
+        {
+          "name": "synthetic_ask_one_spread_carry",
+          "type": "bool"
+        },
+        {
+          "name": "synthetic_age_le_1s",
+          "type": "bool"
+        },
+        {
+          "name": "synthetic_both_clocks_age_le_1s",
+          "type": "bool"
+        },
+        {
+          "name": "synthetic_age_le_60s",
+          "type": "bool"
+        },
+        {
+          "name": "synthetic_both_clocks_age_le_60s",
+          "type": "bool"
+        },
+        {
+          "name": "synthetic_age_le_300s",
+          "type": "bool"
+        },
+        {
+          "name": "synthetic_both_clocks_age_le_300s",
+          "type": "bool"
+        },
+        {
+          "name": "listed_bid_D_bp",
+          "type": "double"
+        },
+        {
+          "name": "listed_ask_D_bp",
+          "type": "double"
+        },
+        {
+          "name": "listed_mid_D_bp",
+          "type": "double"
+        },
+        {
+          "name": "listed_usable_strict",
+          "type": "bool"
+        },
+        {
+          "name": "listed_bid_one_spread_strict",
+          "type": "bool"
+        },
+        {
+          "name": "listed_ask_one_spread_strict",
+          "type": "bool"
+        },
+        {
+          "name": "listed_usable_carry",
+          "type": "bool"
+        },
+        {
+          "name": "listed_bid_one_spread_carry",
+          "type": "bool"
+        },
+        {
+          "name": "listed_ask_one_spread_carry",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "relative_private_research_path": "work/expanded_poly_fullminute_leg_panel.parquet",
+      "purpose": "upstream_selection_inspection_input_not_rebuilt_here",
+      "format": "parquet_not_bundled",
+      "columns": [
+        {
+          "name": "anchor_utc",
+          "type": "timestamp[ns, tz=UTC]"
+        },
+        {
+          "name": "anchor_ts",
+          "type": "int64"
+        },
+        {
+          "name": "date_et",
+          "type": "string"
+        },
+        {
+          "name": "meeting_date",
+          "type": "string"
+        },
+        {
+          "name": "event_id",
+          "type": "string"
+        },
+        {
+          "name": "canonical_event_id",
+          "type": "string"
+        },
+        {
+          "name": "early_resolution_anomaly",
+          "type": "bool"
+        },
+        {
+          "name": "historical_research_eligible",
+          "type": "bool"
+        },
+        {
+          "name": "market_id",
+          "type": "string"
+        },
+        {
+          "name": "token_id",
+          "type": "string"
+        },
+        {
+          "name": "yes_token_id",
+          "type": "string"
+        },
+        {
+          "name": "no_token_id",
+          "type": "string"
+        },
+        {
+          "name": "bin_label",
+          "type": "string"
+        },
+        {
+          "name": "bin_kind",
+          "type": "string"
+        },
+        {
+          "name": "representative_bp",
+          "type": "double"
+        },
+        {
+          "name": "tail_direction",
+          "type": "int64"
+        },
+        {
+          "name": "rule_lower_bp",
+          "type": "double"
+        },
+        {
+          "name": "rule_upper_bp",
+          "type": "double"
+        },
+        {
+          "name": "lower_inclusive",
+          "type": "bool"
+        },
+        {
+          "name": "upper_inclusive",
+          "type": "bool"
+        },
+        {
+          "name": "lifetime_start",
+          "type": "timestamp[ns, tz=UTC]"
+        },
+        {
+          "name": "lifetime_end",
+          "type": "timestamp[ns, tz=UTC]"
+        },
+        {
+          "name": "lifetime_start_metadata_known",
+          "type": "bool"
+        },
+        {
+          "name": "observed_ts",
+          "type": "double"
+        },
+        {
+          "name": "mid_raw",
+          "type": "double"
+        },
+        {
+          "name": "fidelity",
+          "type": "double"
+        },
+        {
+          "name": "valid_probability",
+          "type": "bool"
+        },
+        {
+          "name": "trail60_n_obs",
+          "type": "double"
+        },
+        {
+          "name": "trail60_unique_p",
+          "type": "double"
+        },
+        {
+          "name": "trail60_n_changes",
+          "type": "double"
+        },
+        {
+          "name": "trail60_n_half",
+          "type": "double"
+        },
+        {
+          "name": "age_sec",
+          "type": "double"
+        },
+        {
+          "name": "in_lifetime",
+          "type": "bool"
+        },
+        {
+          "name": "same_et_day",
+          "type": "bool"
+        },
+        {
+          "name": "is_half",
+          "type": "bool"
+        },
+        {
+          "name": "inplay_now",
+          "type": "bool"
+        },
+        {
+          "name": "trail60_constant_inplay",
+          "type": "bool"
+        },
+        {
+          "name": "source_resolution",
+          "type": "string"
+        },
+        {
+          "name": "no_observed_ts",
+          "type": "double"
+        },
+        {
+          "name": "no_mid_raw",
+          "type": "double"
+        },
+        {
+          "name": "no_fidelity",
+          "type": "double"
+        },
+        {
+          "name": "no_valid_probability",
+          "type": "bool"
+        },
+        {
+          "name": "no_age_sec",
+          "type": "double"
+        },
+        {
+          "name": "usable_60s",
+          "type": "bool"
+        },
+        {
+          "name": "mid_60s",
+          "type": "double"
+        },
+        {
+          "name": "drop_reason_60s",
+          "type": "string"
+        },
+        {
+          "name": "no_usable_60s",
+          "type": "bool"
+        },
+        {
+          "name": "no_mid_60s",
+          "type": "double"
+        },
+        {
+          "name": "no_complement_proxy_60s",
+          "type": "double"
+        },
+        {
+          "name": "usable_300s",
+          "type": "bool"
+        },
+        {
+          "name": "mid_300s",
+          "type": "double"
+        },
+        {
+          "name": "drop_reason_300s",
+          "type": "string"
+        },
+        {
+          "name": "no_usable_300s",
+          "type": "bool"
+        },
+        {
+          "name": "no_mid_300s",
+          "type": "double"
+        },
+        {
+          "name": "no_complement_proxy_300s",
+          "type": "double"
+        },
+        {
+          "name": "contract_rule_unambiguous",
+          "type": "bool"
+        },
+        {
+          "name": "contract_point_exact_on_25bp_grid",
+          "type": "bool"
+        },
+        {
+          "name": "main_exact_25bp_contract",
+          "type": "bool"
+        },
+        {
+          "name": "main_exact_25bp_usable_60s",
+          "type": "bool"
+        },
+        {
+          "name": "event_exhaustive_on_25bp_grid",
+          "type": "bool"
+        },
+        {
+          "name": "single_contract_retained",
+          "type": "bool"
+        },
+        {
+          "name": "event_nonexhaustive_on_25bp_grid",
+          "type": "bool"
+        },
+        {
+          "name": "tail_probability_unknown",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "relative_private_research_path": "work/expanded_terminal_cash_reference.parquet",
+      "purpose": "upstream_selection_inspection_input_not_rebuilt_here",
+      "format": "parquet_not_bundled",
+      "columns": [
+        {
+          "name": "meeting_date",
+          "type": "string"
+        },
+        {
+          "name": "instrument",
+          "type": "string"
+        },
+        {
+          "name": "leg_near",
+          "type": "string"
+        },
+        {
+          "name": "leg_far",
+          "type": "string"
+        },
+        {
+          "name": "span_exact",
+          "type": "double"
+        },
+        {
+          "name": "digital_contracts_per_spread",
+          "type": "double"
+        },
+        {
+          "name": "realized_change_bp",
+          "type": "double"
+        },
+        {
+          "name": "regime",
+          "type": "string"
+        },
+        {
+          "name": "terminal_implied_change_bp",
+          "type": "double"
+        },
+        {
+          "name": "cash_hedge_error_cents",
+          "type": "double"
+        },
+        {
+          "name": "terminal_months_complete",
+          "type": "bool"
+        },
+        {
+          "name": "mean_near_pct",
+          "type": "double"
+        },
+        {
+          "name": "terminal_near_price",
+          "type": "double"
+        },
+        {
+          "name": "mean_far_pct",
+          "type": "double"
+        },
+        {
+          "name": "terminal_far_price",
+          "type": "double"
+        }
+      ]
+    },
+    {
+      "relative_private_research_path": "work/capital100k/daily_marks_with_flags.parquet",
+      "purpose": "upstream_selection_inspection_input_not_rebuilt_here",
+      "format": "parquet_not_bundled",
+      "columns": [
+        {
+          "name": "trade_date",
+          "type": "timestamp[ns]"
+        },
+        {
+          "name": "dm",
+          "type": "string"
+        },
+        {
+          "name": "price",
+          "type": "double"
+        },
+        {
+          "name": "ts_recv",
+          "type": "timestamp[ns, tz=UTC]"
+        },
+        {
+          "name": "stat_flags",
+          "type": "uint8"
+        }
+      ]
+    },
+    {
+      "relative_private_research_path": "work/capital100k/evaluation.json",
+      "purpose": "Terminal month settlements and actual-token winner labels used only in cash events.",
+      "required_keys": [
+        "terminal",
+        "winners"
+      ],
+      "format": "json_not_bundled"
+    },
+    {
+      "relative_private_research_path": "outputs/data_supplement/telonex_availability.json",
+      "purpose": "Local archived public market identity: meeting_date, actual_token_id, availability.market_id/asset_id/outcome/outcome_id/slug.",
+      "format": "json_not_bundled"
+    },
+    {
+      "relative_private_research_path": "outputs/data_supplement/cme_fixed_entry_depth.csv",
+      "purpose": "Frozen entry capacity audit used for assertions; required fields meeting_date,original_route_selected,displayed_top_capacity,extra_execution_cost_vs_original_entry_total_usd.",
+      "format": "csv_not_bundled"
+    },
+    {
+      "relative_private_research_path": "outputs/data_supplement/cme_independent_checks.json",
+      "purpose": "Hash-checked audit provenance; not read as a source price.",
+      "format": "json_not_bundled"
+    },
+    {
+      "relative_private_research_path": "outputs/data_supplement/telonex_frozen_selection.json",
+      "purpose": "Hash-checked selection provenance.",
+      "format": "json_not_bundled"
+    },
+    {
+      "relative_private_research_path": "outputs/data_supplement/telonex_independent_checks.json",
+      "purpose": "Hash-checked source audit provenance.",
+      "format": "json_not_bundled"
+    }
+  ],
+  "raw_inputs": [
+    {
+      "relative_raw_path": "poly/telonex_trial_20260920/acquisition_manifest.json",
+      "required_keys": [
+        "jobs"
+      ],
+      "job_fields": [
+        "meeting_date",
+        "execution_ts",
+        "asset_id",
+        "outcome",
+        "slug",
+        "channel",
+        "status",
+        "path",
+        "sha256",
+        "rows"
+      ],
+      "purpose": "Five completed full-book jobs; path remapped to basename under configured raw directory."
+    },
+    {
+      "relative_raw_path": "poly/telonex_trial_20260920/{meeting_date}_{date}_book_full.parquet",
+      "columns": {
+        "timestamp_us": "int64",
+        "local_timestamp_us": "int64 or double; exact fractional microseconds retained",
+        "exchange": "string",
+        "market_id": "string",
+        "slug": "string",
+        "asset_id": "string",
+        "outcome": "string",
+        "bids": "list of {price:string,size:string}",
+        "asks": "list of {price:string,size:string}"
+      },
+      "purpose": "Private full-book states; never bundled."
+    },
+    {
+      "relative_raw_path": "poly/prices.parquet",
+      "columns": {
+        "token_id": "string",
+        "ts": "integer Unix seconds",
+        "p": "numeric midpoint",
+        "fidelity": "integer"
+      },
+      "purpose": "Optional outstanding PM position mark at cutoff, valuation only; not an entry feature or cash credit."
+    }
+  ],
+  "identifier_note": "Token/asset fields identify public market instruments and are not authentication credentials; actual identifiers are not bundled.",
+  "dependencies_tested_in_original_environment": {
+    "numpy": "2.4.3",
+    "pandas": "2.3.3",
+    "pyarrow": "23.0.1"
+  },
+  "limitations": "Complete upstream acquisition and panel reconstruction are not included. Schemas describe private dependencies, not provided observations."
+}

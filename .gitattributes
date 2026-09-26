@@ -1,0 +1,8 @@
+# Preserve published data bytes: SHA-256 manifests include their original endings.
+*.csv -text whitespace=cr-at-eol
+# Generated visual artifacts are reviewed by rendering and content hashes.
+*.pdf binary
+*.png binary
+*.svg -text -diff
+# Markdown two-space hard line breaks are intentional in the generated brief.
+reports/RESEARCH_BRIEF.md whitespace=-blank-at-eol

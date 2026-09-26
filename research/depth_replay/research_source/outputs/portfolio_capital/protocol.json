@@ -1,0 +1,70 @@
+{
+  "version": "1.0",
+  "frozen_before_new_account_results_utc": "2026-09-18T17:41:19.838299+00:00",
+  "initial_cash_usd": 100000,
+  "objective": "At each unchanged first signal, maximize nonnegative integer new packages times the contemporaneous minimum net payoff over the two selected main policy states. This is a conditional quoted-payoff objective, not a forecast of unconditional profit, global whole-history optimum or arbitrage over all states. No new entry search or future winner selection.",
+  "constants": {
+    "initial_per_net_contract": 1100,
+    "maintenance_per_net_contract": 950,
+    "history_observations": 60,
+    "max_intervals": 5,
+    "extra_base_execution_cents": 2,
+    "fee_coefficient": 0.05,
+    "cme_cost_per_package": 5
+  },
+  "baseline": "Inherited prior I_net+sum(entry-frozen per-trade B) requirement, same cash ledger and signal inputs.",
+  "cushion_policy": "C_after_digital_cost>=max(current_net_I,current_net_K+gross_entry_VM). This recognizes initial-minus-maintenance as equity already available to absorb cash debit while still at maintenance.",
+  "portfolio_policy": "C_after_digital_cost>=max(current_net_I, max_scenario(prefix_stage_K-cumulative_prefix_CME_cash)). Scenarios use synchronized actual-month historical price increments in last60 common observations received and available before the current decision time. Enumerate all 1..5 prefixes of each 5-interval historical path and each known successive expiry stage. Include static phases and one expiry transition at every possible interval within each prefix, with only forward expiry order. Future monthly expiries cannot be less than one calendar month apart; this is a short-horizon scenario family, not all-holding cumulative loss bound. Zero-shock stage maintenance included. Future PM payouts give no cash credit.",
+  "stages": "Net signed quantities by exact delivery_month; remove months in chronological order at hypothetical expiry stages. Initial today still includes all not-yet-cash-closed contracts. Stage-dependent maintenance is applied to that same stage; do not combine highest today margin with worst far-stage VM from another stage. No unverified cross-month SPAN credit.",
+  "history": "Same authorized full-month file, raw source hash in prior provenance. Strict current receipt and bank availability clocks; minimum60 common rows across current live/candidate months; fail closed on missing. Final versions replaced in source cannot be resurrected.",
+  "sizing": "Enumerate every integer0..locked same-side CME visible depth using current credited cash and actual filled inventory only. Reject nonpositive two-main-state net payoff floor. Verify selected n feasible and all larger n infeasible; positive linear conditional objective makes maxn its local maximizer. Quantity enumeration streamed in blocks to limit RAM.",
+  "path_replay": "Unchanged daily cash and proxy clearing clocks; initial1100/maintenance950 external reference scenario. Maintenance breach invalidates full financed-path ROI permanently and blocks later entries. No fabricated forced sale or external top-up. R recomputed using only known current history for diagnostics/entry; falling below R restricts entries but is not itself broker liquidation.",
+  "scenarios": [
+    {
+      "name": "baseline",
+      "method": "baseline",
+      "extra_cents": 0
+    },
+    {
+      "name": "cushion_credit",
+      "method": "cushion",
+      "extra_cents": 0
+    },
+    {
+      "name": "portfolio_primary",
+      "method": "portfolio",
+      "extra_cents": 0
+    },
+    {
+      "name": "portfolio_plus2c",
+      "method": "portfolio",
+      "extra_cents": 2
+    }
+  ],
+  "allocation_denominators": "Primary contribution profit/initial100000; actual marginal cash+change in account requirement shown separately, unavailable ROI for nonpositive increment. Standalone commitment is a counterfactual diagnostic, not total simultaneous cash or a number to sum across trades.",
+  "limits": [
+    "Previously studied sample; no untouched OOS",
+    "Historical FCM margin and intraday calls unknown",
+    "Static generic initial/maintenance assumptions; cannot claim minimal real broker capital",
+    "Historical PM bid/ask depth unknown; no capacity certification",
+    "One empirical five-observation path plus expiry transition is not a tail guarantee or a complete holding-period solvency proof",
+    "No new data purchase, account connection, orders or raw upload"
+  ],
+  "input_sha256": {
+    "work/liquidity_only/backtest.py": "02b383ce47944bb611fa060b0e2f5c53a187f85c924bbc364a2b5f8d05e5bbcc",
+    "outputs/liquidity_only/protocol.json": "28002a3eaf769c59bf3cff26d061dfa3ddeba47682b5ee210770b7a37650b1d5",
+    "work/liquidity_only/history_marks.parquet": "cbc6d471e4c690bb1536363bdeba23c02cfc9c7ff3e572b9e3ce3325bc81b252",
+    "work/capital100k/executions.parquet": "2db536f2ac09d3e48f84415435d6f2eeb52874ac701e1f89e0d2642f1b02ec2c",
+    "work/capital100k/marks_prepared.parquet": "63aedf5e60e55c56eee0a616743b3d232cb62941e492bb4bfe536986c133c521",
+    "work/capital100k/evaluation.json": "50910d9a9136544c72f42d92aa9fce0baf95d8e799efa13d937884b257cfdf8d"
+  },
+  "snapshot_note": "Inspection snapshot: source paths adapted for external private inputs. Frozen model parameters retained. Original input hashes retained as provenance; not a claim that private inputs are bundled.",
+  "original_input_sha256": {
+    "work/liquidity_only/backtest.py": "02b383ce47944bb611fa060b0e2f5c53a187f85c924bbc364a2b5f8d05e5bbcc",
+    "outputs/liquidity_only/protocol.json": "28002a3eaf769c59bf3cff26d061dfa3ddeba47682b5ee210770b7a37650b1d5",
+    "work/liquidity_only/history_marks.parquet": "cbc6d471e4c690bb1536363bdeba23c02cfc9c7ff3e572b9e3ce3325bc81b252",
+    "work/capital100k/executions.parquet": "2db536f2ac09d3e48f84415435d6f2eeb52874ac701e1f89e0d2642f1b02ec2c",
+    "work/capital100k/marks_prepared.parquet": "63aedf5e60e55c56eee0a616743b3d232cb62941e492bb4bfe536986c133c521",
+    "work/capital100k/evaluation.json": "50910d9a9136544c72f42d92aa9fce0baf95d8e799efa13d937884b257cfdf8d"
+  }
+}

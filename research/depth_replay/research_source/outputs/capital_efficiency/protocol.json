@@ -1,0 +1,77 @@
+{
+  "version": "1.0",
+  "frozen_before_allocation_results_utc": "2026-09-18T16:44:05.903959+00:00",
+  "initial_cash_usd": 100000,
+  "user_terminal_stress_budget_usd": 20000,
+  "primary_policy_envelope_bp": 100,
+  "native_spread_residual_bp": 2,
+  "additional_far_leg_temporary_shock_bp": 100,
+  "margin_reserve_usd_per_package": 3000,
+  "margin_basis": "External scenario: inherited 2000 times 1.5; NOT reconstructed historical broker margin. Gross across packages through both leg closures.",
+  "strategy": "Unchanged T5_E4_P3 first signals; unchanged locked tokens, route, direction, months and quantity per package; original +60s execution observations.",
+  "state_set": "Continuous [-policy,+policy]: endpoints, 25bp nodes, actual-token rule boundaries with exact points and left/right limiting payouts. NO is complement of YES. Ambiguous rules conservatively zero payout. Metadata is retrieved retrospectively; historical rule versions remain unverified.",
+  "risk": "Terminal total package worst loss across fixed policy/residual scenarios; gross sum across concurrently unfinished packages. Fixed from entry until PM paid and both futures legs closed; absolute initial-equity budget, no win-based reuse before close. Not a bound on intraday NAV drawdown or all possible policy changes.",
+  "entry_VM": "Worst futures-only terminal debit PLUS 41.67 times far-leg temporary shock bp; full future unelapsed far month fraction=1. This bounds a declared cumulative-entry cash-path stress floor, not measured maximum debit.",
+  "remaining_VM": "While any futures leg open, max(0, n*entry_VM_per_package + booked_CME_pnl); zero after both close. Uses only already booked cash, not future PM payouts. Entry cumulative stress floor is never reset; if actually exceeded, log stress-envelope breach and admit no new entries while open.",
+  "sizing": "Maximum nonnegative whole packages at each fixed signal under min(observedCMEdepth, remaining gross risk budget / unit risk, current cash minus existing margin and remaining VM reserve / unit cash+margin+VM). No fixed 25k idle floor or per-event dollar cap. No global/clairvoyant allocation objective.",
+  "cash_clocks": "Inherit prior fixed protocol; next bank-day available marks, meeting+2 business-day PM payment, monthend+7day rolled-forward final release. Proxies not measured broker times.",
+  "fees": "Inherit 5%*Q*p*(1-p) scenario +2c per digital +$5 per package; margin and VM reserves never deducted as loss.",
+  "scenarios": [
+    {
+      "name": "risk20k_primary",
+      "risk_budget": 20000,
+      "policy_bp": 100,
+      "extra_cents": 0
+    },
+    {
+      "name": "risk10k",
+      "risk_budget": 10000,
+      "policy_bp": 100,
+      "extra_cents": 0
+    },
+    {
+      "name": "risk5k",
+      "risk_budget": 5000,
+      "policy_bp": 100,
+      "extra_cents": 0
+    },
+    {
+      "name": "policy50bp",
+      "risk_budget": 20000,
+      "policy_bp": 50,
+      "extra_cents": 0
+    },
+    {
+      "name": "policy200bp",
+      "risk_budget": 20000,
+      "policy_bp": 200,
+      "extra_cents": 0
+    },
+    {
+      "name": "primary_plus2c",
+      "risk_budget": 20000,
+      "policy_bp": 100,
+      "extra_cents": 2
+    }
+  ],
+  "limits": "PM historical bid/ask depth unknown; all scaled fills conditional, verified executable median unknown. Previously inspected sample, no untouched out-of-sample claim. September2026 pending not zero.",
+  "input_sha256": {
+    "work/capital100k/executions.parquet": "2db536f2ac09d3e48f84415435d6f2eeb52874ac701e1f89e0d2642f1b02ec2c",
+    "work/capital100k/signals.parquet": "ed6905192b5053720a934e34e26753ce93a9b0f0c4c330c0554c63f1b49e4059",
+    "work/capital100k/marks_prepared.parquet": "63aedf5e60e55c56eee0a616743b3d232cb62941e492bb4bfe536986c133c521",
+    "work/capital100k/evaluation.json": "50910d9a9136544c72f42d92aa9fce0baf95d8e799efa13d937884b257cfdf8d",
+    "work/expanded_poly_market_metadata.parquet": "dfe5a342f3cf5be55fd111ac1bcef8c948c8433f95a291f25c36f09206784962",
+    "work/capital100k/backtest.py": "49e57e321894ce7e3072db9d11d18769b4b9cbcaa7ffde6638d3bba8d92deec3",
+    "outputs/capital100k/protocol.json": "f04124bd801a9862ffe2d2797206ff08dd48d84c73831bcb3e5f20e40ed09453"
+  },
+  "snapshot_note": "Inspection snapshot: source paths adapted for external private inputs. Frozen model parameters retained. Original input hashes retained as provenance; not a claim that private inputs are bundled.",
+  "original_input_sha256": {
+    "work/capital100k/executions.parquet": "2db536f2ac09d3e48f84415435d6f2eeb52874ac701e1f89e0d2642f1b02ec2c",
+    "work/capital100k/signals.parquet": "ed6905192b5053720a934e34e26753ce93a9b0f0c4c330c0554c63f1b49e4059",
+    "work/capital100k/marks_prepared.parquet": "63aedf5e60e55c56eee0a616743b3d232cb62941e492bb4bfe536986c133c521",
+    "work/capital100k/evaluation.json": "50910d9a9136544c72f42d92aa9fce0baf95d8e799efa13d937884b257cfdf8d",
+    "work/expanded_poly_market_metadata.parquet": "dfe5a342f3cf5be55fd111ac1bcef8c948c8433f95a291f25c36f09206784962",
+    "work/capital100k/backtest.py": "4b2aea322477506b085a3fb567ad826aff82647cc64b855684ef11394bd32064",
+    "outputs/capital100k/protocol.json": "0c7e6242eee1d7fd045510494027c448818f29be8fc05848138d70c5ef80ab50"
+  }
+}

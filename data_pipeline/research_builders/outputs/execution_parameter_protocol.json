@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-09-17T22:36:09.195055+00:00",
+  "purpose": "User requested additional parameter measurements: execution-sensitive conditional model win rate/payoff and current conditional entry levels. Exploratory only; old sample already seen.",
+  "thresholds": [
+    0.01,
+    0.03,
+    0.05
+  ],
+  "net_edge_cents": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "persistence_minutes": [
+    1,
+    3,
+    5
+  ],
+  "rules_per_venue": 36,
+  "primary_scope": "next_meeting_only; deterministic top2 each>1%; omitted each<=tau; unambiguous adjacent25bp main states; no normalization or omitted payoff deletion",
+  "selection": "each fixed economic construction continuous exact60s same ETday, take first qualified per meeting after contemporaneous highest-edge tie break; features exclude outcome",
+  "costs": {
+    "Polymarket": "midpoint plus1c per actual token; .05 Qp(1-p); $5CME; purchase cash5%ACT365 to meeting+1day; unchanged prior baseline",
+    "Kalshi": "same-minute candle actual buy ask; ceilcent .07 Qp(1-p); $5CME; unchanged prior baseline, no funding"
+  },
+  "stress": "additional1c and2c per actual digital share, SAME selected entry, no re-timing",
+  "delay": "signal locks actual token,YES/NO,meeting,event,CME instrument/near/far,direction,route,Q,N. Reprice exact t+60 anchor from FULL unscreened token andCME panels. Require bought quote age<=60, sameETday,obs<=anchor,CME one-spread status/definition/expiry/freshness; no new tau/mainpair/edge/liveness gate. Preserve missing/deadline rows, do not reselect or turn missing into0. Lock route; no new best-route choice. Market replay stress only, not actual fill simulation.",
+  "metrics": "counts and known denominators; win rate; mean positive and absolute mean negative;cents/N payoff ratio and profit factor NA if no losses; mean/median/worst, USD sum not ROI; pending and no-trade separated. All36 shown.",
+  "split": "per venue common observable meeting universe = union of all valid maximum-tau(.05) primary rows, independent of trade signal; chronological first floor(n/2) versus rest. Descriptive split after sample seen, not untouched OOS. Missing universe meetings tracked not assumed market noedge.",
+  "chronology": "Optional reconstructed rule selection at previous FOMC14ET, training labels require each meeting max far month ended+7days proxy, min8 mature common meetings/5training trades main, min6/4 diagnostic; train mean policy cents minus sample SE positive and leave-one-meeting-out means positive; deterministic rule_id tie. All known limitations of currentFRED/currentwinner retained; not true point-in-time or prospective certification.",
+  "dependence": "do not pool minute/hypothesis/parameter rows as independent observations. Summaries use meeting; stress delete shared-delivery-month connected components for existing selected rules. No claim of significance or parameter optimality.",
+  "future": "free public current-next-meeting prediction book VWAP and quantity, fees and funding; conditional CME bid/ask nativebp at2/4/6/10c mainstate gate with0/1c buffer; all relevanttail states. No order, no new paid data.",
+  "new_spend_usd": 0,
+  "input_sha256": {
+    "tail_thresholds/poly_binary_tau1_omit_only_nested.parquet": "25b8fac4c3745318f363d202d94ce21a66b6b3e2c29a1167d82741975cf939bb",
+    "tail_thresholds/poly_binary_tau3_omit_only_nested.parquet": "a803a14b8c6f49c628acb0c791244e41c3470a47b8aea136b5ea04fbd7f6237f",
+    "tail_thresholds/poly_binary_tau5_omit_only_nested.parquet": "b8b40c0aa819ad86698ec874ab2473cb277e15bd0eff7424e540a9a5b9cf48bd",
+    "expanded_poly_fullminute_leg_panel.parquet": "7a7fdb4038d4f419a3139c44c1f5c7a8bcc2484de2f7dfbcafe0495072c2e419",
+    "expanded_cme_minute_panel.parquet": "b0e4c562480e9fe11bb449c3a18c14f3bd583a4392d335e5ab412b19b6e89e49",
+    "expanded_kalshi_leg_panel.parquet": "42a1b72fde645836bc0ab58dc4c60c41ae3da0647aba6b6ad245b66e5474591e",
+    "expanded_terminal_cash_reference.parquet": "147253e459a896a8588b84c30511c2771005e44efd115c2f9bf8f6913fa5e7a4"
+  }
+}

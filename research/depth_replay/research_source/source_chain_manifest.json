@@ -1,0 +1,61 @@
+{
+  "inspection_only_until_private_inputs_supplied": true,
+  "files": [
+    {
+      "file": "work/depth_replay/replay.py",
+      "original_sha256": "db7a489c6992fae36af46961dff4214d270d87130411d58189bcd29e5a54b511",
+      "portable_sha256": "293d7a1ef17823842b8451aa965c68ab4303dbd734b905bd7f44a7a221375a0a",
+      "adaptation": "Path configuration and output locations only; model equations, parameters, selection and cash logic retained."
+    },
+    {
+      "file": "work/depth_replay/prepare_books.py",
+      "original_sha256": "7355ac3caadde412bfdbbe12e95313f9d10352d943c97bcc928dd41ff9da8998",
+      "portable_sha256": "ba246dc09e0471609f686841c6077481643abff7e0b5b83db36c45052e3b2482",
+      "adaptation": "Path configuration and output locations only; model equations, parameters, selection and cash logic retained."
+    },
+    {
+      "file": "work/spread_credit_backtest/engine.py",
+      "original_sha256": "762d29568ca29d71cda32170f841def77de86b07cc6b55b35e8a698b2501798d",
+      "portable_sha256": "045faad7fc8a001bd5c60c1fac263325b1926b5755d29c933600574726a962d8",
+      "adaptation": "Path configuration and output locations only; model equations, parameters, selection and cash logic retained."
+    },
+    {
+      "file": "work/spread_credit_backtest/runner.py",
+      "original_sha256": "26f1665d2601803ec8f21c155f2cc7ab81bb3fda17667ae30ef9c839f195a6f7",
+      "portable_sha256": "b600c5a514bde2af3b17d084ac11c2764ded7957697fed2ad72631932a2e480c",
+      "adaptation": "Path configuration and output locations only; model equations, parameters, selection and cash logic retained."
+    },
+    {
+      "file": "work/spread_credit_backtest/risk_model.py",
+      "original_sha256": "bee79571fb7260dfaf540b453f9de8293828d1880acdc0670f60de5606a6bbd8",
+      "portable_sha256": "bee79571fb7260dfaf540b453f9de8293828d1880acdc0670f60de5606a6bbd8",
+      "adaptation": "Path configuration and output locations only; model equations, parameters, selection and cash logic retained."
+    },
+    {
+      "file": "work/portfolio_capital/risk_model.py",
+      "original_sha256": "a9703559ef66869b13b2c5c4c0a3a63b1da49b08bae266c5cb7e939af4ca6ad1",
+      "portable_sha256": "a9703559ef66869b13b2c5c4c0a3a63b1da49b08bae266c5cb7e939af4ca6ad1",
+      "adaptation": "Path configuration and output locations only; model equations, parameters, selection and cash logic retained."
+    },
+    {
+      "file": "work/capital_efficiency/backtest.py",
+      "original_sha256": "9709fe9931772bdb112a42fe830e12a678f53d5fa622c716e26b11020e90e889",
+      "portable_sha256": "463e82cd24cfbf485754e55b946130b828f8ca5f9e3f6925fb8167f4ce665994",
+      "adaptation": "Path configuration and output locations only; model equations, parameters, selection and cash logic retained."
+    },
+    {
+      "file": "work/capital100k/backtest.py",
+      "original_sha256": "4b2aea322477506b085a3fb567ad826aff82647cc64b855684ef11394bd32064",
+      "portable_sha256": "49e57e321894ce7e3072db9d11d18769b4b9cbcaa7ffde6638d3bba8d92deec3",
+      "adaptation": "Path configuration and output locations only; model equations, parameters, selection and cash logic retained."
+    }
+  ],
+  "protocols": [
+    "outputs/depth_replay/protocol.json",
+    "outputs/spread_credit_backtest/protocol.json",
+    "outputs/portfolio_capital/protocol.json",
+    "outputs/capital_efficiency/protocol.json",
+    "outputs/capital100k/protocol.json"
+  ],
+  "warning": "Full historical raw-data rebuild and licensing permissions are not supplied. See required_private_inputs.json. Path edits intentionally change source hashes."
+}

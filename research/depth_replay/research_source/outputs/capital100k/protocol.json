@@ -1,0 +1,59 @@
+{
+  "version": "1.0",
+  "frozen_at_utc": "2026-09-18T16:21:24.803398+00:00",
+  "cutoff_et": "2026-09-17T23:59:59-04:00",
+  "initial_cash_usd": 100000,
+  "primary_venue": "Polymarket",
+  "rule": "T5_E4_P3",
+  "tail_cap_per_omitted_outcome": 0.05,
+  "edge_threshold_cents_per_N": 4,
+  "consecutive_minute_observations": 3,
+  "signal_selection": "Reconstruct first qualifying same-construction 3-observation signal; deterministic highest entry edge then persistence key tie break; no outcome columns admitted. No new rule search.",
+  "delay_seconds": 60,
+  "execution": "Lock original digital/token,quantity-per-spread,CME route/direction and months. Use only source observations <= execution time and <=60s old, PM observation timestamp > signal. CME event and receive clocks both checked. No edge requalification and no retry after missing delayed quote.",
+  "initial_event_budget_fraction_primary": 0.25,
+  "initial_event_budget_fraction_sensitivity": [
+    0.1,
+    0.5
+  ],
+  "cash_buffer_usd": 25000,
+  "reserve_per_spread_usd": 2000,
+  "reserve_label": "Illustrative fixed cash reserve, not verified historical broker margin; gross positions, no offsets",
+  "size": "Integer repeat packages. Floor min(event budget, current free cash minus cash buffer) divided by package purchase costs plus reserve; clamp to locked-route purchase-side CME top-of-book size. Q per package unchanged.",
+  "execution_allowance_per_digital_usd": 0.02,
+  "prediction_fee_coefficient": 0.05,
+  "cme_cost_per_package_usd": 5,
+  "fees_label": "Declared cost scenario, not historical invoice reconstruction",
+  "funding": "Self-funded account; no invented borrowing expense. Separate 5% ACT/365 opportunity-cost metric on digital cash until proxy payout and reserve until release. No idle-cash interest.",
+  "pm_payout_clock": "Target FOMC date +2 US federal-holiday business days at 17:00 ET, explicit proxy. Winner used only at payout.",
+  "futures_daily_marks": "Process available final-version daily records no earlier than ts_recv and next US federal-holiday business day at 09:00 ET. Older trade_date cannot replace newer mark. Month final uses independent rounded EFFR only after proxy release. Late/missing marks logged, daily-path model not intraday broker margin validation.",
+  "futures_final_clock": "Each delivery month end +7 calendar days rolled forward to US federal-holiday business day at 17:00 ET, explicit proxy; close each leg separately. Reserve released only after both legs final.",
+  "missing": "Keep NOT_EVALUABLE,NO_SIGNAL,NO_FILL_DATA,NO_FILL_CAPITAL,PENDING,CLOSED distinct. Missing execution has no modeled order, not zero opportunity or a losing trade; pending PnL never filled with zero.",
+  "metrics": [
+    "median closed trade PnL / initial 100000 (account contribution)",
+    "median closed trade PnL / allocated initial cash incl reserve",
+    "median closed trade PnL / digital cash costs excl reserve",
+    "median USD profit",
+    "daily cash/reserve, capital rejects and funding breaches; incomplete final NAV remains NA"
+  ],
+  "depth": "CME visible size bounds conditional fill only. No PM historical bid/ask size: cannot certify any scaled fill. Strict verified-fill median NA, not zero.",
+  "overfit": "Historical sample inspected previously. Fixed-rule causal replay, not untouched OOS or zero-overfitting certification. No parameter winner selected.",
+  "new_data_spend_usd": 0,
+  "input_sha256": {
+    "work/tail_thresholds/poly_binary_tau5_omit_only_nested.parquet": "b8b40c0aa819ad86698ec874ab2473cb277e15bd0eff7424e540a9a5b9cf48bd",
+    "work/expanded_cme_minute_panel.parquet": "b0e4c562480e9fe11bb449c3a18c14f3bd583a4392d335e5ab412b19b6e89e49",
+    "work/expanded_poly_fullminute_leg_panel.parquet": "7a7fdb4038d4f419a3139c44c1f5c7a8bcc2484de2f7dfbcafe0495072c2e419",
+    "work/expanded_terminal_cash_reference.parquet": "147253e459a896a8588b84c30511c2771005e44efd115c2f9bf8f6913fa5e7a4",
+    "outputs/poly_all_meetings_coverage_audit.csv": "9ca7802af4fb23a9f83ec7d5e3370b30de8cf07843f5648bdfb02ee34c31b7b3",
+    "outputs/execution_parameter_poly_entries.csv": "e61b297735eb1a2cfb3e3dd490b6b5c78db47331430051a103d947b1e7c55134"
+  },
+  "snapshot_note": "Inspection snapshot: source paths adapted for external private inputs. Frozen model parameters retained. Original input hashes retained as provenance; not a claim that private inputs are bundled.",
+  "original_input_sha256": {
+    "work/tail_thresholds/poly_binary_tau5_omit_only_nested.parquet": "b8b40c0aa819ad86698ec874ab2473cb277e15bd0eff7424e540a9a5b9cf48bd",
+    "work/expanded_cme_minute_panel.parquet": "b0e4c562480e9fe11bb449c3a18c14f3bd583a4392d335e5ab412b19b6e89e49",
+    "work/expanded_poly_fullminute_leg_panel.parquet": "7a7fdb4038d4f419a3139c44c1f5c7a8bcc2484de2f7dfbcafe0495072c2e419",
+    "work/expanded_terminal_cash_reference.parquet": "147253e459a896a8588b84c30511c2771005e44efd115c2f9bf8f6913fa5e7a4",
+    "outputs/poly_all_meetings_coverage_audit.csv": "9ca7802af4fb23a9f83ec7d5e3370b30de8cf07843f5648bdfb02ee34c31b7b3",
+    "outputs/execution_parameter_poly_entries.csv": "e61b297735eb1a2cfb3e3dd490b6b5c78db47331430051a103d947b1e7c55134"
+  }
+}

@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "Please cite the research version or commit used in your analysis."
+title: "FOMC Decision Relative Value: Calendar-Matched Futures and Prediction Markets"
+authors:
+  - family-names: Yang
+    given-names: Yicheng
+version: 0.2.0
+date-released: 2026-09-26
+repository-code: "https://github.com/YichengYang-Ethan/fed-basis-backtest"
+url: "https://github.com/YichengYang-Ethan/fed-basis-backtest"
+type: software
+keywords:
+  - FOMC
+  - prediction markets
+  - relative value
+  - market microstructure
+  - reproducible research
+abstract: "Research on calendar-matched Fed Funds futures and prediction-market decision contracts, with contract-state analysis, execution-cost diagnostics, staged funding models and auditable derived results."

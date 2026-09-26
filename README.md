@@ -1,82 +1,89 @@
-# fed-basis-backtest
+# FOMC Decision Relative Value
 
-Does the price gap between prediction-market FOMC contracts (Kalshi, Polymarket) and CBOT
-30-Day Fed Funds futures (ZQ) survive a hedge, costs, and an honest look for lookahead?
+**Calendar-matched Fed Funds futures × prediction-market contracts**
 
-**Answer: it did, and then it stopped.** The edge is real in the 2022-2025 "pinned" regime and
-is not distinguishable from noise in the regime that began in September 2025. What changed is
-not the strategy, it is the effective fed funds rate: it used to hold one value all month, and
-now it moves inside the month, which is exactly what the hedge cannot absorb.
+[![Public research verification](https://github.com/YichengYang-Ethan/fed-basis-backtest/actions/workflows/public-research.yml/badge.svg)](https://github.com/YichengYang-Ethan/fed-basis-backtest/actions/workflows/public-research.yml)
 
-## Start here
+[Research brief](reports/RESEARCH_BRIEF.pdf) · [Methodology](docs/METHODOLOGY.md) · [Data catalog](docs/DATA_CATALOG.md) · [Reproduce](docs/REPRODUCIBILITY.md) · [Research agenda](docs/RESEARCH_AGENDA.md) · [中文入口](README.zh-CN.md)
 
-- ### [results/PINNED_REGIME.md](results/PINNED_REGIME.md)
-  The main result. The hedge error, computed rather than estimated, is **0.134 cents** per
-  contract in the pinned regime and **3.554 cents** in the drifting one, a factor of 26.
-  Twenty of twenty-five pinned meetings replicate the decision with literally no residual.
-  After gating, the entry threshold is about 3 cents of basis: nine trades, nine winners,
-  mean +2.34c. The same gate in the drifting regime gives two trades and a coin flip.
+Can different markets assign sufficiently different values to the same Federal Reserve decision to support a useful relative-value trade? This project studies that question through contract-level payoff matching, timestamp-aware market data, transaction costs and the cash required to carry the position.
 
-- ### [results/SYNTHESIS.md](results/SYNTHESIS.md)
-  The earlier round, which could only see the drifting regime and concluded there was no
-  arbitrage. Correct for what it could measure; its "structural bind" section is now resolved.
+The economic link is a **ZQ calendar spread**, whose sensitivity to a FOMC decision is determined by the delivery calendar. Prediction-market digitals supply a different payoff shape. The research asks whether a matched package remains attractive after executable prices, omitted states, EFFR drift, integer hedge quantities and funding are accounted for.
 
-- ### [data/](data/) — four derived tables, documented in [data/README.md](data/README.md)
-  No market data. Databento's licence makes republishing CME settlements an act of
-  redistribution, so everything here is one row per meeting. Two of the four tables are built
-  purely from published EFFR and carry no licence at all.
+The current hold-to-settlement model is a baseline for further research. The next questions concern exit timing, contract and route selection, state coverage, execution and incremental portfolio capital. A conditional two-state hedge is not a guaranteed profit across all decisions.
 
-## What this repository is careful about
+## Start with the question you want to answer
 
-Three lookahead bugs were found by looking for them, and each one manufactured an edge that
-does not exist:
+| Reader's question | Start here |
+|---|---|
+| What is the idea, and what has been built? | [Eight-page research brief](reports/RESEARCH_BRIEF.pdf) or its [text version](reports/RESEARCH_BRIEF.md) |
+| How do the instruments and cash flows fit together? | [Methodology](docs/METHODOLOGY.md) and [capital / return definitions](docs/CAPITAL_AND_RETURNS.md) |
+| Which data can I inspect and verify immediately? | [Public data catalog](docs/DATA_CATALOG.md) and [derived research bundle](research/depth_replay/README.md) |
+| Can I run the checks without accounts or API keys? | The quick start below |
+| How do I reconstruct the private data and replay? | [Reproduction guide](docs/REPRODUCIBILITY.md), [pipeline map](docs/PIPELINE_MAP.md), [private-input contract](research/depth_replay/research_source/required_private_inputs.json) |
+| What should be tested next? | [Falsifiable research agenda](docs/RESEARCH_AGENDA.md) |
 
-1. **ZQ settles at 14:00 CT, an hour AFTER the 14:00 ET FOMC announcement.** Measured, not
-   assumed: the 2024-09-18 settle implies -50.83bp and so do the next three sessions, while
-   2024-09-17 implies -42.08bp. Comparing that settle against an earlier prediction-market
-   snapshot invented a 62.7-cent edge.
-2. **A frozen CLOB midpoint prints every minute exactly like a live one.** Three of the largest
-   apparent edges were dead books, one quoting a 24.6% chance of a January 2024 hike. A
-   leg-sum sanity band does not catch this; counting distinct midpoints over a trailing window,
-   on in-play legs only, does.
-3. **A continuous futures series is the wrong contract.** At a 19-day pre-meeting horizon the
-   front contract has zero exposure to the meeting being priced in 73% of cases.
+## Current numerical reference
 
-And one structural trap worth stating plainly: `KXFEDDECISION` is a **five-outcome mutually
-exclusive ladder, not a binary**. A single-leg position against one ZQ contract is not a hedge.
-It pays the same amount in two of five states and loses roughly nineteen times the edge in a
-third, which the market itself prices at about 1.5%.
+The **September 20 depth-cost replay** is the reference version. Its account window runs from **February 1, 2024 to September 1, 2026**. Later data checks do not extend that return window.
 
-## Layout
+| Measure | Primary model result |
+|---|---:|
+| Initial simulated account | $100,000 |
+| Original signals / funded and settled positions | 11 / 9 |
+| Ending simulated assets | **$126,510.76** |
+| Cumulative account return / calendar CAGR | **26.5108% / 9.5343%** |
+| Median entry conditional two-state return | **1.9276%** |
+| Median realized standalone full-funding return | **3.2017%** |
+| Filled entries with new prediction-market book evidence | 5 of 9 |
 
-```
-prereg/     The plan, written before results existed but NEVER FROZEN. Read its status header.
-harness/    Panel construction, cost model, the pinned-regime pipeline, the public-data builder
-results/    Conclusions and the per-meeting tables behind them
-data/       Derived, publishable tables (see data/README.md)
-tests/      Regression tests
+The nine-position account result is **ZQ + Polymarket**. Kalshi is a separately mapped venue and research dataset; it is not the source of this nine-position record. Twelve scenario configurations reuse the same events and are not twelve independent samples. Four entries retain proxy prediction-market costs. The March 2024 ladder has a known 128.5% sum anomaly. Fees, broker margins and intraday solvency are not certified. This is previously studied historical research, not an untouched holdout or live performance record. See [limitations and audits](docs/LIMITATIONS.md).
+
+![Per-meeting modeled returns under original and updated costs](reports/figures/02_trade_returns.png)
+
+A separate [September 25 Kalshi comparison](docs/CASE_STUDY_2026-09-25.md) illustrates why a midpoint discrepancy can fail after crossing costs. It is an as-of diagnostic, not an addition to the historical account result.
+
+## Quick start: no credentials, no market-data purchase
+
+Python **3.10 or newer** is sufficient for the public numerical checks:
+
+```sh
+git clone https://github.com/YichengYang-Ethan/fed-basis-backtest.git
+cd fed-basis-backtest
+python3 research/depth_replay/model/verify_results.py
+python3 research/depth_replay/model/payoff_model.py --self-test
+python3 research/depth_replay/research_source/verify_source_snapshot.py
 ```
 
-## Reproducing
+For the complete public-project checks:
 
-The analysis reads a DuckDB panel built by the companion repository
-[fed-pricing-db](https://github.com/YichengYang-Ethan/fed-pricing-db) from a Databento subscription, an IBKR
-account, the Polymarket CLOB and FRED. The panel itself is not published (see below); the code
-that builds it is. With the panel in place:
-
-```bash
-python3 harness/pinned_regime.py --csv results/
-python3 harness/build_public_data.py
+```sh
+make verify
 ```
 
-Without it, `data/` still stands on its own: `hedge_error.csv` and `effr_month_profile.csv` are
-reproducible from FRED alone, and they carry the main result.
+These commands verify public aggregate results, return arithmetic, payoff invariants, source provenance and publication boundaries. They do not download feeds, submit trades or recreate the private cash ledger. Optional figure-generation dependencies and commands are documented in [reproducibility](docs/REPRODUCIBILITY.md).
 
-## Status and limits
+## Project structure
 
-Nine trades. t = 1.95 at the 3-cent gate is not significance, and two gate dimensions were
-swept. The basis is measured midpoint to midpoint with an assumed 1-cent half-spread that was
-never observed, because neither venue's historical order book is available. The regime that
-made the strategy work ended in 2025-09. Nothing here is a recommendation to trade anything.
+```text
+docs/                       Financial logic, data map, limitations and research agenda
+reports/                    Public research brief and figures
+research/depth_replay/       Derived results, public verifier, analytical model,
+                            actual replay source and external input schemas
+data_pipeline/              Source acquisition / database code and upstream builders
+scripts/                    Public-project checks and reproducible figures
+tests/public_project/       Public verification and analytical regression tests
+.github/workflows/          Credential-free verification in GitHub Actions
+harness/, data/, results/    Original September 17 study, retained as dated context
+prereg/                     Historical design documents; never frozen in advance
+```
 
-Author: Yicheng Yang
+The [project map](docs/PROJECT_MAP.md) separates runnable public checks, optional data acquisition and private historical replay. The original [fed-pricing-db](https://github.com/YichengYang-Ethan/fed-pricing-db) repository remains the upstream provenance source for the integrated data layer.
+
+## Data and research integrity
+
+Only explicitly selected derived research outputs are published. Raw CME/Databento feeds, raw settlement panels, complete third-party books, raw prediction-market histories, databases, per-leg VM ledgers, private account records and credentials are excluded. Public net-return tables do not replace the separately entitled source data needed for a full replay. See [data boundaries](docs/DATA_RIGHTS.md).
+
+The original `prereg/` design was **never frozen before results**. No later tag or release changes that fact. Strategy variations already examined remain exploratory. Source-level and arithmetic checks are evidence about implementation; they are not proof of executable alpha.
+
+Author: **Yicheng Yang**. Cite the version or commit you used; [CITATION.cff](CITATION.cff) supplies citation metadata. [Release history](CHANGELOG.md) distinguishes the current project from older manuscripts and capital conventions.

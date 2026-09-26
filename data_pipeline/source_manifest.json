@@ -1,0 +1,355 @@
+{
+  "version": "2026-09-25",
+  "files": [
+    {
+      "source_repository": "YichengYang-Ethan/fed-pricing-db",
+      "source_path": "scripts/fetch_fred.py",
+      "source_sha256": "325c3a906256763c46b1e40cf99ffc73ccb7e2fbab9465698d3c697f3d74f9df",
+      "published_path": "scripts/fetch_fred.py",
+      "published_sha256": "27df6bebf898787a6b454a326bdd6137ca906477fccbb4f90ab7de626f584f32",
+      "adaptation": "External FOMC_DATA_ROOT; optional IBKR comparison, account identifier suppression, and builder output location as applicable. Core historical transforms preserved."
+    },
+    {
+      "source_repository": "YichengYang-Ethan/fed-pricing-db",
+      "source_path": "scripts/build_meetings.py",
+      "source_sha256": "e313090cbdbaabbf8a96b6d12801dd0f8e810aaa2381cf012c8d2af64f223a45",
+      "published_path": "scripts/build_meetings.py",
+      "published_sha256": "c372d1c6e89704b446d7bbfb77d79f3f7d2296c31d6c372b4961f4b4f9981d75",
+      "adaptation": "External FOMC_DATA_ROOT; optional IBKR comparison, account identifier suppression, and builder output location as applicable. Core historical transforms preserved."
+    },
+    {
+      "source_repository": "YichengYang-Ethan/fed-pricing-db",
+      "source_path": "scripts/poly_common.py",
+      "source_sha256": "6ce6febd73d5f81f59ce9254b7c3fb1f9d3ee5144fe1d27d74737ccea3be5e52",
+      "published_path": "scripts/poly_common.py",
+      "published_sha256": "0ee47be613ab8db99ec4f37f5461c310ae9d47bcd89a09c01491acb1b6c69104",
+      "adaptation": "External FOMC_DATA_ROOT; optional IBKR comparison, account identifier suppression, and builder output location as applicable. Core historical transforms preserved."
+    },
+    {
+      "source_repository": "YichengYang-Ethan/fed-pricing-db",
+      "source_path": "scripts/poly_pull.py",
+      "source_sha256": "810d734a96b899662ea4e9314ff004e922dd24740f155e9046d529e4cf9998e1",
+      "published_path": "scripts/poly_pull.py",
+      "published_sha256": "810d734a96b899662ea4e9314ff004e922dd24740f155e9046d529e4cf9998e1",
+      "adaptation": "External FOMC_DATA_ROOT; optional IBKR comparison, account identifier suppression, and builder output location as applicable. Core historical transforms preserved."
+    },
+    {
+      "source_repository": "YichengYang-Ethan/fed-pricing-db",
+      "source_path": "scripts/poly_post.py",
+      "source_sha256": "39b1b8316bf667d76d603ada4a8598309b4cabeada68370fc5aaa90ee56131f8",
+      "published_path": "scripts/poly_post.py",
+      "published_sha256": "39b1b8316bf667d76d603ada4a8598309b4cabeada68370fc5aaa90ee56131f8",
+      "adaptation": "External FOMC_DATA_ROOT; optional IBKR comparison, account identifier suppression, and builder output location as applicable. Core historical transforms preserved."
+    },
+    {
+      "source_repository": "YichengYang-Ethan/fed-pricing-db",
+      "source_path": "scripts/kalshi_pull.py",
+      "source_sha256": "a2c6733c0448bd15e631054edb0d24c779331c0b91f25ead1ef6ef97fa6ee3fc",
+      "published_path": "scripts/kalshi_pull.py",
+      "published_sha256": "758fd21466ff7707fad2c83eea1a1d5c2f02df16f098996bfcca44a4b7be8cfb",
+      "adaptation": "External FOMC_DATA_ROOT; optional IBKR comparison, account identifier suppression, and builder output location as applicable. Core historical transforms preserved."
+    },
+    {
+      "source_repository": "YichengYang-Ethan/fed-pricing-db",
+      "source_path": "scripts/databento_zq_outrights.py",
+      "source_sha256": "77652a350c9b10809bc41c98126e48c03ff7b74b35fa868706706fe3896a00c2",
+      "published_path": "scripts/databento_zq_outrights.py",
+      "published_sha256": "ec07af0134bca9be5babc9f9d9ad57d25825a41a0c2ecedd5dc5b94b5da3487e",
+      "adaptation": "External FOMC_DATA_ROOT; optional IBKR comparison, account identifier suppression, and builder output location as applicable. Core historical transforms preserved."
+    },
+    {
+      "source_repository": "YichengYang-Ethan/fed-pricing-db",
+      "source_path": "scripts/ibkr_zq_pull.py",
+      "source_sha256": "db96e781407ab7095df002250d311d1fd64554b6712a6359ec6cf3005f1b0972",
+      "published_path": "scripts/ibkr_zq_pull.py",
+      "published_sha256": "213a787f3e955329c673d66dd8a1ea22dad74a6e6bf31f99de3e90cc433a043e",
+      "adaptation": "External FOMC_DATA_ROOT; optional IBKR comparison, account identifier suppression, and builder output location as applicable. Core historical transforms preserved."
+    },
+    {
+      "source_repository": "YichengYang-Ethan/fed-pricing-db",
+      "source_path": "scripts/fetch_cme_yf.py",
+      "source_sha256": "beffd251fe96758f9e90a7609e97b8806dc839c5a8e6a7e2ebef8565f37a434f",
+      "published_path": "scripts/fetch_cme_yf.py",
+      "published_sha256": "87ed68c089fe0aa84c23bd1bdb2cb1cfff2f133321c9a425c5a85ecdab2fcfe6",
+      "adaptation": "External FOMC_DATA_ROOT; optional IBKR comparison, account identifier suppression, and builder output location as applicable. Core historical transforms preserved."
+    },
+    {
+      "source_repository": "YichengYang-Ethan/fed-pricing-db",
+      "source_path": "scripts/build_db.py",
+      "source_sha256": "f941d1604c7a0e710ce160924a5b7a238fd409a83dbb48f21799cab06439b0ff",
+      "published_path": "scripts/build_db.py",
+      "published_sha256": "fd7b922312ed0a983a6d1221e41a0dee1369218cabdb1407cf5767591bfb9091",
+      "adaptation": "External FOMC_DATA_ROOT; optional IBKR comparison, account identifier suppression, and builder output location as applicable. Core historical transforms preserved."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/build_poly_analysis_panel.py",
+      "source_sha256": "9e35029c830200a0c8e55a6249b4a8c9ea9a44a4a4839392f6e0d8215d0ae09f",
+      "published_path": "research_builders/work/build_poly_analysis_panel.py",
+      "published_sha256": "331a815b22978f5a820e6f61f9f557155b303c3e8e827f00d43820fea57e28f2",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/expanded_poly_inventory.py",
+      "source_sha256": "466023ed33b440bc89468ada4d72acca57332704f4816478609bd86390c4225f",
+      "published_path": "research_builders/work/expanded_poly_inventory.py",
+      "published_sha256": "4ed83f57a2b151fc24b59747fae443e35d309aec16343b64b9962c2b9071055b",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/expanded_poly_fetch_fullminute.py",
+      "source_sha256": "19b7440b5274298ffb77814e360f469b8a456fdfc1f7a0a309bf35d9a8f1be99",
+      "published_path": "research_builders/work/expanded_poly_fetch_fullminute.py",
+      "published_sha256": "afd7fbf5b5f22bd4a31ceaab3e7d594b08295e677ed83659d0c07ffda697e8f7",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/expanded_poly_fill_opening.py",
+      "source_sha256": "b8f6d5523bee9305955f798cdcd5c6a3366c869ef02b79a59496e7bf71aef3e1",
+      "published_path": "research_builders/work/expanded_poly_fill_opening.py",
+      "published_sha256": "c9ae68f41b87eaf6bd61f8f5221662f6b24246e43cc8eba532423b7fe0d4397a",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/expanded_poly_build_fullminute_panel.py",
+      "source_sha256": "455aa632bd061221357ef08a70f6ca199dd0731f71a5a8f25e53abf37557f54e",
+      "published_path": "research_builders/work/expanded_poly_build_fullminute_panel.py",
+      "published_sha256": "55ef2741a993204c44b5858e89bc76be00e234804f4cd5831608e139e9a4935e",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/expanded_poly_principal_panel.py",
+      "source_sha256": "7906cd115223aee30e221eaa9b24573b3faef8b2eefa5c9a401266fb835f25af",
+      "published_path": "research_builders/work/expanded_poly_principal_panel.py",
+      "published_sha256": "7906cd115223aee30e221eaa9b24573b3faef8b2eefa5c9a401266fb835f25af",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/expanded_poly_liveness.py",
+      "source_sha256": "b57a60d91a814dd89f8a49f69747b70e0c8c7c1aa4192b49cc646cb1b9f4e4e2",
+      "published_path": "research_builders/work/expanded_poly_liveness.py",
+      "published_sha256": "0c68887f5496de30964862bb069ac5837828c0b3f88cc367272602ae857b260d",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/expanded_poly_study.py",
+      "source_sha256": "299bc09c1aac94b6a5200a086a3ca3d4ec587488022f4b4ddd6b5c6c1c3005db",
+      "published_path": "research_builders/work/expanded_poly_study.py",
+      "published_sha256": "299bc09c1aac94b6a5200a086a3ca3d4ec587488022f4b4ddd6b5c6c1c3005db",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/expanded_cme_panel.py",
+      "source_sha256": "96ea88a99a414951e9e062e5a3a4da7206e0d779bffbf7aeb12afe4a20059426",
+      "published_path": "research_builders/work/expanded_cme_panel.py",
+      "published_sha256": "162c694b634ff1b3f5aa94699c9292e78fe512572dafe63eef0b357ad707d429",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/build_cme_minute_panel.py",
+      "source_sha256": "9c726a2c84de70fd84847d07d89cbe8c758a142fd22ba456bc14df0c6bf74738",
+      "published_path": "research_builders/work/build_cme_minute_panel.py",
+      "published_sha256": "5ac2b4a200fccdf956b1db5048dfc7c63880688387b59161864d744b87b8f5f6",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/cme_choice_study.py",
+      "source_sha256": "2931cc04f9e7bf994fe94bc79984387d6d7995d8becf83954d8a7a7bff8cc88c",
+      "published_path": "research_builders/work/cme_choice_study.py",
+      "published_sha256": "58b7e39a224bd36a1d39fc8e87e5189eb4f1dab0d1d6bb2e146328d051459c9c",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/expanded_terminal_cash.py",
+      "source_sha256": "bd234ca106dc6c85c09a8539fc8c4015838d2ca45109a8d06189f4983cf52251",
+      "published_path": "research_builders/work/expanded_terminal_cash.py",
+      "published_sha256": "891c42fe0b7e58146aede4f79dbd6c5b049f9737e94333f913e403bba36b8c34",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/tail_threshold_poly.py",
+      "source_sha256": "b40a43d583f68037724ec115025e0d5cedba1dd7d220046add8e084638b57ce7",
+      "published_path": "research_builders/work/tail_threshold_poly.py",
+      "published_sha256": "7f0acb9205eca4d3ad6272422128c90c78df4904abac37c789da2b9f97895121",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/tail_threshold_poly_study.py",
+      "source_sha256": "fa0a2ff779e3de0e942ff47160fd65c18221b4828c3f1003079b1d6695699db8",
+      "published_path": "research_builders/work/tail_threshold_poly_study.py",
+      "published_sha256": "fa0a2ff779e3de0e942ff47160fd65c18221b4828c3f1003079b1d6695699db8",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/analyze_fed_edges.py",
+      "source_sha256": "a7968fa80d3e02ce2b6d9bbc39c529cac216badeae77373dc06c9fd1baa6cd76",
+      "published_path": "research_builders/work/analyze_fed_edges.py",
+      "published_sha256": "a7968fa80d3e02ce2b6d9bbc39c529cac216badeae77373dc06c9fd1baa6cd76",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/time_edge_study.py",
+      "source_sha256": "8c91265711619d53c0cb4fc95fdef67a2465f3ba1b47c514ec92cce50c85a375",
+      "published_path": "research_builders/work/time_edge_study.py",
+      "published_sha256": "8c91265711619d53c0cb4fc95fdef67a2465f3ba1b47c514ec92cce50c85a375",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/execution_parameter_poly.py",
+      "source_sha256": "fde974453d26ae95c89b4098fce964c68c761089244da9d5c9414e43ee983848",
+      "published_path": "research_builders/work/execution_parameter_poly.py",
+      "published_sha256": "fde974453d26ae95c89b4098fce964c68c761089244da9d5c9414e43ee983848",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/edge_stats.py",
+      "source_sha256": "2313aa5c531a99badea6ec54d7141829ccba87d716aed3a194cf2574347effed",
+      "published_path": "research_builders/work/edge_stats.py",
+      "published_sha256": "2313aa5c531a99badea6ec54d7141829ccba87d716aed3a194cf2574347effed",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/liquidity_only/prepare_history_audit.py",
+      "source_sha256": "58d1b3dd58ae9cb70c4588a0a30c66d8125bf08cd34bda106313badd349a5cc5",
+      "published_path": "research_builders/work/liquidity_only/prepare_history_audit.py",
+      "published_sha256": "05ff120864632eb174ed6cda85416b6d5b724c879d56d04fd36f958e65b15ba0",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/expanded_poly_fullminute_candidate_dates.py",
+      "source_sha256": "aa6fb6080a03918e38837abba48f559a2719f86ad4ec5471ca34632fa8d70466",
+      "published_path": "research_builders/work/expanded_poly_fullminute_candidate_dates.py",
+      "published_sha256": "f055232ada09951975641e471d5065914f9828773fd57083e0b1a897446f1e71",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/expanded_kalshi_source_dates.py",
+      "source_sha256": "51470084e8cef34e42337b0ded8da3a357c9be02013d83707b6f2d26024c94f2",
+      "published_path": "research_builders/work/expanded_kalshi_source_dates.py",
+      "published_sha256": "910a6d5dea1cbfedf923cba0d885d69ff643ee3e496e446f42085d4bb66a1b41",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/expanded_kalshi_collect.py",
+      "source_sha256": "ed7b5b4282b2ea743c2a4059b4b9ef554e6022c9110aca6f99bfb40c108cbf97",
+      "published_path": "research_builders/work/expanded_kalshi_collect.py",
+      "published_sha256": "6df48a295d9c321674ce5bc7a81778d57fa4fbb10a2d5a886393689cca0b6d96",
+      "adaptation": "Private data roots replaced by required environment variables; source logic preserved. Stage into FOMC_RESEARCH_ROOT before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/time_edge_protocol.json",
+      "source_sha256": "3a97c6a5f6dd677d19e182e64872d0e278a62e4a78191869f9dcdfc19dcf3d44",
+      "published_path": "research_builders/work/time_edge_protocol.json",
+      "published_sha256": "3a97c6a5f6dd677d19e182e64872d0e278a62e4a78191869f9dcdfc19dcf3d44",
+      "adaptation": "Original dated protocol; input hashes intentionally retained and not relabeled as prospective preregistration."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "outputs/execution_parameter_protocol.json",
+      "source_sha256": "952e5bd4426d01f63bcb44f25d085c47d64155baf651477cb637a931eb00732e",
+      "published_path": "research_builders/outputs/execution_parameter_protocol.json",
+      "published_sha256": "952e5bd4426d01f63bcb44f25d085c47d64155baf651477cb637a931eb00732e",
+      "adaptation": "Original dated protocol; input hashes intentionally retained and not relabeled as prospective preregistration."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/kalshi_research_backfill.py",
+      "source_sha256": "1af049e7a23a987e5d1f4a1e3751be5ecb51f3340d7b3d4d70fff57363819eb4",
+      "published_path": "research_builders/work/kalshi_research_backfill.py",
+      "published_sha256": "f39337376f7a662c416b8f230db6032ff24a178cbbe53cec7115e9808d5f4301",
+      "adaptation": "Private data roots only; stage into external research workspace before running."
+    },
+    {
+      "source_repository": "local research extension",
+      "source_path": "work/build_kalshi_analysis_panel.py",
+      "source_sha256": "d4cb637a055a40f091d9334a70538423aa7e79b8e1670a4fcc0fb638b5f0cceb",
+      "published_path": "research_builders/work/build_kalshi_analysis_panel.py",
+      "published_sha256": "c0c541360501ed1e4b395f9c2678257cda5cc3409bd1b945833966a8563055cb",
+      "adaptation": "Private data roots only; stage into external research workspace before running."
+    },
+    {
+      "source_repository": "YichengYang-Ethan/fed-pricing-db",
+      "source_path": "scripts/databento_zq_pull.py",
+      "source_sha256": "37b5cad939b943ec5ec01425aafaf54262e54f6fcae8253d24c43486ae1e53cb",
+      "published_path": "scripts/databento_zq_pull.py",
+      "published_sha256": "c9e131ae4d27c561a4ca17d0cfeb8b09c25817b9a7e00f7649cc867eaf96b3cb",
+      "adaptation": "Retains settlement stat_type=3 filtering, latest global dedup and symbol parsing; replaces import-time purchase loop with quote-only CLI, explicit paid opt-in, lock-protected cumulative local 125% reserve ledger and resumable monthly caches. No automatic retry."
+    },
+    {
+      "source_repository": "publication adapter",
+      "source_path": null,
+      "source_sha256": null,
+      "published_path": "scripts/make_inventories.py",
+      "published_sha256": "61859f16928f506c54a7694b64fb29ab1b5321150f0a62d4b2a93987a923af39",
+      "adaptation": "New packaging/data-preparation or mocked-control validation, not new strategy logic."
+    },
+    {
+      "source_repository": "publication adapter",
+      "source_path": null,
+      "source_sha256": null,
+      "published_path": "scripts/pipeline_config.py",
+      "published_sha256": "9fb7475f3f382e55776d2aef401281be6be99e84408e76d7b22cf00bd113f80a",
+      "adaptation": "New packaging/data-preparation or mocked-control validation, not new strategy logic."
+    },
+    {
+      "source_repository": "publication adapter",
+      "source_path": null,
+      "source_sha256": null,
+      "published_path": "scripts/prepare_account_inputs.py",
+      "published_sha256": "74e76b85b4e8e5e05d0a1a5ab8892fcc2fea54dfde5f934e66feb8f2758c667e",
+      "adaptation": "New packaging/data-preparation or mocked-control validation, not new strategy logic."
+    },
+    {
+      "source_repository": "publication adapter",
+      "source_path": null,
+      "source_sha256": null,
+      "published_path": "scripts/stage_research_workspace.py",
+      "published_sha256": "0f12d9d6a11ca7765e55453fa15df3daf6d3e58dc7900d720a3b20924cb94d0f",
+      "adaptation": "New packaging/data-preparation or mocked-control validation, not new strategy logic."
+    },
+    {
+      "source_repository": "publication adapter",
+      "source_path": null,
+      "source_sha256": null,
+      "published_path": "tests/test_paid_gate.py",
+      "published_sha256": "779138d0a705a9ae01fffbe31a4f73a2171fdce68fad719a0a57dd71418525ee",
+      "adaptation": "New packaging/data-preparation or mocked-control validation, not new strategy logic."
+    }
+  ],
+  "private_data_copied": false,
+  "paid_calls_during_publication": 0,
+  "orders_during_publication": 0,
+  "validation": {
+    "compiled_python_files": 40,
+    "paid_gate_mock_tests_passed": 4,
+    "staged_source_and_config_files": 40,
+    "daily_marks_comparison": {
+      "rows": 7930,
+      "columns": 5,
+      "field_exact_match": true,
+      "raw_rows_published": false
+    }
+  }
+}

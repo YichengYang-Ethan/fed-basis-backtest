@@ -1,0 +1,4057 @@
+{
+  "description": "Column schemas only from the original private files; no market prices or rows included. Updated acquisitions may require explicit schema version adapters.",
+  "files": [
+    {
+      "root_variable": "FOMC_DATA_ROOT",
+      "relative_path": "raw/poly/markets.parquet",
+      "columns": [
+        {
+          "name": "venue",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "event_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "market_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "outcome",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "outcome_detail",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "mapping_note",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "ts",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "question",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "event_title",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "gamma_event_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "gamma_market_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "market_slug",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "condition_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "question_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "outcomes",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "token_ids",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "yes_token_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "no_token_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "start_date",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "gamma_start_date",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "gamma_end_date",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "closed_time",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "fomc_date",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "closed",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "event_closed",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "volume",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "gamma_volume",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "gamma_liquidity",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "enable_order_book",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "neg_risk",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "final_outcome_prices",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "uma_resolution_status",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "resolution_source",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "yes_token_id_n_rows",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "no_token_id_n_rows",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "has_prices",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "fetched_at",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "all_tokens_n_rows",
+          "type": "int64",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "root_variable": "FOMC_DATA_ROOT",
+      "relative_path": "raw/poly/prices.parquet",
+      "columns": [
+        {
+          "name": "venue",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "event_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "market_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "token_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "outcome",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "outcome_label",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "ts",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "p",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "fidelity",
+          "type": "int16",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "root_variable": "FOMC_DATA_ROOT",
+      "relative_path": "raw/kalshi/markets.parquet",
+      "columns": [
+        {
+          "name": "venue",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "event_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "market_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "outcome",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "ts",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "ticker",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "event_ticker",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "series_ticker",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "leg",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "expiration_value",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "market_type",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "strike_type",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "custom_strike",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "floor_strike",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "cap_strike",
+          "type": "null",
+          "nullable": true
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "result",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "created_time",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "open_time",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "close_time",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "expected_expiration_time",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "expiration_time",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "latest_expiration_time",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "settlement_ts",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "occurrence_datetime",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "settlement_value",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "settlement_timer_seconds",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "can_close_early",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "early_close_condition",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "rules_primary",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "rules_secondary",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "price_level_structure",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "tick_size",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "volume_fp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "volume_24h_fp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "open_interest_fp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "liquidity_dollars",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "last_price",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "yes_bid",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "yes_ask",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "fee_type",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "fee_multiplier",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "series_frequency",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "series_title",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "contract_terms_url",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "settlement_sources",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "snapshot_ts",
+          "type": "int64",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "root_variable": "FOMC_DATA_ROOT",
+      "relative_path": "raw/kalshi/candles.parquet",
+      "columns": [
+        {
+          "name": "venue",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "event_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "market_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "outcome",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "ts",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "interval",
+          "type": "int32",
+          "nullable": true
+        },
+        {
+          "name": "bid_close",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "ask_close",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "price_close",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "vol",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "oi",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "bid_open",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "bid_high",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "bid_low",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "ask_open",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "ask_high",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "ask_low",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "price_open",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "price_high",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "price_low",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "price_mean",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "price_previous",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "is_partial",
+          "type": "bool",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "root_variable": "FOMC_DATA_ROOT",
+      "relative_path": "raw/cme/databento/zq_outrights.parquet",
+      "columns": [
+        {
+          "name": "trade_date",
+          "type": "timestamp[ns]",
+          "nullable": true
+        },
+        {
+          "name": "symbol",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "dm",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "year",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "m",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "h",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "price",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "instrument_id",
+          "type": "uint32",
+          "nullable": true
+        },
+        {
+          "name": "ts_recv",
+          "type": "timestamp[ns, tz=UTC]",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "root_variable": "FOMC_DATA_ROOT",
+      "relative_path": "raw/cme/databento/zq_settlements.parquet",
+      "columns": [
+        {
+          "name": "trade_date",
+          "type": "date32[day]",
+          "nullable": true
+        },
+        {
+          "name": "symbol",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "price",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "stat_flags",
+          "type": "uint8",
+          "nullable": true
+        },
+        {
+          "name": "instrument_id",
+          "type": "uint32",
+          "nullable": true
+        },
+        {
+          "name": "ts_recv",
+          "type": "timestamp[ns, tz=UTC]",
+          "nullable": true
+        },
+        {
+          "name": "delivery_month",
+          "type": "string",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "root_variable": "FOMC_RESEARCH_ROOT",
+      "relative_path": "work/expanded_poly_market_metadata.parquet",
+      "columns": [
+        {
+          "name": "venue",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "event_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "market_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "outcome",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "outcome_detail",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "mapping_note",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "ts",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "question",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "event_title",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "gamma_event_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "gamma_market_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "market_slug",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "condition_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "question_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "outcomes",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "token_ids",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "yes_token_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "no_token_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "start_date",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "gamma_start_date",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "gamma_end_date",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "closed_time",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "meeting_date",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "closed",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "event_closed",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "volume",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "gamma_volume",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "gamma_liquidity",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "enable_order_book",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "neg_risk",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "final_outcome_prices",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "uma_resolution_status",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "resolution_source",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "yes_token_id_n_rows",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "no_token_id_n_rows",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "has_prices",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "fetched_at",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "all_tokens_n_rows",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "decision_utc",
+          "type": "timestamp[ns, tz=UTC]",
+          "nullable": true
+        },
+        {
+          "name": "decision_ts",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "raw_first_ts",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "raw_last_ts",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "raw_rows",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "predecision_first_ts",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "predecision_last_ts",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "predecision_rows",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "predecision_minute_rows",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "lifetime_start",
+          "type": "timestamp[ns, tz=UTC]",
+          "nullable": true
+        },
+        {
+          "name": "lifetime_end",
+          "type": "timestamp[ns, tz=UTC]",
+          "nullable": true
+        },
+        {
+          "name": "lifetime_start_source",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "lifetime_start_metadata_known",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "lifetime_end_source",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "bin_label",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "bin_kind",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "representative_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "tail_direction",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "rule_lower_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "rule_upper_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "lower_inclusive",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "upper_inclusive",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "rounded_to_25bp",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "rule_parse_source",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "rules_core_ambiguous",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "rules_wording_inconsistency",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "rule_notes",
+          "type": "list<element: string>",
+          "nullable": true
+        },
+        {
+          "name": "no_statement_resolution",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "resolution_evidence",
+          "type": "string",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "root_variable": "FOMC_RESEARCH_ROOT",
+      "relative_path": "work/expanded_poly_fullminute_event_panel.parquet",
+      "columns": [
+        {
+          "name": "anchor_utc",
+          "type": "timestamp[ns, tz=UTC]",
+          "nullable": true
+        },
+        {
+          "name": "anchor_ts",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "date_et",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "meeting_date",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "event_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "canonical_event_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "early_resolution_anomaly",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "historical_research_eligible",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "n_legs",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "n_tokens",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "ladder_signature",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "all_known_labels",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "has_catchall",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "has_open_tails",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "mutually_exclusive",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "exhaustive_on_25bp_grid",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "exhaustive_real_line_under_rule_reading",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "rules_core_ambiguous",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "rules_wording_inconsistency",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "rules_ambiguous",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "no_statement_resolution",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "lifetime_start_metadata_complete",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "days_to_meeting",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "price_kind",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "executable_edge_supported",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "anchor_interval_sec",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "n_valid_legs_60s",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "all_legs_fresh_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "sum_mid_observed_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "sum_mid_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "known_labels_weighted_move_bp_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "raw_weighted_move_bp_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "normalized_move_bp_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "tail_probability_signed_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "cut_tail_probability_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "hike_tail_probability_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "usable_label_convention_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "usable_strict_ladder_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "max_age_sec_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "n_half_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "n_hourly_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "n_constant_inplay_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "all_legs_minute_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "n_legs_gt1pct_60s",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "two_principal_strict_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "tail_probability_known_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "partial_ladder_usable_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "hold_mid_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "n_valid_legs_300s",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "all_legs_fresh_300s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "sum_mid_observed_300s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "sum_mid_300s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "known_labels_weighted_move_bp_300s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "raw_weighted_move_bp_300s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "normalized_move_bp_300s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "tail_probability_signed_300s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "cut_tail_probability_300s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "hike_tail_probability_300s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "usable_label_convention_300s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "usable_strict_ladder_300s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "max_age_sec_300s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "n_half_300s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "n_hourly_300s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "n_constant_inplay_300s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "all_legs_minute_300s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "n_legs_gt1pct_300s",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "two_principal_strict_300s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "tail_probability_known_300s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "partial_ladder_usable_300s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "hold_mid_300s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "hold_age_sec",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "hold_observed_ts",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "hold_token_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "hold_source_fidelity",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "hold_trail60_unique_p",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "hold_trail60_constant_inplay",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "tail_probability_unknown",
+          "type": "bool",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "root_variable": "FOMC_RESEARCH_ROOT",
+      "relative_path": "work/expanded_poly_fullminute_leg_panel.parquet",
+      "columns": [
+        {
+          "name": "anchor_utc",
+          "type": "timestamp[ns, tz=UTC]",
+          "nullable": true
+        },
+        {
+          "name": "anchor_ts",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "date_et",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "meeting_date",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "event_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "canonical_event_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "early_resolution_anomaly",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "historical_research_eligible",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "market_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "token_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "yes_token_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "no_token_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "bin_label",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "bin_kind",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "representative_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "tail_direction",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "rule_lower_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "rule_upper_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "lower_inclusive",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "upper_inclusive",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "lifetime_start",
+          "type": "timestamp[ns, tz=UTC]",
+          "nullable": true
+        },
+        {
+          "name": "lifetime_end",
+          "type": "timestamp[ns, tz=UTC]",
+          "nullable": true
+        },
+        {
+          "name": "lifetime_start_metadata_known",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "observed_ts",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "mid_raw",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "fidelity",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "valid_probability",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "trail60_n_obs",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "trail60_unique_p",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "trail60_n_changes",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "trail60_n_half",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "age_sec",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "in_lifetime",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "same_et_day",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "is_half",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "inplay_now",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "trail60_constant_inplay",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "source_resolution",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "no_observed_ts",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "no_mid_raw",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "no_fidelity",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "no_valid_probability",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "no_age_sec",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "usable_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "mid_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "drop_reason_60s",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "no_usable_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "no_mid_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "no_complement_proxy_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "usable_300s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "mid_300s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "drop_reason_300s",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "no_usable_300s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "no_mid_300s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "no_complement_proxy_300s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "contract_rule_unambiguous",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "contract_point_exact_on_25bp_grid",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "main_exact_25bp_contract",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "main_exact_25bp_usable_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "event_exhaustive_on_25bp_grid",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "single_contract_retained",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "event_nonexhaustive_on_25bp_grid",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "tail_probability_unknown",
+          "type": "bool",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "root_variable": "FOMC_RESEARCH_ROOT",
+      "relative_path": "work/expanded_poly_fullminute_principal_panel.parquet",
+      "columns": [
+        {
+          "name": "meeting_date",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "event_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "canonical_event_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "anchor_ts",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "date_et",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "days_to_meeting",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "lower_token_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "upper_token_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "lower_no_token_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "upper_no_token_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "lower_label",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "upper_label",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "d0_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "d1_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "gap_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "p_lower",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "p_upper",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "actual_no_lower_mid",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "actual_no_upper_mid",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "complement_no_lower_proxy",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "actual_no_lower_available",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "actual_no_lower_minus_complement_cents",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "lower_rule_unambiguous",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "upper_rule_unambiguous",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "main_states_exact_on_25bp_grid",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "both_principal_contracts_unambiguous",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "both_principal_are_HOLD_CUT25_HIKE25",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "observed_exactly_two_gt1pct",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "strict_complete_two_principal_gate",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "partial_or_ambiguous_ladder",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "all_other_states_below_or_equal_1pct_verified",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "unlisted_tail_probability_unknown",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "unobserved_or_rule_ambiguous_tail_probability_unknown",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "observed_nonprincipal_weight",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "n_valid_legs_60s",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "n_legs",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "all_legs_fresh_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "all_legs_minute_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "n_half_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "n_constant_inplay_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "max_age_sec_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "executable_price_claim",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "lower_yes_mid_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "lower_yes_age_sec",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "lower_yes_observed_ts",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "lower_yes_fidelity",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "lower_no_mid_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "lower_no_age_sec",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "lower_no_observed_ts",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "lower_no_fidelity",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "lower_yes_winner_if_known",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "lower_no_winner_if_known",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "lower_winner_source",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "upper_yes_mid_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "upper_yes_age_sec",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "upper_yes_observed_ts",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "upper_yes_fidelity",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "upper_no_mid_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "upper_no_age_sec",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "upper_no_observed_ts",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "upper_no_fidelity",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "upper_yes_winner_if_known",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "upper_no_winner_if_known",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "upper_winner_source",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "winner_fields_are_post_event_only",
+          "type": "bool",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "root_variable": "FOMC_RESEARCH_ROOT",
+      "relative_path": "work/expanded_cme_minute_panel.parquet",
+      "columns": [
+        {
+          "name": "meeting_date",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "instrument",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "anchor_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "anchor_utc",
+          "type": "timestamp[ns, tz=UTC]",
+          "nullable": true
+        },
+        {
+          "name": "anchor_ts",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "date_et",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "time_et",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "span_exact",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "digital_contracts_per_spread",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "leg_near",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "leg_far",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "selected_in_repository",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_symbol",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "near_present",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_source_job",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "near_source_file",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "near_ts_recv_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_ts_event_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_publisher_id",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_instrument_id",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_flags",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_sequence",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_ts_in_delta",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_depth",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_bid_px_00_nano",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_ask_px_00_nano",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_bid_sz_00",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_ask_sz_00",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_bid_ct_00",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_ask_ct_00",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_source_row",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_action",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "near_side",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "near_definition_ts_recv_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_definition_ts_event_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_expiration_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_activation_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_definition_conflict",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_security_update_action",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "near_legs_one_to_one",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_leg_mapping",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "near_display_factor_nano",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_min_price_increment_nano",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_status_ts_recv_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_status_ts_event_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_status_is_trading",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "near_status_is_quoting",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "near_status_action",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_status_reason",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_status_trading_event",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_status_is_trading_carry",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "near_status_nochange_carried",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_status_prior_explicit",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "near_status_prior_explicit_recv_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_age_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_event_age_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "near_event_after_anchor",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_bad_flags",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_bbo_two_sided",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_bbo_crossed",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_bbo_locked",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_book_basic",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_expired",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_definition_admits",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_status_strict_open",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_status_carry_open",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_age_le_1s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_age_le_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_age_le_300s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_bid",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "near_ask",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "near_mid",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "near_source_clocks_known",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_event_age_le_1s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_both_clocks_age_le_1s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_event_age_le_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_both_clocks_age_le_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_event_age_le_300s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "near_both_clocks_age_le_300s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_symbol",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "far_present",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_source_job",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "far_source_file",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "far_ts_recv_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_ts_event_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_publisher_id",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_instrument_id",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_flags",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_sequence",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_ts_in_delta",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_depth",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_bid_px_00_nano",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_ask_px_00_nano",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_bid_sz_00",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_ask_sz_00",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_bid_ct_00",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_ask_ct_00",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_source_row",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_action",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "far_side",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "far_definition_ts_recv_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_definition_ts_event_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_expiration_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_activation_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_definition_conflict",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_security_update_action",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "far_legs_one_to_one",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_leg_mapping",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "far_display_factor_nano",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_min_price_increment_nano",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_status_ts_recv_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_status_ts_event_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_status_is_trading",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "far_status_is_quoting",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "far_status_action",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_status_reason",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_status_trading_event",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_status_is_trading_carry",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "far_status_nochange_carried",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_status_prior_explicit",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "far_status_prior_explicit_recv_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_age_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_event_age_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "far_event_after_anchor",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_bad_flags",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_bbo_two_sided",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_bbo_crossed",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_bbo_locked",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_book_basic",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_expired",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_definition_admits",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_status_strict_open",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_status_carry_open",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_age_le_1s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_age_le_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_age_le_300s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_bid",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "far_ask",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "far_mid",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "far_source_clocks_known",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_event_age_le_1s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_both_clocks_age_le_1s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_event_age_le_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_both_clocks_age_le_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_event_age_le_300s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "far_both_clocks_age_le_300s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_symbol",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "listed_present",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_source_job",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "listed_source_file",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "listed_ts_recv_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_ts_event_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_publisher_id",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_instrument_id",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_flags",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_sequence",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_ts_in_delta",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_depth",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_bid_px_00_nano",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_ask_px_00_nano",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_bid_sz_00",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_ask_sz_00",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_bid_ct_00",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_ask_ct_00",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_source_row",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_action",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "listed_side",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "listed_definition_ts_recv_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_definition_ts_event_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_expiration_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_activation_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_definition_conflict",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_security_update_action",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "listed_legs_one_to_one",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_leg_mapping",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "listed_display_factor_nano",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_min_price_increment_nano",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_status_ts_recv_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_status_ts_event_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_status_is_trading",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "listed_status_is_quoting",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "listed_status_action",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_status_reason",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_status_trading_event",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_status_is_trading_carry",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "listed_status_nochange_carried",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_status_prior_explicit",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "listed_status_prior_explicit_recv_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_age_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_event_age_ns",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_event_after_anchor",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_bad_flags",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_bbo_two_sided",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_bbo_crossed",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_bbo_locked",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_book_basic",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_expired",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_definition_admits",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_status_strict_open",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_status_carry_open",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_age_le_1s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_age_le_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_age_le_300s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_bid",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "listed_ask",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "listed_mid",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "listed_source_clocks_known",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_event_age_le_1s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_both_clocks_age_le_1s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_event_age_le_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_both_clocks_age_le_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_event_age_le_300s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_both_clocks_age_le_300s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "package_definition_admits",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_definition_direction_one_to_one",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_book_basic",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_bid",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_ask",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_mid",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_bid_size",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_ask_size",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_bid_size",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "listed_ask_size",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "unit_definition_verified",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_bid_D_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_ask_D_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_mid_D_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_usable_strict",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_bid_one_spread_strict",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_ask_one_spread_strict",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_usable_carry",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_bid_one_spread_carry",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_ask_one_spread_carry",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_age_le_1s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_both_clocks_age_le_1s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_age_le_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_both_clocks_age_le_60s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_age_le_300s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "synthetic_both_clocks_age_le_300s",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_bid_D_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "listed_ask_D_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "listed_mid_D_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "listed_usable_strict",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_bid_one_spread_strict",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_ask_one_spread_strict",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_usable_carry",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_bid_one_spread_carry",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "listed_ask_one_spread_carry",
+          "type": "bool",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "root_variable": "FOMC_RESEARCH_ROOT",
+      "relative_path": "work/expanded_terminal_cash_reference.parquet",
+      "columns": [
+        {
+          "name": "meeting_date",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "instrument",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "leg_near",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "leg_far",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "span_exact",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "digital_contracts_per_spread",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "realized_change_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "regime",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "terminal_implied_change_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "cash_hedge_error_cents",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "terminal_months_complete",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "mean_near_pct",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "terminal_near_price",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "mean_far_pct",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "terminal_far_price",
+          "type": "double",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "root_variable": "FOMC_RESEARCH_ROOT",
+      "relative_path": "work/tail_thresholds/poly_binary_tau5_omit_only_nested.parquet",
+      "columns": [
+        {
+          "name": "meeting_date",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "anchor_ts",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "event_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "date_et",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "instrument",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "leg_near",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "leg_far",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "days_to_meeting",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "lower_token_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "upper_token_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "lower_no_token_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "upper_no_token_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "lower_label",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "upper_label",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "d0_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "d1_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "p_lower",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "p_upper",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "omitted_total",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "omitted_max",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "main_pair_mid_sum",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "in_next_meeting_window",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "previous_fomc_14et_ts",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "meeting_14et_ts",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "terminal_months_complete",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "raw_weighted_move_bp_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "sum_mid_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "threshold",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "mode",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "construction",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "cme_direction_sign",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "actual_buy_side",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "actual_outcome",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "actual_token_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "cme_route",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "N",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "quantity",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "quote_mid_actual",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "cme_entry_D_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "edge_cents",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "liveness_pass",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "model_payoff_correction_cents",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "actual_token_winner_ex_post",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "realized_inside_main_pair",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "cash_perN",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "prediction_cost_cents",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "funding_cents",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "binary_mid_equivalent_D_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "representative_grid_pricing_shift_cents",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "proxy_grid_basis_minus_same_costs_cents",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "pm100_grid_worst_net_cents",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "pm100_grid_worst_net_usd",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "persistence_key",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "row_id",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "model_pnl_cents",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "model_pnl_usd",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "stress_same_entry_pnl_cents",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "stress_same_entry_pnl_usd",
+          "type": "double",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "root_variable": "FOMC_RESEARCH_ROOT",
+      "relative_path": "work/capital100k/daily_marks_with_flags.parquet",
+      "columns": [
+        {
+          "name": "trade_date",
+          "type": "timestamp[ns]",
+          "nullable": true
+        },
+        {
+          "name": "dm",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "price",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "ts_recv",
+          "type": "timestamp[ns, tz=UTC]",
+          "nullable": true
+        },
+        {
+          "name": "stat_flags",
+          "type": "uint8",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "root_variable": "FOMC_RESEARCH_ROOT",
+      "relative_path": "work/capital100k/executions.parquet",
+      "columns": [
+        {
+          "name": "meeting_date",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "anchor_ts",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "event_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "date_et",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "instrument",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "leg_near",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "leg_far",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "previous_fomc_14et_ts",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "meeting_14et_ts",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "in_next_meeting_window",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "liveness_pass",
+          "type": "bool",
+          "nullable": true
+        },
+        {
+          "name": "persistence_key",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "edge_cents",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "N",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "quantity",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "cme_route",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "cme_direction_sign",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "actual_token_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "actual_buy_side",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "actual_outcome",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "quote_mid_actual",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "cme_entry_D_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "sum_mid_60s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "omitted_max",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "d0_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "d1_bp",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "cash_perN",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "execution_ts",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "execution_status",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "execution_et",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "pm_observed_ts",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "pm_age_sec",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "digital_price",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "cme_depth",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "span",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "entry_spread",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "initial_near_mark",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "initial_far_mark",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "near_symbol",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "far_symbol",
+          "type": "string",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "root_variable": "FOMC_RESEARCH_ROOT",
+      "relative_path": "work/capital100k/marks_prepared.parquet",
+      "columns": [
+        {
+          "name": "trade_date",
+          "type": "timestamp[ns]",
+          "nullable": true
+        },
+        {
+          "name": "dm",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "price",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "ts_recv",
+          "type": "timestamp[ns, tz=UTC]",
+          "nullable": true
+        },
+        {
+          "name": "stat_flags",
+          "type": "uint8",
+          "nullable": true
+        },
+        {
+          "name": "available_ts",
+          "type": "double",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "root_variable": "FOMC_RESEARCH_ROOT",
+      "relative_path": "work/liquidity_only/history_marks.parquet",
+      "columns": [
+        {
+          "name": "trade_date",
+          "type": "timestamp[ns]",
+          "nullable": true
+        },
+        {
+          "name": "dm",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "price",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "ts_recv",
+          "type": "timestamp[ns, tz=UTC]",
+          "nullable": true
+        },
+        {
+          "name": "stat_flags",
+          "type": "uint8",
+          "nullable": true
+        },
+        {
+          "name": "instrument_id",
+          "type": "uint32",
+          "nullable": true
+        },
+        {
+          "name": "available_ts",
+          "type": "double",
+          "nullable": true
+        }
+      ]
+    }
+  ]
+}

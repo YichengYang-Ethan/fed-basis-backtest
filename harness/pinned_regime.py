@@ -37,14 +37,16 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import os
 from pathlib import Path
 
 import duckdb
 import numpy as np
 import pandas as pd
 
-DB = Path.home() / "Developer/fed-pricing-db/fed.duckdb"
-ZQ = Path.home() / "Developer/fed-pricing-db/raw/cme/databento/zq_outrights.parquet"
+DATA_ROOT = Path(os.environ.get("FOMC_DATA_ROOT", Path(__file__).resolve().parents[1] / "local_data")).expanduser().resolve()
+DB = Path(os.environ.get("FED_PRICING_DB", DATA_ROOT / "fed.duckdb")).expanduser()
+ZQ = DATA_ROOT / "raw/cme/databento/zq_outrights.parquet"
 PINNED_END = "2025-08-31"          # last month EFFR held a single value all month
 CONTRACTS_PER_SPREAD = 1041.75     # 4167 * 0.25: binary contracts hedged by one ZQ spread at span 1
 

@@ -15,15 +15,17 @@ Usage:  python3 harness/build_public_data.py
 """
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 import duckdb
 import numpy as np
 import pandas as pd
 
-DB = Path.home() / "Developer/fed-pricing-db/fed.duckdb"
-ZQ_DBN = Path.home() / "Developer/fed-pricing-db/raw/cme/databento/zq_outrights.parquet"
-ZQ_IBKR = Path.home() / "Developer/fed-pricing-db/raw/cme/ibkr/zq_contracts_ibkr.parquet"
+DATA_ROOT = Path(os.environ.get("FOMC_DATA_ROOT", Path(__file__).resolve().parents[1] / "local_data")).expanduser().resolve()
+DB = Path(os.environ.get("FED_PRICING_DB", DATA_ROOT / "fed.duckdb")).expanduser()
+ZQ_DBN = DATA_ROOT / "raw/cme/databento/zq_outrights.parquet"
+ZQ_IBKR = Path(os.environ.get("FED_PRICING_IBKR_ZQ", DATA_ROOT / "raw/cme/ibkr/zq_contracts_ibkr.parquet")).expanduser()
 OUT = Path(__file__).resolve().parent.parent / "data"
 PINNED_END = "2025-08-31"
 ENTRY_DTD = 19            # the horizon the backtest actually enters at

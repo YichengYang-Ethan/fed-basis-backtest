@@ -1,19 +1,37 @@
 # Raw exchange data never enters this tree.
 #
-# Republishing CME settlement prices is REDISTRIBUTION under Databento's licence: it would
-# turn a non-professional subscriber into a redistributor and require a CME information
-# licence agreement plus fees. Kalshi's terms prohibit redistribution outright. Derived data
-# is permitted provided it cannot be reverse-engineered back to the feed, so data/ holds only
-# per-meeting summary tables (see data/README.md). Anything row-level stays out.
+# Keep licensed source feeds, private account material and local intermediates out.
+# Only deliberately selected public research outputs belong in this repository.
+# Exclusions are a publication boundary, not a blanket interpretation or grant of
+# redistribution rights; see docs/DATA_RIGHTS.md for scope and responsibilities.
 *.parquet
 *.duckdb
+*.dbn
+*.dbn.zst
+*.pkl
+*.pickle
+*.sqlite
+*.sqlite3
+*.zip
+*.tar
+*.zst
+*.gz
 *.jsonl
 *.jsonl.gz
 *.csv.gz
 data/raw/
 data/panel/
+local_data/
+raw/
+**/raw/
+**/private/
+**/.env
+**/.env.*
+*.pem
+*.key
 
 __pycache__/
 .venv/
 *.pyc
 .DS_Store
+.pytest_cache/

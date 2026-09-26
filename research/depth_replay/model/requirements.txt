@@ -1,0 +1,5 @@
+# No pip packages are needed for verify_results.py or payoff_model.py.
+# Optional dependencies ONLY for the raw-dependent inspection source rerun:
+numpy
+pandas
+pyarrow

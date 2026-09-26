@@ -1,3 +1,5 @@
+> Historical exploratory study, retained for provenance. This is not the current account replay. See the [current overview](../README.md), [version history](../CHANGELOG.md) and [limitations](../docs/LIMITATIONS.md) before citing its conclusions.
+
 # Measured Tracking Error of the ZQ Calendar-Spread Hedge
 
 **Author:** Yicheng Yang

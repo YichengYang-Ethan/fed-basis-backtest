@@ -64,13 +64,15 @@ import pandas as pd
 # a fixture copy; never overridden silently in library code.
 # --------------------------------------------------------------------------
 
-DB_PATH = Path(os.environ.get("FED_PRICING_DB", "/Users/ethanyang/Developer/fed-pricing-db/fed.duckdb"))
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DATA_ROOT = Path(os.environ.get("FOMC_DATA_ROOT", PROJECT_ROOT / "local_data")).expanduser().resolve()
+DB_PATH = Path(os.environ.get("FED_PRICING_DB", DATA_ROOT / "fed.duckdb")).expanduser()
 IBKR_ZQ_PARQUET = Path(
     os.environ.get(
         "FED_PRICING_IBKR_ZQ",
-        "/Users/ethanyang/Developer/fed-pricing-db/raw/cme/ibkr/zq_contracts_ibkr.parquet",
+        DATA_ROOT / "raw/cme/ibkr/zq_contracts_ibkr.parquet",
     )
-)
+).expanduser()
 
 UTC = dt.timezone.utc
 

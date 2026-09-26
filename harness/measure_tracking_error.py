@@ -21,12 +21,14 @@ from __future__ import annotations
 
 import datetime as dt
 import os
+from pathlib import Path
 import duckdb
 import numpy as np
 import pandas as pd
 
-DB = "/Users/ethanyang/Developer/fed-pricing-db/fed.duckdb"
-REPO = "/Users/ethanyang/Developer/github.com/YichengYang-Ethan/fed-basis-backtest"
+REPO = Path(__file__).resolve().parents[1]
+DATA_ROOT = Path(os.environ.get("FOMC_DATA_ROOT", REPO / "local_data")).expanduser().resolve()
+DB = str(Path(os.environ.get("FED_PRICING_DB", DATA_ROOT / "fed.duckdb")).expanduser())
 pd.set_option("display.width", 250)
 pd.set_option("display.max_columns", 60)
 pd.set_option("display.max_rows", 200)

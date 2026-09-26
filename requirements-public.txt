@@ -1,0 +1,5 @@
+# Optional: figure/PDF rendering and release-time PDF text extraction.
+# make verify itself uses only Python's standard library.
+matplotlib>=3.8,<4
+pypdf>=5,<7
+reportlab>=4,<5

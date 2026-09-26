@@ -1,0 +1,6 @@
+candidate_id,venue,source_row_1based,meeting_date,execution_ts,source_age_sec,collector_age_sec,book_valid,one_package_depth_complete,original_size_depth_complete,original_size_slippage_from_mid_cents
+PM-20251210,Polymarket,2,2025-12-10,1761761160,1.375,1.36607425,True,True,True,2.536888279036831
+PM-20260128,Polymarket,3,2026-01-28,1765479120,3.727,3.707056,True,True,True,1.6352985139631735
+PM-20260318,Polymarket,4,2026-03-18,1769786760,11.154,11.143765,True,True,True,0.5000000000000004
+PM-20260429,Polymarket,5,2026-04-29,1773930000,0.44,0.427703,True,True,True,0.5000000000000004
+PM-20260729,Polymarket,6,2026-07-29,1781719380,0.616,0.586676,True,True,True,2.920451282051284

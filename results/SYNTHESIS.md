@@ -1,3 +1,5 @@
+> Historical exploratory study, retained for provenance. This is not the current account replay. See the [current overview](../README.md), [version history](../CHANGELOG.md) and [limitations](../docs/LIMITATIONS.md) before citing its conclusions.
+
 # Synthesis: the hedge and the edge do not coexist
 
 This file combines the measured spread tracking error (`prereg/TRACKING_ERROR.md`) with the coarse

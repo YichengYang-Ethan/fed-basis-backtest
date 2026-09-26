@@ -1,0 +1,139 @@
+{
+  "all_checks_passed": true,
+  "scenarios": 12,
+  "trade_rows": 108,
+  "unique_filled_meetings": 9,
+  "candidate_count": 11,
+  "public_projection": true,
+  "cash_ledger_reconciliation_performed": false,
+  "raw_data_replay_performed": false,
+  "results": [
+    {
+      "run_id": "all_signals_asof__old_proxy__maintenance950",
+      "closed_trades": 9,
+      "aggregate_profit_from_rounded_trades_usd": 26399.41,
+      "terminal_cash_usd": 126399.4,
+      "account_return_pct": 26.399399999999986,
+      "calendar_cagr_pct": 9.496904192130295,
+      "median_full_funding_roi_pct": 3.20166,
+      "median_conditional_floor_roi_pct": 1.804338
+    },
+    {
+      "run_id": "all_signals_asof__book_replace_2c__maintenance950",
+      "closed_trades": 9,
+      "aggregate_profit_from_rounded_trades_usd": 26510.75,
+      "terminal_cash_usd": 126510.76,
+      "account_return_pct": 26.51075999999999,
+      "calendar_cagr_pct": 9.534252613210326,
+      "median_full_funding_roi_pct": 3.20166,
+      "median_conditional_floor_roi_pct": 1.927572
+    },
+    {
+      "run_id": "all_signals_asof__book_retain_2c__maintenance950",
+      "closed_trades": 9,
+      "aggregate_profit_from_rounded_trades_usd": 23765.82,
+      "terminal_cash_usd": 123765.82,
+      "account_return_pct": 23.765820000000005,
+      "calendar_cagr_pct": 8.60770013218286,
+      "median_full_funding_roi_pct": 3.20166,
+      "median_conditional_floor_roi_pct": 1.804338
+    },
+    {
+      "run_id": "all_signals_asof__old_proxy__maintenance904_reference",
+      "closed_trades": 9,
+      "aggregate_profit_from_rounded_trades_usd": 26936.01,
+      "terminal_cash_usd": 126936.0,
+      "account_return_pct": 26.936000000000003,
+      "calendar_cagr_pct": 9.676686496412934,
+      "median_full_funding_roi_pct": 3.302888,
+      "median_conditional_floor_roi_pct": 1.835586
+    },
+    {
+      "run_id": "all_signals_asof__book_replace_2c__maintenance904_reference",
+      "closed_trades": 9,
+      "aggregate_profit_from_rounded_trades_usd": 26953.8,
+      "terminal_cash_usd": 126953.82,
+      "account_return_pct": 26.953820000000018,
+      "calendar_cagr_pct": 9.682648907477676,
+      "median_full_funding_roi_pct": 3.302888,
+      "median_conditional_floor_roi_pct": 1.996356
+    },
+    {
+      "run_id": "all_signals_asof__book_retain_2c__maintenance904_reference",
+      "closed_trades": 9,
+      "aggregate_profit_from_rounded_trades_usd": 24299.23,
+      "terminal_cash_usd": 124299.24,
+      "account_return_pct": 24.29924000000001,
+      "calendar_cagr_pct": 8.788734096690142,
+      "median_full_funding_roi_pct": 3.302888,
+      "median_conditional_floor_roi_pct": 1.835586
+    },
+    {
+      "run_id": "completed_calendar_cohort__old_proxy__maintenance950",
+      "closed_trades": 9,
+      "aggregate_profit_from_rounded_trades_usd": 26399.41,
+      "terminal_cash_usd": 126399.4,
+      "account_return_pct": 26.399399999999986,
+      "calendar_cagr_pct": 9.32834974240393,
+      "median_full_funding_roi_pct": 3.20166,
+      "median_conditional_floor_roi_pct": 1.804338
+    },
+    {
+      "run_id": "completed_calendar_cohort__book_replace_2c__maintenance950",
+      "closed_trades": 9,
+      "aggregate_profit_from_rounded_trades_usd": 26510.75,
+      "terminal_cash_usd": 126510.76,
+      "account_return_pct": 26.51075999999999,
+      "calendar_cagr_pct": 9.365007360602817,
+      "median_full_funding_roi_pct": 3.20166,
+      "median_conditional_floor_roi_pct": 1.927572
+    },
+    {
+      "run_id": "completed_calendar_cohort__book_retain_2c__maintenance950",
+      "closed_trades": 9,
+      "aggregate_profit_from_rounded_trades_usd": 23765.82,
+      "terminal_cash_usd": 123765.82,
+      "account_return_pct": 23.765820000000005,
+      "calendar_cagr_pct": 8.45552968823522,
+      "median_full_funding_roi_pct": 3.20166,
+      "median_conditional_floor_roi_pct": 1.804338
+    },
+    {
+      "run_id": "completed_calendar_cohort__old_proxy__maintenance904_reference",
+      "closed_trades": 9,
+      "aggregate_profit_from_rounded_trades_usd": 26936.01,
+      "terminal_cash_usd": 126936.0,
+      "account_return_pct": 26.936000000000003,
+      "calendar_cagr_pct": 9.504804814501732,
+      "median_full_funding_roi_pct": 3.302888,
+      "median_conditional_floor_roi_pct": 1.835586
+    },
+    {
+      "run_id": "completed_calendar_cohort__book_replace_2c__maintenance904_reference",
+      "closed_trades": 9,
+      "aggregate_profit_from_rounded_trades_usd": 26953.8,
+      "terminal_cash_usd": 126953.82,
+      "account_return_pct": 26.953820000000018,
+      "calendar_cagr_pct": 9.510656795001271,
+      "median_full_funding_roi_pct": 3.302888,
+      "median_conditional_floor_roi_pct": 1.996356
+    },
+    {
+      "run_id": "completed_calendar_cohort__book_retain_2c__maintenance904_reference",
+      "closed_trades": 9,
+      "aggregate_profit_from_rounded_trades_usd": 24299.23,
+      "terminal_cash_usd": 124299.24,
+      "account_return_pct": 24.29924000000001,
+      "calendar_cagr_pct": 8.633237821386253,
+      "median_full_funding_roi_pct": 3.302888,
+      "median_conditional_floor_roi_pct": 1.835586
+    }
+  ],
+  "limitations": [
+    "Aggregated derived research outputs only; omitted feed components and per-leg ledgers cannot be verified here.",
+    "Twelve overlapping scenarios reuse nine meetings; no untouched out-of-sample result.",
+    "Public dollar and percentage rounding uses explicit tolerances; model decisions were not rerun or retuned.",
+    "Hypothetical historical fees and broker margins; selected five-book coverage; fills and intraday solvency unverified.",
+    "March 2024 original YES ladder sum is 128.5% and remains an explicit quality warning."
+  ]
+}

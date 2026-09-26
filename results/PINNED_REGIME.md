@@ -1,3 +1,5 @@
+> Historical exploratory study, retained for provenance. This is not the current account replay. See the [current overview](../README.md), [version history](../CHANGELOG.md) and [limitations](../docs/LIMITATIONS.md) before citing its conclusions.
+
 # The pinned regime: the answer to the question the tracking-error work left open
 
 `SYNTHESIS.md` ended on a bind. Every meeting we could test had a hedge we could not rely

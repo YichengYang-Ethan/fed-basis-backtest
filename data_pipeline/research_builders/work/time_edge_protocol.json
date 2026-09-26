@@ -1,0 +1,63 @@
+{
+  "name": "Economic time-window and edge-threshold diagnostic v1",
+  "status": "Written before this grid calculation, AFTER prior full-sample research. Not a historical preregistration or untouched out-of-sample test.",
+  "universe": "Existing full-rule, exact two adjacent 25bp point states, actual YES/NO, in-play trailing 20 observations/2 prices, data-valid CME; same economic combination may use contemporaneously best listed/synthetic route.",
+  "lead_day_windows": [
+    [
+      1,
+      7
+    ],
+    [
+      8,
+      21
+    ],
+    [
+      22,
+      60
+    ]
+  ],
+  "intraday_ET_windows": [
+    [
+      "10:00",
+      "12:00"
+    ],
+    [
+      "12:00",
+      "14:00"
+    ],
+    [
+      "14:00",
+      "15:00"
+    ]
+  ],
+  "net_edge_cents_thresholds": [
+    2,
+    4,
+    6
+  ],
+  "grid_size": 27,
+  "persistence": "3 exact consecutive minutes of SAME economic combination, same ET day, with all gates and edge >=threshold; independently monitor each combination BEFORE selecting the best contemporaneous qualified combination. At most first confirmed entry per meeting per rule.",
+  "primary_cost": "Current economic fee .05*C*p*(1-p), plus 1 cent per digital, $5 per CME spread, digital cash funding 5% annual to meeting+1 day. Historical executable Poly book and CME margin funding unknown.",
+  "stress_cost": "2 cents execution loss; evaluate the SAME selected entry, NO retiming or parameter reselection.",
+  "selection_features": "Only entry-time prices, known instrument/rules metadata, calendar/time, trailing liveness. Outcomes and terminal corrections excluded from candidate selector.",
+  "common_universe": "Meetings with at least one valid primary observation in days1..60 and hours10:00<=t<15:00. A rule that abstains because its window has no observed eligible quotes has zero policy cashflow, explicitly flagged no-observation; this is not evidence of no market opportunity.",
+  "walkforward_cut": "For each test meeting, meeting date minus60 calendar days at10:00ET. Freeze rule before any possible entry window. Use only prior common-universe meetings whose LATEST possible near/far terminal availability proxy across candidate instruments is earlier than this cut.",
+  "label_availability_proxy": "End of latest delivery month +7 calendar days at00:00ET, AND known digital resolution. Conservative proxy only, current FRED/rule vintage is not historic point-in-time evidence.",
+  "diagnostic_minimum": {
+    "mature_common_meetings": 6,
+    "training_trades": 3
+  },
+  "evidence_minimum": {
+    "mature_common_meetings": 8,
+    "training_trades": 5
+  },
+  "training_score": "mean cash PnL cents per equivalent digital over ALL common mature meetings including abstentions minus ONE sample standard error; require score>0 and every leave-one-meeting-out mean>0. Max score, deterministic tie-break by rule id. Not a confidence interval or multiple-testing correction.",
+  "reporting": "All27 cells including losses and abstentions; training vs sequential diagnostic; no-trade fallback; actual input and protocol hashes; sample size by meeting; cost stress at same entry; maximum t-statistic common-meeting sign-flip multiplicity stress, explicitly requiring symmetry and not a deployment test.",
+  "no_new_data_purchase": true,
+  "no_orders": true,
+  "recorded_at_utc": "2026-09-17T21:54:03.158179+00:00",
+  "input_sha256": {
+    "expanded_poly_binary_base.parquet": "11cc0b294c3e6ee71639d285e45c41037a1c54415b511c800932f767e89eaf41",
+    "expanded_terminal_cash_reference.parquet": "147253e459a896a8588b84c30511c2771005e44efd115c2f9bf8f6913fa5e7a4"
+  }
+}

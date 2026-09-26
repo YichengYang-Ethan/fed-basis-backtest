@@ -1,0 +1,538 @@
+{
+  "model": "Synthetic FOMC calendar-spread and binary-digital payoff model",
+  "units": {
+    "rates": "basis points",
+    "spread_entry_and_terminal": "basis points; divide by 100 for index-price points",
+    "cash": "USD",
+    "digital_face_value": "$1 per contract",
+    "position_sign": "+1 long, -1 short"
+  },
+  "default_25bp_hedge": "One spread lot requires 1041.75 * abs(target loading) digital contracts before integer rounding.",
+  "assumptions": [
+    "EFFR changes on the supplied effective date and by the stated decision amount.",
+    "Effective dates, delivery months, position sizes, premiums and costs are fixed inputs.",
+    "Digital settlement payouts outside the two assumed states are supplied explicitly, not inferred.",
+    "The terminal offset captures only a scenario supplied residual; it is not estimated.",
+    "Futures settle to the stated monthly average; both instruments are held to their respective settlements."
+  ],
+  "limitations": [
+    "Two-state matching is conditional; a bounded digital cannot hedge an unrestricted linear rate payoff.",
+    "No execution model, bid/ask depth, leg risk, margin, daily variation cash flows, collateral, funding or annualization.",
+    "A short digital may require collateral and may not be available at a particular venue.",
+    "Fees are a configurable scenario, not verified venue fee schedules; contract-specific rules are not modeled.",
+    "Exact rational internal arithmetic is converted to JSON numbers for display; scenario state coverage is not a probability model."
+  ],
+  "examples": [
+    {
+      "name": "matched_two_state",
+      "description": "A full calendar loading of 1 and four short spread lots require exactly 4,167 long upper-state digital contracts. The two specified states produce the same net payoff after the same explicit costs.",
+      "synthetic": true,
+      "calendar_loadings": {
+        "target": {
+          "effective_date": "2030-03-01",
+          "near_month_weight_exact": "0",
+          "far_month_weight_exact": "1",
+          "spread_loading_exact": "1",
+          "spread_loading": 1.0,
+          "futures_pnl_usd_per_1bp_change": -166.68
+        }
+      },
+      "positions": {
+        "futures_side": "short",
+        "futures_position_sign": -1,
+        "futures_lots": 4,
+        "multiplier_usd_per_index_point": 4167.0,
+        "entry_spread_bp": 10.0,
+        "entry_spread_index_points": 0.1,
+        "digital_side": "long",
+        "digital_position_sign": 1,
+        "digital_quantity": 4167,
+        "digital_premium_usd_per_contract": 0.35
+      },
+      "hedge_diagnostics": {
+        "theoretical_signed_digital_quantity_exact": "4167",
+        "theoretical_absolute_digital_quantity_exact": "4167",
+        "theoretical_absolute_digital_quantity": 4167.0,
+        "integer_rounding_difference_contracts": 0.0,
+        "direction_matches_two_state_hedge": true,
+        "upper_minus_lower_net_pnl_usd": 0.0,
+        "exact_two_state_endpoint_cancellation": true,
+        "independently_varying_other_decisions_cancel": true,
+        "uncancelled_other_decisions": [],
+        "cancellation_condition": "Target endpoint residual must be zero; every independently varying other decision must have zero loading or its own hedge; terminal offset must be fixed."
+      },
+      "scenarios": [
+        {
+          "name": "No change",
+          "decision_changes_bp": {
+            "target": 0.0
+          },
+          "digital_payout_usd_per_contract": 0.0,
+          "terminal_offset_bp": 0.0,
+          "terminal_spread_bp": 0.0,
+          "terminal_spread_index_points": 0.0,
+          "outside_assumed_two_state_support": false,
+          "futures_pnl_usd": 1666.8,
+          "digital_premium_cash_flow_usd": -1458.45,
+          "digital_settlement_cash_flow_usd": 0.0,
+          "digital_fee_cost_usd": 2.0,
+          "futures_explicit_cost_usd": 8.0,
+          "net_pnl_usd": 198.35
+        },
+        {
+          "name": "Increase of 25 bp",
+          "decision_changes_bp": {
+            "target": 25.0
+          },
+          "digital_payout_usd_per_contract": 1.0,
+          "terminal_offset_bp": 0.0,
+          "terminal_spread_bp": 25.0,
+          "terminal_spread_index_points": 0.25,
+          "outside_assumed_two_state_support": false,
+          "futures_pnl_usd": -2500.2,
+          "digital_premium_cash_flow_usd": -1458.45,
+          "digital_settlement_cash_flow_usd": 4167.0,
+          "digital_fee_cost_usd": 2.0,
+          "futures_explicit_cost_usd": 8.0,
+          "net_pnl_usd": 198.35
+        }
+      ]
+    },
+    {
+      "name": "integer_rounding",
+      "description": "One short spread lot requires 1,041.75 long digitals. Rounding to 1,042 leaves a $0.25 upper-minus-lower endpoint residual. The fee example explicitly applies a quadratic coefficient and rounds its total upward to cents.",
+      "synthetic": true,
+      "calendar_loadings": {
+        "target": {
+          "effective_date": "2030-03-01",
+          "near_month_weight_exact": "0",
+          "far_month_weight_exact": "1",
+          "spread_loading_exact": "1",
+          "spread_loading": 1.0,
+          "futures_pnl_usd_per_1bp_change": -41.67
+        }
+      },
+      "positions": {
+        "futures_side": "short",
+        "futures_position_sign": -1,
+        "futures_lots": 1,
+        "multiplier_usd_per_index_point": 4167.0,
+        "entry_spread_bp": 10.0,
+        "entry_spread_index_points": 0.1,
+        "digital_side": "long",
+        "digital_position_sign": 1,
+        "digital_quantity": 1042,
+        "digital_premium_usd_per_contract": 0.35
+      },
+      "hedge_diagnostics": {
+        "theoretical_signed_digital_quantity_exact": "4167/4",
+        "theoretical_absolute_digital_quantity_exact": "4167/4",
+        "theoretical_absolute_digital_quantity": 1041.75,
+        "integer_rounding_difference_contracts": 0.25,
+        "direction_matches_two_state_hedge": true,
+        "upper_minus_lower_net_pnl_usd": 0.25,
+        "exact_two_state_endpoint_cancellation": false,
+        "independently_varying_other_decisions_cancel": true,
+        "uncancelled_other_decisions": [],
+        "cancellation_condition": "Target endpoint residual must be zero; every independently varying other decision must have zero loading or its own hedge; terminal offset must be fixed."
+      },
+      "scenarios": [
+        {
+          "name": "No change",
+          "decision_changes_bp": {
+            "target": 0.0
+          },
+          "digital_payout_usd_per_contract": 0.0,
+          "terminal_offset_bp": 0.0,
+          "terminal_spread_bp": 0.0,
+          "terminal_spread_index_points": 0.0,
+          "outside_assumed_two_state_support": false,
+          "futures_pnl_usd": 416.7,
+          "digital_premium_cash_flow_usd": -364.7,
+          "digital_settlement_cash_flow_usd": 0.0,
+          "digital_fee_cost_usd": 11.86,
+          "futures_explicit_cost_usd": 2.0,
+          "net_pnl_usd": 38.14
+        },
+        {
+          "name": "Increase of 25 bp",
+          "decision_changes_bp": {
+            "target": 25.0
+          },
+          "digital_payout_usd_per_contract": 1.0,
+          "terminal_offset_bp": 0.0,
+          "terminal_spread_bp": 25.0,
+          "terminal_spread_index_points": 0.25,
+          "outside_assumed_two_state_support": false,
+          "futures_pnl_usd": -625.05,
+          "digital_premium_cash_flow_usd": -364.7,
+          "digital_settlement_cash_flow_usd": 1042.0,
+          "digital_fee_cost_usd": 11.86,
+          "futures_explicit_cost_usd": 2.0,
+          "net_pnl_usd": 38.39
+        }
+      ]
+    },
+    {
+      "name": "unhedged_tail",
+      "description": "The same exact two-state hedge is exposed to an increase of 50 bp. This synthetic upper-bucket digital still pays only $1 at 50 bp; it cannot offset the extra linear futures loss. The tail payout is an explicit input, not an assumption about a real contract.",
+      "synthetic": true,
+      "calendar_loadings": {
+        "target": {
+          "effective_date": "2030-03-01",
+          "near_month_weight_exact": "0",
+          "far_month_weight_exact": "1",
+          "spread_loading_exact": "1",
+          "spread_loading": 1.0,
+          "futures_pnl_usd_per_1bp_change": -166.68
+        }
+      },
+      "positions": {
+        "futures_side": "short",
+        "futures_position_sign": -1,
+        "futures_lots": 4,
+        "multiplier_usd_per_index_point": 4167.0,
+        "entry_spread_bp": 10.0,
+        "entry_spread_index_points": 0.1,
+        "digital_side": "long",
+        "digital_position_sign": 1,
+        "digital_quantity": 4167,
+        "digital_premium_usd_per_contract": 0.35
+      },
+      "hedge_diagnostics": {
+        "theoretical_signed_digital_quantity_exact": "4167",
+        "theoretical_absolute_digital_quantity_exact": "4167",
+        "theoretical_absolute_digital_quantity": 4167.0,
+        "integer_rounding_difference_contracts": 0.0,
+        "direction_matches_two_state_hedge": true,
+        "upper_minus_lower_net_pnl_usd": 0.0,
+        "exact_two_state_endpoint_cancellation": true,
+        "independently_varying_other_decisions_cancel": true,
+        "uncancelled_other_decisions": [],
+        "cancellation_condition": "Target endpoint residual must be zero; every independently varying other decision must have zero loading or its own hedge; terminal offset must be fixed."
+      },
+      "scenarios": [
+        {
+          "name": "No change",
+          "decision_changes_bp": {
+            "target": 0.0
+          },
+          "digital_payout_usd_per_contract": 0.0,
+          "terminal_offset_bp": 0.0,
+          "terminal_spread_bp": 0.0,
+          "terminal_spread_index_points": 0.0,
+          "outside_assumed_two_state_support": false,
+          "futures_pnl_usd": 1666.8,
+          "digital_premium_cash_flow_usd": -1458.45,
+          "digital_settlement_cash_flow_usd": 0.0,
+          "digital_fee_cost_usd": 2.0,
+          "futures_explicit_cost_usd": 8.0,
+          "net_pnl_usd": 198.35
+        },
+        {
+          "name": "Increase of 25 bp",
+          "decision_changes_bp": {
+            "target": 25.0
+          },
+          "digital_payout_usd_per_contract": 1.0,
+          "terminal_offset_bp": 0.0,
+          "terminal_spread_bp": 25.0,
+          "terminal_spread_index_points": 0.25,
+          "outside_assumed_two_state_support": false,
+          "futures_pnl_usd": -2500.2,
+          "digital_premium_cash_flow_usd": -1458.45,
+          "digital_settlement_cash_flow_usd": 4167.0,
+          "digital_fee_cost_usd": 2.0,
+          "futures_explicit_cost_usd": 8.0,
+          "net_pnl_usd": 198.35
+        },
+        {
+          "name": "Tail: increase of 50 bp",
+          "decision_changes_bp": {
+            "target": 50.0
+          },
+          "digital_payout_usd_per_contract": 1.0,
+          "terminal_offset_bp": 0.0,
+          "terminal_spread_bp": 50.0,
+          "terminal_spread_index_points": 0.5,
+          "outside_assumed_two_state_support": true,
+          "futures_pnl_usd": -6667.2,
+          "digital_premium_cash_flow_usd": -1458.45,
+          "digital_settlement_cash_flow_usd": 4167.0,
+          "digital_fee_cost_usd": 2.0,
+          "futures_explicit_cost_usd": 8.0,
+          "net_pnl_usd": -3968.65
+        }
+      ]
+    },
+    {
+      "name": "other_decisions_cancelled",
+      "description": "The target effective on April 16 has loading 1/2 in April-minus-May. A prior March decision affects both delivery months equally; a June decision affects neither. Eight short spread lots therefore require exactly 4,167 long digitals, and changing the other decisions does not change the package payoff.",
+      "synthetic": true,
+      "calendar_loadings": {
+        "prior": {
+          "effective_date": "2030-03-01",
+          "near_month_weight_exact": "1",
+          "far_month_weight_exact": "1",
+          "spread_loading_exact": "0",
+          "spread_loading": 0.0,
+          "futures_pnl_usd_per_1bp_change": 0.0
+        },
+        "target": {
+          "effective_date": "2030-04-16",
+          "near_month_weight_exact": "1/2",
+          "far_month_weight_exact": "1",
+          "spread_loading_exact": "1/2",
+          "spread_loading": 0.5,
+          "futures_pnl_usd_per_1bp_change": -166.68
+        },
+        "later": {
+          "effective_date": "2030-06-01",
+          "near_month_weight_exact": "0",
+          "far_month_weight_exact": "0",
+          "spread_loading_exact": "0",
+          "spread_loading": 0.0,
+          "futures_pnl_usd_per_1bp_change": 0.0
+        }
+      },
+      "positions": {
+        "futures_side": "short",
+        "futures_position_sign": -1,
+        "futures_lots": 8,
+        "multiplier_usd_per_index_point": 4167.0,
+        "entry_spread_bp": 5.0,
+        "entry_spread_index_points": 0.05,
+        "digital_side": "long",
+        "digital_position_sign": 1,
+        "digital_quantity": 4167,
+        "digital_premium_usd_per_contract": 0.35
+      },
+      "hedge_diagnostics": {
+        "theoretical_signed_digital_quantity_exact": "4167",
+        "theoretical_absolute_digital_quantity_exact": "4167",
+        "theoretical_absolute_digital_quantity": 4167.0,
+        "integer_rounding_difference_contracts": 0.0,
+        "direction_matches_two_state_hedge": true,
+        "upper_minus_lower_net_pnl_usd": 0.0,
+        "exact_two_state_endpoint_cancellation": true,
+        "independently_varying_other_decisions_cancel": true,
+        "uncancelled_other_decisions": [],
+        "cancellation_condition": "Target endpoint residual must be zero; every independently varying other decision must have zero loading or its own hedge; terminal offset must be fixed."
+      },
+      "scenarios": [
+        {
+          "name": "Target lower state; other changes zero",
+          "decision_changes_bp": {
+            "prior": 0.0,
+            "target": 0.0,
+            "later": 0.0
+          },
+          "digital_payout_usd_per_contract": 0.0,
+          "terminal_offset_bp": 0.0,
+          "terminal_spread_bp": 0.0,
+          "terminal_spread_index_points": 0.0,
+          "outside_assumed_two_state_support": false,
+          "futures_pnl_usd": 1666.8,
+          "digital_premium_cash_flow_usd": -1458.45,
+          "digital_settlement_cash_flow_usd": 0.0,
+          "digital_fee_cost_usd": 2.0,
+          "futures_explicit_cost_usd": 16.0,
+          "net_pnl_usd": 190.35
+        },
+        {
+          "name": "Target upper state; other changes zero",
+          "decision_changes_bp": {
+            "prior": 0.0,
+            "target": 25.0,
+            "later": 0.0
+          },
+          "digital_payout_usd_per_contract": 1.0,
+          "terminal_offset_bp": 0.0,
+          "terminal_spread_bp": 12.5,
+          "terminal_spread_index_points": 0.125,
+          "outside_assumed_two_state_support": false,
+          "futures_pnl_usd": -2500.2,
+          "digital_premium_cash_flow_usd": -1458.45,
+          "digital_settlement_cash_flow_usd": 4167.0,
+          "digital_fee_cost_usd": 2.0,
+          "futures_explicit_cost_usd": 16.0,
+          "net_pnl_usd": 190.35
+        },
+        {
+          "name": "Prior change affects both months",
+          "decision_changes_bp": {
+            "prior": 50.0,
+            "target": 0.0,
+            "later": 0.0
+          },
+          "digital_payout_usd_per_contract": 0.0,
+          "terminal_offset_bp": 0.0,
+          "terminal_spread_bp": 0.0,
+          "terminal_spread_index_points": 0.0,
+          "outside_assumed_two_state_support": false,
+          "futures_pnl_usd": 1666.8,
+          "digital_premium_cash_flow_usd": -1458.45,
+          "digital_settlement_cash_flow_usd": 0.0,
+          "digital_fee_cost_usd": 2.0,
+          "futures_explicit_cost_usd": 16.0,
+          "net_pnl_usd": 190.35
+        },
+        {
+          "name": "Later change affects neither month",
+          "decision_changes_bp": {
+            "prior": 0.0,
+            "target": 0.0,
+            "later": -25.0
+          },
+          "digital_payout_usd_per_contract": 0.0,
+          "terminal_offset_bp": 0.0,
+          "terminal_spread_bp": 0.0,
+          "terminal_spread_index_points": 0.0,
+          "outside_assumed_two_state_support": false,
+          "futures_pnl_usd": 1666.8,
+          "digital_premium_cash_flow_usd": -1458.45,
+          "digital_settlement_cash_flow_usd": 0.0,
+          "digital_fee_cost_usd": 2.0,
+          "futures_explicit_cost_usd": 16.0,
+          "net_pnl_usd": 190.35
+        }
+      ]
+    },
+    {
+      "name": "other_decision_uncancelled",
+      "description": "An additional decision effective May 16 affects the far month but not the near month, leaving loading 16/31. The target two-state endpoints still match while the other decision is fixed, but this digital alone cannot hedge the independently varying other decision.",
+      "synthetic": true,
+      "calendar_loadings": {
+        "target": {
+          "effective_date": "2030-04-16",
+          "near_month_weight_exact": "1/2",
+          "far_month_weight_exact": "1",
+          "spread_loading_exact": "1/2",
+          "spread_loading": 0.5,
+          "futures_pnl_usd_per_1bp_change": -166.68
+        },
+        "other": {
+          "effective_date": "2030-05-16",
+          "near_month_weight_exact": "0",
+          "far_month_weight_exact": "16/31",
+          "spread_loading_exact": "16/31",
+          "spread_loading": 0.5161290322580645,
+          "futures_pnl_usd_per_1bp_change": -172.0567741935484
+        }
+      },
+      "positions": {
+        "futures_side": "short",
+        "futures_position_sign": -1,
+        "futures_lots": 8,
+        "multiplier_usd_per_index_point": 4167.0,
+        "entry_spread_bp": 5.0,
+        "entry_spread_index_points": 0.05,
+        "digital_side": "long",
+        "digital_position_sign": 1,
+        "digital_quantity": 4167,
+        "digital_premium_usd_per_contract": 0.35
+      },
+      "hedge_diagnostics": {
+        "theoretical_signed_digital_quantity_exact": "4167",
+        "theoretical_absolute_digital_quantity_exact": "4167",
+        "theoretical_absolute_digital_quantity": 4167.0,
+        "integer_rounding_difference_contracts": 0.0,
+        "direction_matches_two_state_hedge": true,
+        "upper_minus_lower_net_pnl_usd": 0.0,
+        "exact_two_state_endpoint_cancellation": true,
+        "independently_varying_other_decisions_cancel": false,
+        "uncancelled_other_decisions": [
+          "other"
+        ],
+        "cancellation_condition": "Target endpoint residual must be zero; every independently varying other decision must have zero loading or its own hedge; terminal offset must be fixed."
+      },
+      "scenarios": [
+        {
+          "name": "Target lower; other fixed at zero",
+          "decision_changes_bp": {
+            "target": 0.0,
+            "other": 0.0
+          },
+          "digital_payout_usd_per_contract": 0.0,
+          "terminal_offset_bp": 0.0,
+          "terminal_spread_bp": 0.0,
+          "terminal_spread_index_points": 0.0,
+          "outside_assumed_two_state_support": false,
+          "futures_pnl_usd": 1666.8,
+          "digital_premium_cash_flow_usd": -1458.45,
+          "digital_settlement_cash_flow_usd": 0.0,
+          "digital_fee_cost_usd": 2.0,
+          "futures_explicit_cost_usd": 16.0,
+          "net_pnl_usd": 190.35
+        },
+        {
+          "name": "Target upper; other fixed at zero",
+          "decision_changes_bp": {
+            "target": 25.0,
+            "other": 0.0
+          },
+          "digital_payout_usd_per_contract": 1.0,
+          "terminal_offset_bp": 0.0,
+          "terminal_spread_bp": 12.5,
+          "terminal_spread_index_points": 0.125,
+          "outside_assumed_two_state_support": false,
+          "futures_pnl_usd": -2500.2,
+          "digital_premium_cash_flow_usd": -1458.45,
+          "digital_settlement_cash_flow_usd": 4167.0,
+          "digital_fee_cost_usd": 2.0,
+          "futures_explicit_cost_usd": 16.0,
+          "net_pnl_usd": 190.35
+        },
+        {
+          "name": "Other decision increases by 25 bp",
+          "decision_changes_bp": {
+            "target": 0.0,
+            "other": 25.0
+          },
+          "digital_payout_usd_per_contract": 0.0,
+          "terminal_offset_bp": 0.0,
+          "terminal_spread_bp": 12.903225806451612,
+          "terminal_spread_index_points": 0.12903225806451613,
+          "outside_assumed_two_state_support": false,
+          "futures_pnl_usd": -2634.6193548387096,
+          "digital_premium_cash_flow_usd": -1458.45,
+          "digital_settlement_cash_flow_usd": 0.0,
+          "digital_fee_cost_usd": 2.0,
+          "futures_explicit_cost_usd": 16.0,
+          "net_pnl_usd": -4111.06935483871
+        },
+        {
+          "name": "Other decision decreases by 25 bp",
+          "decision_changes_bp": {
+            "target": 0.0,
+            "other": -25.0
+          },
+          "digital_payout_usd_per_contract": 0.0,
+          "terminal_offset_bp": 0.0,
+          "terminal_spread_bp": -12.903225806451612,
+          "terminal_spread_index_points": -0.12903225806451613,
+          "outside_assumed_two_state_support": false,
+          "futures_pnl_usd": 5968.2193548387095,
+          "digital_premium_cash_flow_usd": -1458.45,
+          "digital_settlement_cash_flow_usd": 0.0,
+          "digital_fee_cost_usd": 2.0,
+          "futures_explicit_cost_usd": 16.0,
+          "net_pnl_usd": 4491.76935483871
+        }
+      ]
+    }
+  ],
+  "self_test": {
+    "passed": true,
+    "coverage": [
+      "calendar day counts and leap day",
+      "near-minus-far signs and units",
+      "other-decision cancellation and contamination",
+      "two-state endpoint equality",
+      "bounded digital tail mismatch",
+      "integer rounding residual",
+      "reversed sides with explicit costs",
+      "configurable fee and explicit cent rounding"
+    ]
+  }
+}

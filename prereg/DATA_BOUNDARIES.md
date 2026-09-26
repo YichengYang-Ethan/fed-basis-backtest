@@ -1,3 +1,5 @@
+> Historical September 17 inventory. Some coverage, fee, quote availability and strategy claims below are superseded by the current [data catalog](../docs/DATA_CATALOG.md) and [limitations](../docs/LIMITATIONS.md). Paths are shown as configurable placeholders.
+
 # Data Boundaries
 
 **Companion to `PREREGISTRATION.md`, which was never frozen at a tag. See its status header.**
@@ -20,11 +22,11 @@ pre-registration, and derived aggregate results are committed.
 
 | Source | Path | Size / rows |
 |---|---|---|
-| Main database (DuckDB) | `/Users/ethanyang/Developer/fed-pricing-db/fed.duckdb` | 105,132,032 bytes |
-| IBKR per-contract ZQ | `/Users/ethanyang/Developer/fed-pricing-db/raw/cme/ibkr/zq_contracts_ibkr.parquet` | 135,514 bytes, 8,777 rows |
-| IBKR pull report | `/Users/ethanyang/Developer/fed-pricing-db/raw/cme/ibkr/pull_report.json` | 18 contracts |
-| Build report | `/Users/ethanyang/Developer/fed-pricing-db/build_report.json` | n/a |
-| DB README / tests | `/Users/ethanyang/Developer/fed-pricing-db/README.md`, `TESTS.md` | n/a |
+| Main database (DuckDB) | `${FOMC_DATA_ROOT}/fed.duckdb` | 105,132,032 bytes |
+| IBKR per-contract ZQ | `${FOMC_DATA_ROOT}/raw/cme/ibkr/zq_contracts_ibkr.parquet` | 135,514 bytes, 8,777 rows |
+| IBKR pull report | `${FOMC_DATA_ROOT}/raw/cme/ibkr/pull_report.json` | 18 contracts |
+| Build report | `${FOMC_DATA_ROOT}/build_report.json` | n/a |
+| DB README / tests | `${FOMC_DATA_ROOT}/README.md`, `TESTS.md` | n/a |
 
 ---
 

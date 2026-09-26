@@ -1,0 +1,107 @@
+{
+  "frozen_before_new_results_utc": "2026-09-18T20:15:18.381321+00:00",
+  "initial_cash_usd": 100000,
+  "hypothetical_margin_sensitivity_only": true,
+  "hypotheses": "Three predefined hypothetical complete paired-margin levels; not estimates of historical SPAN or account house margins. No best-return parameter selection.",
+  "signal_policy": "Original T5_E4_P3 first signal, original +60s quotes/route/token/direction/quantity, no retrials or winner filtering. Frozen existing execution file.",
+  "fee_policy": "Inherited 0.05*Q*p*(1-p)+0.02*Q+5USD per package, with +2c stress only where declared. Historical fee/invoice accuracy not newly certified.",
+  "margin_model": "Exact-month net quantities first. Maximum cardinality pairing only across actually adjacent calendar months with opposite signs; uniform pair charges. Unpaired contracts1100 initial/950 maintenance. No non-adjacent or butterfly credit. At every expiry stage recalculate pairing. Not SPAN.",
+  "VM_policy": "Inherited causal60 common observations, all1..5 interval cumulative paths and all single-expiry stage transitions; future PM payout has zero credit. Full integer quantities0..CME visible locked-side depth enumerated. Not full-holding worst-loss guarantee.",
+  "books": [
+    {
+      "name": "all_signals_asof",
+      "meeting_calendar_max": null,
+      "cutoff_et": "2026-09-01T17:00:00-04:00",
+      "purpose": "All original candidates. Pending retained. PM event-time midpoint <=cutoff age<=60s supplementary NAV; no future payout or final outcomes used. Not realized final return."
+    },
+    {
+      "name": "completed_calendar_cohort",
+      "meeting_calendar_max": "2026-07-31",
+      "cutoff_et": "2026-09-17T23:59:59-04:00",
+      "purpose": "Calendar-scoped fully covered delivery cohort, includes all original candidates in scope including skips. ExcludesSep meeting even though its signal occurredJul29; not original whole-account policy."
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "control_old_clock",
+      "pair_initial": 2200,
+      "pair_maintenance": 1900,
+      "clock": "old_plus7",
+      "extra_cents": 0
+    },
+    {
+      "name": "clock_only",
+      "pair_initial": 2200,
+      "pair_maintenance": 1900,
+      "clock": "next_business",
+      "extra_cents": 0
+    },
+    {
+      "name": "credit_550_500",
+      "pair_initial": 550,
+      "pair_maintenance": 500,
+      "clock": "next_business",
+      "extra_cents": 0
+    },
+    {
+      "name": "credit_330_300",
+      "pair_initial": 330,
+      "pair_maintenance": 300,
+      "clock": "next_business",
+      "extra_cents": 0
+    },
+    {
+      "name": "credit_220_200",
+      "pair_initial": 220,
+      "pair_maintenance": 200,
+      "clock": "next_business",
+      "extra_cents": 0
+    },
+    {
+      "name": "credit_330_300_plus2c",
+      "pair_initial": 330,
+      "pair_maintenance": 300,
+      "clock": "next_business",
+      "extra_cents": 2
+    }
+  ],
+  "primary_no_lookahead_checks": [
+    "future winner poisoning cannot change entry quantities",
+    "truncated history after decision cannot change sizing",
+    "source clocks strictly before sizing",
+    "all larger integer quantities infeasible or nonpositive quoted floor",
+    "original no-credit full-cohort control reproduces prior trades and profits",
+    "terminal prices enter only at scheduled final events",
+    "Sept winner notcredited beforecutoff"
+  ],
+  "limits": [
+    "No untouchedOOS",
+    "No historical PM executable size; conditional fills",
+    "No intraday broker solvency certificate",
+    "Actual historical margins unavailable",
+    "Original accounting corrections do not prove trading edge"
+  ],
+  "input_sha256": {
+    "work/portfolio_capital/backtest.py": "fa14613d32203ae6240ca658fc9436cce960092f150377372827dd72ba06c48b",
+    "work/portfolio_capital/risk_model.py": "a9703559ef66869b13b2c5c4c0a3a63b1da49b08bae266c5cb7e939af4ca6ad1",
+    "work/capital100k/backtest.py": "49e57e321894ce7e3072db9d11d18769b4b9cbcaa7ffde6638d3bba8d92deec3",
+    "work/capital100k/executions.parquet": "2db536f2ac09d3e48f84415435d6f2eeb52874ac701e1f89e0d2642f1b02ec2c",
+    "work/capital100k/marks_prepared.parquet": "63aedf5e60e55c56eee0a616743b3d232cb62941e492bb4bfe536986c133c521",
+    "work/capital100k/evaluation.json": "50910d9a9136544c72f42d92aa9fce0baf95d8e799efa13d937884b257cfdf8d",
+    "work/liquidity_only/history_marks.parquet": "cbc6d471e4c690bb1536363bdeba23c02cfc9c7ff3e572b9e3ce3325bc81b252",
+    "outputs/portfolio_capital/protocol.json": "ed1da0b754b975fbf86637cc6ac758b133c057e59b543770f41479389b1a8dac",
+    "outputs/portfolio_capital/portfolio_primary_trades.csv": "6c710ebff6ef34f3f36a16e11133d44fbbb0f1a0c32414326b66e971f6241445"
+  },
+  "snapshot_note": "Inspection snapshot: source paths adapted for external private inputs. Frozen model parameters retained. Original input hashes retained as provenance; not a claim that private inputs are bundled.",
+  "original_input_sha256": {
+    "work/portfolio_capital/backtest.py": "fa14613d32203ae6240ca658fc9436cce960092f150377372827dd72ba06c48b",
+    "work/portfolio_capital/risk_model.py": "a9703559ef66869b13b2c5c4c0a3a63b1da49b08bae266c5cb7e939af4ca6ad1",
+    "work/capital100k/backtest.py": "4b2aea322477506b085a3fb567ad826aff82647cc64b855684ef11394bd32064",
+    "work/capital100k/executions.parquet": "2db536f2ac09d3e48f84415435d6f2eeb52874ac701e1f89e0d2642f1b02ec2c",
+    "work/capital100k/marks_prepared.parquet": "63aedf5e60e55c56eee0a616743b3d232cb62941e492bb4bfe536986c133c521",
+    "work/capital100k/evaluation.json": "50910d9a9136544c72f42d92aa9fce0baf95d8e799efa13d937884b257cfdf8d",
+    "work/liquidity_only/history_marks.parquet": "cbc6d471e4c690bb1536363bdeba23c02cfc9c7ff3e572b9e3ce3325bc81b252",
+    "outputs/portfolio_capital/protocol.json": "00bdc22ddb421ae7fc68223c6405c1c06b87e9a33ba515f798842801386f698c",
+    "outputs/portfolio_capital/portfolio_primary_trades.csv": "6c710ebff6ef34f3f36a16e11133d44fbbb0f1a0c32414326b66e971f6241445"
+  }
+}

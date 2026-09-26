@@ -1,0 +1,139 @@
+{
+  "frozen_before_current_replay_results_utc": "2026-09-20T18:08:05.486365+00:00",
+  "initial_cash_usd": 100000,
+  "analysis_type": "Existing-rule conditional execution-cost and account-path replay; not a new OOS backtest or proof of fills",
+  "signals": "All original 11 first signals; original execution statuses, +60sec execution clocks, token, direction, route, hedge quantity per package; no new signal search or threshold tuning",
+  "sizing": "Enumerate all integer packages 0..original locked CME BBO capacity, use cumulative PM displayed ask book costs where observed, evaluate inherited causal portfolio liquidity constraint, maximize contemporaneous two-main-state total net payoff floor subject to feasibility; choose smaller n on numerical objective ties. Never maximize realized PnL. Nonlinear book costs need not favor largest affordable size.",
+  "pm_cost": "Five original-entry PM books selected before previous download. Read raw event AND collector clocks <= current original execution; require both ages<=60s. Walk levels for every quantity; fee .05*size*p*(1-p) per level, historical vintage unverified. No book: retain old midpoint+.02 proxy and label explicitly.",
+  "cme_cost": "Keep original execution marks and entry_spread and locked BBO maximum; 9 original entries verified against MBP10 with no price change and sufficient BBO. 2026Sep stays original unverified MBP1 route. $5 per group unchanged model fee.",
+  "scenarios": [
+    {
+      "name": "old_proxy__maintenance950",
+      "cost_mode": "old_proxy",
+      "single_maintenance": 950,
+      "pair_initial": 330,
+      "pair_maintenance": 300,
+      "single_initial": 1100
+    },
+    {
+      "name": "book_replace_2c__maintenance950",
+      "cost_mode": "book_replace_2c",
+      "single_maintenance": 950,
+      "pair_initial": 330,
+      "pair_maintenance": 300,
+      "single_initial": 1100
+    },
+    {
+      "name": "book_retain_2c__maintenance950",
+      "cost_mode": "book_retain_2c",
+      "single_maintenance": 950,
+      "pair_initial": 330,
+      "pair_maintenance": 300,
+      "single_initial": 1100
+    },
+    {
+      "name": "old_proxy__maintenance904_reference",
+      "cost_mode": "old_proxy",
+      "single_maintenance": 904.153,
+      "pair_initial": 330,
+      "pair_maintenance": 300,
+      "single_initial": 1100
+    },
+    {
+      "name": "book_replace_2c__maintenance904_reference",
+      "cost_mode": "book_replace_2c",
+      "single_maintenance": 904.153,
+      "pair_initial": 330,
+      "pair_maintenance": 300,
+      "single_initial": 1100
+    },
+    {
+      "name": "book_retain_2c__maintenance904_reference",
+      "cost_mode": "book_retain_2c",
+      "single_maintenance": 904.153,
+      "pair_initial": 330,
+      "pair_maintenance": 300,
+      "single_initial": 1100
+    }
+  ],
+  "books": [
+    {
+      "name": "all_signals_asof",
+      "meeting_calendar_max": null,
+      "cutoff_et": "2026-09-01T17:00:00-04:00"
+    },
+    {
+      "name": "completed_calendar_cohort",
+      "meeting_calendar_max": "2026-07-31",
+      "cutoff_et": "2026-09-17T23:59:59-04:00"
+    }
+  ],
+  "cash_policy": "Original ledger and causal VM scenarios, next-business-day17ET final cash clock; no future PM cash credit; maintenance breach invalidates financed results. Pending positions retained; no final ROI/CAGR if incomplete.",
+  "comparisons": "Primary cost change at unchanged330/300/950;904.153 current public reference only separate sensitivity, not verified historical/account margin. Prior latest1.851/3.303% was fixed-quantity904 denominator sensitivity; not same as950 account median3.202%.",
+  "fee_and_margin_status": "Hypothetical fees and margin models. Historical FCM intraday calls unknown; zero modeled shortfalls is not solvency guarantee.",
+  "known_limits": [
+    "Previously studied in-sample signals/outcomes",
+    "Five purchased books selected from old filled entries, mixed coverage is not full execution backtest",
+    "No untouched OOS or full-universe new-cost signal recomputation",
+    "No order latency fill model or market impact beyond static book",
+    "No use of SOFR in these strategy signals"
+  ],
+  "test_plan": [
+    "Exact old950 control reproduction",
+    "Independent Decimal book sweeps at changed sizes",
+    "Cash conservation and terminal payoff telescoping",
+    "No future clocks in new book selection",
+    "Larger objective check for chosen n and cash bounds",
+    "Winner-label poisoning preserves entries before payout; future cash legitimately affects later decisions",
+    "History after decision truncation leaves sizes unchanged",
+    "Uncovered entries and original failures preserved"
+  ],
+  "input_sha256": {
+    "work/spread_credit_backtest/engine.py": "045faad7fc8a001bd5c60c1fac263325b1926b5755d29c933600574726a962d8",
+    "work/spread_credit_backtest/risk_model.py": "bee79571fb7260dfaf540b453f9de8293828d1880acdc0670f60de5606a6bbd8",
+    "work/portfolio_capital/risk_model.py": "a9703559ef66869b13b2c5c4c0a3a63b1da49b08bae266c5cb7e939af4ca6ad1",
+    "work/capital100k/executions.parquet": "2db536f2ac09d3e48f84415435d6f2eeb52874ac701e1f89e0d2642f1b02ec2c",
+    "work/capital100k/marks_prepared.parquet": "63aedf5e60e55c56eee0a616743b3d232cb62941e492bb4bfe536986c133c521",
+    "work/capital100k/evaluation.json": "50910d9a9136544c72f42d92aa9fce0baf95d8e799efa13d937884b257cfdf8d",
+    "work/liquidity_only/history_marks.parquet": "cbc6d471e4c690bb1536363bdeba23c02cfc9c7ff3e572b9e3ce3325bc81b252",
+    "outputs/spread_credit_backtest/protocol.json": "8a9545f783b33b2ac85cb0a77778ef97c4c2b0dab5a452a54f6d226e2b8d527e",
+    "outputs/data_supplement/cme_fixed_entry_depth.csv": "9f0a4f5b6d5c1463104bbcb491c2ba8385a42f557d573728b33c6113d0049bdf",
+    "outputs/data_supplement/cme_independent_checks.json": "d7e3a70219a3da222bc68f4ae4b786362219c61da016141b275cd6c351daa432",
+    "outputs/data_supplement/telonex_frozen_selection.json": "4ab380cc2c14f0ead2e694460ce467c1b75d54c9049b3b9bc5125df3a2a412ef",
+    "outputs/data_supplement/telonex_independent_checks.json": "73e905465e6ad1472e28a4b56a52919461789c8d7420e88e4301b66f1874c1d2",
+    "work/depth_replay/prepare_books.py": "ba246dc09e0471609f686841c6077481643abff7e0b5b83db36c45052e3b2482",
+    "work/depth_replay/replay.py": "293d7a1ef17823842b8451aa965c68ab4303dbd734b905bd7f44a7a221375a0a"
+  },
+  "errata": [
+    {
+      "at": "2026-09-20T18:15:11.653873+00:00",
+      "reason": "Fail closed on latest received book with impossible future event timestamp instead of falling back to an older eligible book. Independent synthetic test; no real entry changes.",
+      "implementation": "Select latest collector receipt<=cutoff, then validate source<=cutoff, age and book quality",
+      "evidence": "book_selection_erratum_checks.json",
+      "observed_real_books_unchanged": 5,
+      "final_full_replay_repeated": true
+    },
+    {
+      "at": "2026-09-20T18:18:29.110859+00:00",
+      "reason": "Preserve cause-specific zero-position skip status: positive quoted payoff but insufficient capital is CASH_MARGIN_VM, not an ambiguous generic failure. No sizing or cash calculation changes.",
+      "final_full_replay_repeated": true
+    }
+  ],
+  "snapshot_note": "Inspection snapshot: source paths adapted for external private inputs. Frozen model parameters retained. Original input hashes retained as provenance; not a claim that private inputs are bundled.",
+  "original_input_sha256": {
+    "work/spread_credit_backtest/engine.py": "762d29568ca29d71cda32170f841def77de86b07cc6b55b35e8a698b2501798d",
+    "work/spread_credit_backtest/risk_model.py": "bee79571fb7260dfaf540b453f9de8293828d1880acdc0670f60de5606a6bbd8",
+    "work/portfolio_capital/risk_model.py": "a9703559ef66869b13b2c5c4c0a3a63b1da49b08bae266c5cb7e939af4ca6ad1",
+    "work/capital100k/executions.parquet": "2db536f2ac09d3e48f84415435d6f2eeb52874ac701e1f89e0d2642f1b02ec2c",
+    "work/capital100k/marks_prepared.parquet": "63aedf5e60e55c56eee0a616743b3d232cb62941e492bb4bfe536986c133c521",
+    "work/capital100k/evaluation.json": "50910d9a9136544c72f42d92aa9fce0baf95d8e799efa13d937884b257cfdf8d",
+    "work/liquidity_only/history_marks.parquet": "cbc6d471e4c690bb1536363bdeba23c02cfc9c7ff3e572b9e3ce3325bc81b252",
+    "outputs/spread_credit_backtest/protocol.json": "1f0fe239024354c89a779ffe1eb896d17efb3ca2f6db95cac0e9a2e7297f9481",
+    "outputs/data_supplement/cme_fixed_entry_depth.csv": "9f0a4f5b6d5c1463104bbcb491c2ba8385a42f557d573728b33c6113d0049bdf",
+    "outputs/data_supplement/cme_independent_checks.json": "d7e3a70219a3da222bc68f4ae4b786362219c61da016141b275cd6c351daa432",
+    "outputs/data_supplement/telonex_frozen_selection.json": "4ab380cc2c14f0ead2e694460ce467c1b75d54c9049b3b9bc5125df3a2a412ef",
+    "outputs/data_supplement/telonex_independent_checks.json": "73e905465e6ad1472e28a4b56a52919461789c8d7420e88e4301b66f1874c1d2",
+    "work/depth_replay/prepare_books.py": "7355ac3caadde412bfdbbe12e95313f9d10352d943c97bcc928dd41ff9da8998",
+    "work/depth_replay/replay.py": "db7a489c6992fae36af46961dff4214d270d87130411d58189bcd29e5a54b511"
+  }
+}

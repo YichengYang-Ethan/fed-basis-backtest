@@ -1,0 +1,71 @@
+{
+  "synthetic_only": true,
+  "description": "Invented teaching dates, premiums and fees. These are not actual FOMC meetings, market quotes or investment recommendations. All changes are basis points; every digital pays $0 or $1.",
+  "examples": [
+    {
+      "name": "matched_two_state",
+      "description": "A full calendar loading of 1 and four short spread lots require exactly 4,167 long upper-state digital contracts. The two specified states produce the same net payoff after the same explicit costs.",
+      "decision_effective_dates": {"target": "2030-03-01"},
+      "spread": {"near_month": "2030-02", "far_month": "2030-03", "side": "short", "lots": 4, "entry_spread_bp": "10", "explicit_cost_usd_per_lot": "2"},
+      "two_state_target": {"decision": "target", "lower_change_bp": 0, "upper_change_bp": 25, "digital_payout_lower_usd": 0, "digital_payout_upper_usd": 1},
+      "digital": {"side": "long", "premium_usd_per_contract": "0.35", "quantity_rounding": "nearest", "fee": {"fixed_usd": "2", "rounding": "none"}},
+      "scenarios": [
+        {"name": "No change", "decision_changes_bp": {"target": 0}, "digital_payout_usd": 0},
+        {"name": "Increase of 25 bp", "decision_changes_bp": {"target": 25}, "digital_payout_usd": 1}
+      ]
+    },
+    {
+      "name": "integer_rounding",
+      "description": "One short spread lot requires 1,041.75 long digitals. Rounding to 1,042 leaves a $0.25 upper-minus-lower endpoint residual. The fee example explicitly applies a quadratic coefficient and rounds its total upward to cents.",
+      "decision_effective_dates": {"target": "2030-03-01"},
+      "spread": {"near_month": "2030-02", "far_month": "2030-03", "side": "short", "lots": 1, "entry_spread_bp": "10", "explicit_cost_usd_per_lot": "2"},
+      "two_state_target": {"decision": "target", "lower_change_bp": 0, "upper_change_bp": 25},
+      "digital": {"side": "long", "premium_usd_per_contract": "0.35", "quantity_rounding": "nearest", "fee": {"quadratic_coefficient": "0.05", "rounding": "ceil_cent"}},
+      "scenarios": [
+        {"name": "No change", "decision_changes_bp": {"target": 0}, "digital_payout_usd": 0},
+        {"name": "Increase of 25 bp", "decision_changes_bp": {"target": 25}, "digital_payout_usd": 1}
+      ]
+    },
+    {
+      "name": "unhedged_tail",
+      "description": "The same exact two-state hedge is exposed to an increase of 50 bp. This synthetic upper-bucket digital still pays only $1 at 50 bp; it cannot offset the extra linear futures loss. The tail payout is an explicit input, not an assumption about a real contract.",
+      "decision_effective_dates": {"target": "2030-03-01"},
+      "spread": {"near_month": "2030-02", "far_month": "2030-03", "side": "short", "lots": 4, "entry_spread_bp": "10", "explicit_cost_usd_per_lot": "2"},
+      "two_state_target": {"decision": "target", "lower_change_bp": 0, "upper_change_bp": 25},
+      "digital": {"side": "long", "premium_usd_per_contract": "0.35", "quantity_rounding": "nearest", "fee": {"fixed_usd": "2"}},
+      "scenarios": [
+        {"name": "No change", "decision_changes_bp": {"target": 0}, "digital_payout_usd": 0},
+        {"name": "Increase of 25 bp", "decision_changes_bp": {"target": 25}, "digital_payout_usd": 1},
+        {"name": "Tail: increase of 50 bp", "decision_changes_bp": {"target": 50}, "digital_payout_usd": 1}
+      ]
+    },
+    {
+      "name": "other_decisions_cancelled",
+      "description": "The target effective on April 16 has loading 1/2 in April-minus-May. A prior March decision affects both delivery months equally; a June decision affects neither. Eight short spread lots therefore require exactly 4,167 long digitals, and changing the other decisions does not change the package payoff.",
+      "decision_effective_dates": {"prior": "2030-03-01", "target": "2030-04-16", "later": "2030-06-01"},
+      "spread": {"near_month": "2030-04", "far_month": "2030-05", "side": "short", "lots": 8, "entry_spread_bp": "5", "explicit_cost_usd_per_lot": "2"},
+      "two_state_target": {"decision": "target", "lower_change_bp": 0, "upper_change_bp": 25},
+      "digital": {"side": "long", "premium_usd_per_contract": "0.35", "quantity_rounding": "nearest", "fee": {"fixed_usd": "2"}},
+      "scenarios": [
+        {"name": "Target lower state; other changes zero", "decision_changes_bp": {"prior": 0, "target": 0, "later": 0}, "digital_payout_usd": 0},
+        {"name": "Target upper state; other changes zero", "decision_changes_bp": {"prior": 0, "target": 25, "later": 0}, "digital_payout_usd": 1},
+        {"name": "Prior change affects both months", "decision_changes_bp": {"prior": 50, "target": 0, "later": 0}, "digital_payout_usd": 0},
+        {"name": "Later change affects neither month", "decision_changes_bp": {"prior": 0, "target": 0, "later": -25}, "digital_payout_usd": 0}
+      ]
+    },
+    {
+      "name": "other_decision_uncancelled",
+      "description": "An additional decision effective May 16 affects the far month but not the near month, leaving loading 16/31. The target two-state endpoints still match while the other decision is fixed, but this digital alone cannot hedge the independently varying other decision.",
+      "decision_effective_dates": {"target": "2030-04-16", "other": "2030-05-16"},
+      "spread": {"near_month": "2030-04", "far_month": "2030-05", "side": "short", "lots": 8, "entry_spread_bp": "5", "explicit_cost_usd_per_lot": "2"},
+      "two_state_target": {"decision": "target", "lower_change_bp": 0, "upper_change_bp": 25},
+      "digital": {"side": "long", "premium_usd_per_contract": "0.35", "quantity_rounding": "nearest", "fee": {"fixed_usd": "2"}},
+      "scenarios": [
+        {"name": "Target lower; other fixed at zero", "decision_changes_bp": {"target": 0, "other": 0}, "digital_payout_usd": 0},
+        {"name": "Target upper; other fixed at zero", "decision_changes_bp": {"target": 25, "other": 0}, "digital_payout_usd": 1},
+        {"name": "Other decision increases by 25 bp", "decision_changes_bp": {"target": 0, "other": 25}, "digital_payout_usd": 0},
+        {"name": "Other decision decreases by 25 bp", "decision_changes_bp": {"target": 0, "other": -25}, "digital_payout_usd": 0}
+      ]
+    }
+  ]
+}
