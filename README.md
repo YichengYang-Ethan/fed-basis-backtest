@@ -2,6 +2,8 @@
 
 **Calendar-matched Fed Funds futures × prediction-market contracts**
 
+A [Prediction@Illinois](https://prediction-illinois.github.io/) research project — quantitative trading research on prediction markets at UIUC.
+
 [![Public research verification](https://github.com/YichengYang-Ethan/fed-basis-backtest/actions/workflows/public-research.yml/badge.svg)](https://github.com/YichengYang-Ethan/fed-basis-backtest/actions/workflows/public-research.yml)
 
 [Research brief](reports/RESEARCH_BRIEF.pdf) · [Methodology](docs/METHODOLOGY.md) · [Data catalog](docs/DATA_CATALOG.md) · [Reproduce](docs/REPRODUCIBILITY.md) · [Research agenda](docs/RESEARCH_AGENDA.md) · [中文入口](README.zh-CN.md)

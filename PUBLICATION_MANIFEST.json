@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "created_utc": "2026-09-26T05:04:08.577683+00:00",
+  "created_utc": "2026-09-27T20:52:57.943517+00:00",
   "scope": "Git-tracked and proposed nonignored files; no raw-feed redistribution authorization implied",
   "manifest_excluded_from_own_hash": true,
   "checks": [
@@ -48,8 +48,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 6965,
-      "sha256": "faae0374903d69222c7315ba963ffbe8288a17821b0bec0c574bc12f6c71aef7"
+      "bytes": 7112,
+      "sha256": "85a16ebaa27cb04eab6e14610d70e1e611301fd105328921543a52ef50bb424c"
     },
     {
       "path": "README.zh-CN.md",
